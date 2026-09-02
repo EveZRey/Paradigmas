@@ -4,14 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paradigmas de Programación 3CM4</title>
-    <!-- Importamos una fuente moderna de Google (Opcional pero se ve genial) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      /* Variables de colores para mantener un diseño limpio */
       :root {
         --bg-color: #f0f4f8;
         --card-bg: #ffffff;
@@ -54,7 +52,6 @@
         font-size: 1.1rem;
       }
 
-      /* Convertimos la lista en una cuadrícula (Grid) */
       ul {
         list-style-type: none;
         display: grid;
@@ -62,7 +59,6 @@
         gap: 20px;
       }
 
-      /* Estilo de Tarjeta para cada archivo */
       li {
         background-color: var(--card-bg);
         border-radius: 10px;
@@ -74,7 +70,6 @@
         border-left: 4px solid transparent;
       }
 
-      /* Efecto al pasar el cursor (Hover) */
       li:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 15px var(--hover-shadow);
@@ -86,7 +81,7 @@
         color: var(--text-dark);
         font-weight: 500;
         width: 100%;
-        word-break: break-all; /* Evita que nombres largos rompan la tarjeta */
+        word-break: break-all; 
         margin-left: 10px;
         font-size: 0.95rem;
       }
@@ -95,7 +90,6 @@
         color: var(--primary-color);
       }
 
-      /* Ajustes para celulares */
       @media (max-width: 600px) {
         h1 {
           font-size: 2rem;
