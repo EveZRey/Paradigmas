@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
+      
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.1.3 PARADIGMAS DE PROGRAMACIÓN FUNDAMENTALES: IMPERATIVO Y DECLARATIVO</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Los paradigmas de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Los tipos de paradigmas de programación.</strong></p>
+     <br>
+     <p><lo>
+           <li>Paradigma imperativo. Esta enfocado en dar a la computadora instrucciones explicitas de como realizar una tarea (que hacer).</li>
+
+     <p class="cita"><cite>Imperative Programming, Theophilus Edet, 2025</cite></p>
+
+           <li>Paradigma orientado a objetos. Cuando los sitemas de software se hacen más complejos, especialmente con las interfaces gráficas y los requerimientos de simulación, se requirio modelar entidades del mundo real con mayor naturalidad. Se aplican los conceptos de <i>encapsulamiento, herencia</i> y <i>polimorfismo</i>.</li>
+
+           <li>Paradigma declarativo. El programador especifica la salida o estado deseado, sin tener que definir la secuencia de operaciones (como hacer).</li>
+
+           <li>Paradigma funcional.</li>
+     </lo></p>
+           <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <p>El programador define explicitamente las instrucciones que cambian el estado del sistema paso por paso. Le da más importancia al procedimiento y al flujo de control.</p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Por su objetivo:</strong> el lenguaje de programación sirve para comunicarse con la computadora para solicitar una operación o una información.  </p>
+     <br>
+     <p>Por ejemplo: ordenar de menor a mayor los elementos de una lista de números. </p>
+     <br>
+     <pre>
+        numeros = [3,1,4,1,5]
+        resultado = []
+        for x in numeros
+           if x > 2
+              resultado.append(x)
+        print(resultado)
+     </pre>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+      
+     <hr>
+     <h1>El paradigma imperativo</h1>
+     <hr>
+     <br>
+     <p>El programador define explicitamente las instrucciones que cambian el estado del programa paso por paso. Le da más importancia al procedimiento y al flujo de control.</p>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas. Para lo cual, los paradigmas son los siguientes:</p>
+     <br>
+     <p>Un paradigma te da un marco de trabajo para organizar el código y manipular el flujo de ejecución. </p>
+     <br>
+     <p>El paradigma nos permite lo siguiente: </p>
+     
+     <p><lo>
+           <li>Como estructurar el código: lo puede organizar como funciones, objetos, o reglas. </li>
+
+           <li>Como controlar el flujo de ejecución: se usa pasos secuenciales, eventos, o inferencias lógicas. </li>
+
+           <li>Como manipular los datos: lo enfoca en el cambio de estado de los datos, o transformandolos. </li>
+     </lo></p>
+     <br>
+     <p>Los tipos de paradigmas son: </p>
+     
+     <br>
+     
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     <p><lo>
+
+         <li><strong>Programación procedimental.</strong> Que agrupa instrucciones en funciones o procedimientos reusables.</li>
+
+         <li><strong>Programación estructurada.</strong> Es más clara, con más código mantenible mediante la aplicación de módulos y el control del flujo. Usa el <i>if, while</i> y <i>for</i>.</li>
+     <br>
+     <p>El siguiente enunciado es de entrada simple/salida simple: </p>
+     <br>
+     <pre>
+     <strong>while</strong> x &ge; y <strong>do</strong>
+             x := x - y ;
+     <strong>end</strong>
+     </pre>
+     <br>
+     <p>El siguiente enunciado es un loop: </p>
+     <br>
+     <pre>
+     <strong>loop</strong> <strong>while</strong> E <strong>do</strong> LE
+     </pre>
+     <br>
+     <p>El loop que también puede ser de la siguiente forma: </p>
+     <br>
+     <pre>
+     <strong>loop</strong>
+            {x &ge; 0 y y > 0}
+            <strong>while</strong> x &ge; y <strong>do</strong>
+                  x := x - y
+     <strong>end</strong>
+     </pre>
+     <br>
+     <p>Se puede hacer una búsqueda: </p>
+     <br>
+     <pre>
+     comience con el último elemento insertado
+     <strong>while</strong> quedan elementos por examinar <strong>do</strong>
+           <strong>if</strong> este elemento es x <strong>then</strong>
+                 <strong>return</strong> su posición
+           <strong>else</strong>
+                considere el elemento de la izquierda
+           <strong>end</strong>
+     <strong>end</strong>
+     no se encontró, por lo tato <strong>return</strong> 0
+     </pre>
+     <br>
+     <p>El último elemnto insertado es A[n]. Un elemnto A[i] puede examinarse si está en la tabla, es decir, si i &ge; 1. Se puede hacer de la siguiente manera: </p>
+     <br>
+     <pre>
+     i := n;
+     <strong>while</strong> i &ge; 1 <strong>do</strong>
+           <strong>if</strong> x := A[i] <strong>then</strong>
+                 <strong>return</strong> i ;
+           <strong>else</strong>
+                i := i - 1 ;
+           <strong>end</strong>
+     <strong>end</strong>
+     <strong>return</strong> 0
+     </pre>
+     <br>
+     <p>Busqueda en una tabla:</p>
+     <br>
+     <pre>
+     A[0] := x;
+     i := n;
+     <strong>while</strong> x &ne; A[i] <strong>do</strong>
+           i := i - 1;
+     <strong>end</strong>
+     <strong>return</strong> i;
+     </pre>
+     <br>
+     
+     <pre>
+     <strong>while</strong> ( x != A[i] ) 
+           i = i - 1;
+     </pre>
+     <br>
+     
+     <pre>
+     <strong>while</strong> ( x != A[i] ) 
+           --i;
+     </pre>
+     <br>
+     
+     <pre>
+     numeros = [
+     <strong>while</strong> ( x != A[i] ) 
+           --i;
+     </pre>
+     <br>
+     <p><strong>Problema 1:</strong> se tienen tres botellas iguales numeradas del 1 al 3 y se quiere insertar una cuarta botella etiquetada con i, entre las botellas uno y dos. ¿Que es lo que se debe hacer? </p>
+     <br>
+     <p align="center"><img src="11Problema1.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2:</strong> calculara el área de un rectángulo. ¿Que es lo que se debe hacer? </p>
+     <br>
+     <p align="center"><img src="11Problema2.svg" align="center" width=70% border=0> </p>
+     <br>
+         <li><strong>Programación modular.</strong> Del paradigma orientado a objetos surge la programación modular. Debido a los conceptos <i>encapsulamiento, herencia</i> y <i>polimorfismo</i> surge la programación modular.</li>
+
+         <li><strong>Programación lógica.</strong> </li>
+
+         <li><strong>Programación reactiva.</strong> </li>
+     </lo></p>
+     <br>
+     <p><strong>Usando el paradigma imperativo:</strong>  </p>
+     <br>
+     <p>Construir una estructura lego: tomar el bloque rojo de 2x4 y ponerlo en la parte azul de 4x4. Luego, tomar el bloque amarillo de 2x2 y ponerlo arriba del bloque rojo.</p>
+     <br>
+     <p class="cita"><cite>Imperative Programming, Theophilus Edet, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>El paradigma declarativo</h1>
+     <hr>
+     <br>
+     <p>El programador especifica la meta y las salidas del programa para determinar como lograrlo. Emfatiza la lógica del programa sin detallar paso por paso las instrucciones.</p>
+     <br>
+     <p><strong>Usando el paradigma declarativo:</strong>  </p>
+     <br>
+     <p>Construir una torre con una base roja y una parte superior de amarillo. </p>
+     <br>
+     <p class="cita"><cite>Imperative Programming, Theophilus Edet, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar para ti?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera funcional?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera procedimental?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 6.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma reactivo?</li>
+                        
+          </lo></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.1.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

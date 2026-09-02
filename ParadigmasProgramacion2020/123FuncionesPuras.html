@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.2.3 FUNCIONES PURAS, DE PRIMER ORDEN Y DE ORDEN SUPERIOR</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Funciones puras</h1>
+     <hr>
+     <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+     <p>La notación para lambda es la siguiente:  </p>
+     <br>
+     <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+     <br>
+     <p><strong>Función pura.</strong> dónde la misma entrada produce la misma salida. No tiene efectos colaterales
+que incluyen cosas que modifiquen la variable global.</p>
+     <br>
+     <hr>
+     <h1>Funciones primer orden </h1>
+     <hr>
+     <br>
+     <p><strong>Funciones de primer orden.</strong> son funciones que se pueden tratar como otros valores, tales como un número, una cadena, o una lista. Se puede asignarlas a variables, pasarlas como argumentos a otras funciones, regresarlas como el resultado de otras funciones.</p>
+     <br>
+     <p>Asignar una función a una variable:</p>
+     <br>
+     <pre>
+     def decirHola(nombre):
+         return f"Hola,{nombre}"
+     
+     saludo = decirHola
+     
+     print(saludo("Alicia"))
+     </pre>
+     <br>
+     <p>Pasar una función como argumento:</p>
+     <br>
+     <pre>
+     def operarLista(listaDatos,operatcion):
+         return[operacion(elemento) for elemento in listaDatos]
+
+     def hacerMayusculas(texto):
+         return texto.upper()
+
+     def agregarEntusiasmo(texto):
+         return f"{texto}"
+
+     miCadena = ["python","es","flexible"]
+
+     print(operarLista(miCadena,hacerMayuscula))
+
+     print(operarLista(miCadena,agregarEntusiasmo))
+     </pre>
+     <br>
+     <p>Returnar una función de otra función:</p>
+     <br>
+     <pre>
+     def crearMultiplicador(factor):
+         def multiplicador(numero):
+             return numero * factor
+         return multiplicador
+
+     doble = crearMultiplicador(2)
+
+     triple = crearMultiplicador(3)
+
+     print(doble(10))
+     print(triple(10))
+     </pre>
+     <br>
+     <p><strong>Transparencia referencial: </strong> significa reeplazar una función por su
+valor resultante sin alterar el comportamiento de un programa. </p>
+     <br>
+     <p>Se tiene una función pura: </p>
+     <br>
+     <pre>
+     def calculoImpuesto(precio,impuesto):
+         return precio * (1 + impuesto)
+     </pre>
+     <br>
+     <p>Se calcula el total: </p>
+     <br>
+     <pre>
+     subTotal = 100
+     envio = 10.0
+     impuesto = 0.07
+
+     ordenTotal = calculoImpuesto(subtotal,impuesto) + envio
+
+     print(f"El total es: ${ordenTotal:.2f}")
+     </pre>
+     <br>
+     <p>El siguiente programa es solo:</p>
+     <br>
+     <pre>
+     subTotal = 100
+     envio = 10.0
+     impuesto = 0.07
+
+     ordenTotal = 107.0 + envio
+     print(f"El total es: ${ordenTotal:.2f}")
+     </pre>
+     <br>
+     <p><strong>Programa con una función impura: </strong> </p>
+     <br>
+     <pre>
+     IMPUEST_MINIMO = 0.05
+
+     def calculoImpuesto(precio):
+         precioTotal = precio * (1 + IMPUEST_MINIMO)
+         print(f"alculo del precio final, es:{precioTotal:.2f}")
+         return precioTotal
+
+     subTotal = 100
+     envio = 10.0
+
+     ordenTotalI = calcularImpuesto(subtotal) + envio
+     print(f"El total es: ${ordenTotalI:.2f}")
+     </pre>
+     <br>
+     <p><strong>Reeemplazo a la función impura: </strong> </p>
+     <br>
+     <pre>
+     subTotal = 100
+     envio = 10.0
+
+     ordenTotalI = 105.0 + envio
+
+     print(f"El total es: ${ordenTotalI:.2f}")
+     </pre>
+     <br>
+     <p><strong>Si lo hacemos por medio de valores: </strong> </p>
+     <br>
+     <pre>
+     precioFinal = (precioInicial - descuento) * (1 + impuesto) + envio
+
+     # Si las variables son valores, se pueden extraer de la función
+
+     def precioFinal(precioInicial,descuento,impuesto,envio):
+         return (precioInicial - descuento) * (1 + impuesto) + envio
+
+     # Se puede reemplazar la línea original por
+
+     precioFinal = calculoPrecio(precioInicial,descuento,impuesto,envio)
+     </pre>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <hr>
+     <h1>Funciones de orden superior </h1>
+     <hr>
+     <br>
+     <p><strong>Las funciones de orden superior:</strong> sus argumentos o resultados son funciones. </p>
+     <br>
+     <p><strong>Transferencia referencial</strong></p>
+     <br>
+     <p>Transferencia referencial o referencialmente transparente: es cuando una expresión puede ser reemplazada por su valor sin cambiar el comportamiento de un programa. (Ver los programas sumaDosFun.py, ConcatenarListas.py)</p>
+     <br>
+     <p><strong>Inmutabilidad</strong></p>
+     <br>
+     <p>Los datos no pueden ser cambiados después de ser creados. Las listas en python son mutables, pero las tuplas y los strings son inmutables. </p>
+     <br>
+     <p>Listas mutables (<strong>programa : ListasMuIn.py</strong> y tuplas inmutables:</p>
+     <br>
+     <pre>
+     listaMutable = [1,2,3,4]
+     listaMutable[0] = 11
+     print(listaMutable)
+
+     tuplaInmutable = (1,2,3,4)
+     tuplaInmutable[0] = 11
+     </pre>
+     <br>
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> </p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Qué es una función pura? <p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es una función de primer orden?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es una función de orden superior?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera funcional?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.2.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

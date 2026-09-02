@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="43cm" height="16cm" viewBox="98 40 841 309" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Fondo">
+    <text font-size="39.5557" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="330" y="77">
+      <tspan x="330" y="77">Tipos de lenguajes</tspan>
+    </text>
+    <text font-size="28.2105" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="98.8" y="135.225">
+      <tspan x="98.8" y="135.225">Lenguaje natural</tspan>
+    </text>
+    <text font-size="28.2105" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="552.6" y="138.025">
+      <tspan x="552.6" y="138.025">Lenguaje de programación </tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="119.8" y="175.799">
+      <tspan x="119.8" y="175.799">Complejo (soporta lo ambiguo)</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="119.6" y="216.599">
+      <tspan x="119.6" y="216.599">Adaptable</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="601.4" y="179.399">
+      <tspan x="601.4" y="179.399">Conciso (no ambiguo)</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="119.2" y="260.199">
+      <tspan x="119.2" y="260.199">Objetivo</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="603" y="216.999">
+      <tspan x="603" y="216.999">Claro</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="599.8" y="257.799">
+      <tspan x="599.8" y="257.799">Breve</tspan>
+    </text>
+    <text font-size="22.6226" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="600.8" y="298.799">
+      <tspan x="600.8" y="298.799">Objetivo</tspan>
+    </text>
+    <text font-size="16.9782" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="160.6" y="303.599">
+      <tspan x="160.6" y="303.599">Comunicación</tspan>
+    </text>
+    <text font-size="16.9782" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="640.8" y="343.56">
+      <tspan x="640.8" y="343.56">Ordenes</tspan>
+    </text>
+  </g>
+</svg>

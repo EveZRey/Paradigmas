@@ -1,0 +1,445 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.3.6 REGLAS RECURSIVAS</h1>
+    <section class="interna">
+      
+    <article>
+     <hr>
+     <h1>Recursión</h1>
+     <hr>
+     <br>
+     <p><strong>Definición:</strong> si una función f puede activarse a sí misma, o de manera indirecta a través de otras funciones.</p>
+     <br>
+     <p>Existen clases de recursión: lineal y de cola.</p>
+     <br>
+     <p><strong>Recursión lineal:</strong> si f(a) se puede activar de la misma función f como máximo una nueva activación de f. Su evaluación tiene dos fases: la fase de activación, en la cual se inician las nuevas activaciones; una fase de solución, en la cual el control regresa de las activaciones con una modalidad última entrada- primera salida.</p>
+     <br>
+     <p><strong>Recursión de cola:</strong> si devuelve un valor sin necesidad de recursión o si devuelve simplemente el resultado de una activación recursiva.</p>
+     <br>
+     <hr>
+     <h1>Programación lógica</h1>
+     <hr>
+     <br>
+     <p>Con el uso de las cláusulas lógicas se logra resolver muchos problemas con el mínimo de líneas de código, con el uso de la lógica.</p>
+     <br>
+     <p>Los postulados de <strong>Peano</strong> componen el sistema de axiomas que caracterizan los números naturales: </p>
+     <br>
+     <p><ol>
+         <li>0 &in; &#8469;.</li>
+
+         <li>Para todo número n, si n &in; &#8469; entonces s(n) &in; &#8469;.</li>
+
+         <li>Para todo número n, si n &in; &#8469; entonces s(n) &ne; 0. </li>
+
+         <li>Para todo par de números naturales n y m, s(n) = s(m) y solo si n = m. </li>
+
+         <li>Para todo conjunto A de números naturales, si 0 &in; A y s(n) &in; A siempre que n &in; A, entonces todo número natural está contenido en A. </li>
+     </ol></p>
+     <br>
+     <p><strong>Ejemplo:</strong> presentar los cinco postulados de <strong>Peano</strong> en Prolog:</p>
+     <br>
+     <pre>
+     Postulado 1: natural(0).
+     Postulado 2: natural(suc(N)) :- natural(N).
+     Postulado 3: igualNatural(cero,cero).
+                  igualNatural(suc(N),cero).
+     Postulado 4: igualNatural(suc(N),suc(M)) :- natural(N),
+                  natural(M), igualNatural(N,M).
+     Postulado 5: No se puede
+     </pre>
+     <br>
+     <p>Los postulados de <strong>Peano</strong> se complementan con cuatro axiomas adicionales que definen la suma y la multiplicación de números naturales: </p>
+     <br>
+     <p><ol>
+         <li>Para todo número natural n, 0 + n = n.</li>
+
+         <li>Para todo número natural n y m, s(n) + m = s(n + m).</li>
+
+         <li>Para todo número natural n, 0 * n = 0. </li>
+
+         <li>Para todo número natural n y m, s(n) * m = (n * m) + m. </li>
+     </ol></p>
+     <br>
+     <p><strong>Ejemplo:</strong> presentar los cuatro postulados de <strong>Peano</strong> de la suma y la mutiplicación en Prolog:</p>
+     <br>
+     <pre>
+     Postulado 1: suma(cero,N, N) :- natural(N).
+     Postulado 2: suma(suc(N), M, suc(S)) :- natural(N),
+                  natural(M), suma(N, M, S).
+     Postulado 3: multiplicacion(cero, N, cero) :- natural(N).
+     Postulado 4: multiplicacion(suc(N), M, R) :- natural(N),
+                  natural(M), multiplicacion(N, M, R1), 
+                  suma(R1, M, R).
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> definir en Prolog de manera general las listas: </p>
+     <br>
+     <pre>
+     Hecho:  esLista([]).
+     Regla:  eslista([_|R]) :- esLista(R):
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> definir en Prolog si un elemento E está contenido en una lista: </p>
+     <br>
+     <pre>
+     Hecho:  estaContenido(E, [E|_]).
+     Regla:  estaContenido(E, [_|L]) :- estaContenido(E, L).
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> presentar en Prolog la concatenación de una lista L<sub>1</sub> con una lista L<sub>2</sub>.</p>
+     <br>
+     <pre>
+     Hecho:  concatenar([], L, L).
+     Regla:  concatenar([H|T], L2, [H|L]) :- 
+             concatenar(L1, L2, L).
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> presentar en Prolog la manera de invertir una lista L:</p>
+     <br>
+     <pre>
+     Hecho:  invertir([], []).
+     Regla:  invertir([H|T], L) :- invertir(Q, Z), 
+             concatenar(L, [H], X).
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> presentar en Prolog la manera de presentar el último elemento de una lista L:</p>
+     <br>
+     <pre>
+     Hecho:  ultimo(U, [U]).
+     Regla:  ultimo(U, [_|R]) :- ultimo(U, R).
+     </pre>
+     <br>
+     <p><strong>La programación lógica:</strong> se basa en un lenguaje clausal, emplea pruebas por contradicción o pruebas por refutación, emplea el principio de resolución, y usa la estrategia  del conjunto de soporte.</p>
+     <br>
+     <p><strong>Pruebas por contradicción:</strong> o también llamadas pruebas por refutación que se basan en el teorema de Herbrand y en el principio de resolución de Robinson.</p>
+     <br>
+     <p><strong>Resolución lineal:</strong> nos permite encontrar el valor de una variable desconocida para satisfacer una igualdad, esta utiliza los métodos: de sustitución y reducción e igualación.</p>
+     <br>
+     <p><strong>Resolución SLD</strong></p>
+     <br>
+     <p>Selección Lineal de programas Definidos (SLD). Es un método de inferncia que permite deducir conclusiones a partir de un conjunto de cláusulas, también es un caso particular de la resolución lineal en la que, dado un programa &Pi; y un objetivo o, para probar la inconsistencia de &Pi; &cup; {o} se parte del objetivo o, que se toma como cláusula inicial, y se resuelve ésta con alguna cláusula del programa &Pi;. </p>
+     <br>
+     <p><strong>Forma normal disyuntiva:</strong> una fbf A está en forma normal disyuntiva si y solo si.</p>
+     <br>
+     <pre>
+     A &equiv; A<sub>1</sub> &or; A<sub>2</sub> &or; ... &or; A<sub>n</sub>, con n &ge; 1, y cada A<sub>i</sub> es una
+     conjunción de literales.
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> de forma normal disyuntiva (q &and; p) &or; (&not;r &and; s) &or; &not;q</p>
+     <br>
+     <p><strong>Forma normal conjuntiva:</strong> una fbf A está en forma normal conjuntiva si y solo si.</p>
+     <br>
+     <pre>
+     A &equiv; A<sub>1</sub> &and; A<sub>2</sub> &and; ... &and; A<sub>n</sub>, con n &ge; 1, y cada A<sub>i</sub> es una
+     disyunción de literales.
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> de forma normal conjuntiva (q &or; p) &and; (&not;r &or; s) &and; &not;q</p>
+     <br>
+     <p><strong>La cláusula:</strong> se define como una disyunción finita de cero a más literales. Cuando la cláusula está compuesta de una sola literal se dice que es una cláusula unitaria.</p>
+     <br>
+     <pre>
+     Se tiene una fórmula estándar:
+         A &equiv; (&forall;X<sub>1</sub>) ... (&forall;X<sun>n</sub>) M
+     
+     Considerando que el cuantificador universal cumple la 
+     propiedad distributiva respecto a la conectiva &and; se
+     puede escribir la fórmula estándar, como sigue:
+     
+         (&forall;X<sub>1</sub>) ... (&forall;X<sun>n</sub>) (M<sub>11</sub> &or; M<sub>12</sub> &or; ... &or; ...) &and;
+         (&forall;X<sub>1</sub>) ... (&forall;X<sun>n</sub>) (M<sub>21</sub> &or; M<sub>22</sub> &or; ... &or; ...) &and;
+         .
+         .
+         .
+         (&forall;X<sub>1</sub>) ... (&forall;X<sun>n</sub>) (M<sub>(n - 1)1</sub> &or; M<sub>(n - 1)2</sub> &or; ... &or; ...) &and;
+         (&forall;X<sub>1</sub>) ... (&forall;X<sun>n</sub>) (M<sub>n1</sub> &or; M<sub>n2</sub> &or; ... &or; ...)
+     
+     El conjunto de cláusulas &Delta; siguiente simplifica la 
+     manera de representar la fórmula A:
+     
+     &Delta; = {(M<sub>11</sub> &or; M<sub>12</sub> &or; ...), (M<sub>21</sub> &or; M<sub>22</sub> &or; ...), ... ,
+         (M<sub>n1</sub> &or; M<sub>n2</sub> &or; ...)}
+
+     </pre>
+     <br>
+     <p><strong>Ejemplo:</strong> sea la fórmula A &equiv; (&forall;X<sub>1</sub>)(&exist;X<sub>2</sub>)(&exist;X<sub>3</sub>)[(&not;p(X<sub>1</sub>) &and; q(X<sub>2</sub>)) &or; r(X<sub>2</sub>,X<sub>3</sub>)]</p>
+     <br>
+     <pre>
+     Para representar en forma de conjunto de cláusulas el 
+     ejemplo anterior, primero se convierte a forma normal 
+     de Skolem, el resultado es el siguiente:
+     
+     {(&not;p(X<sub>1</sub>) &or; r(f(X<sub>1</sub>),g(X<sub>1</sub>))),(q(f(X<sub>1</sub>))) &or; r(f(X<sub>1</sub>),g(X<sub>1</sub>)))}
+     
+     La cláusula L<sub>1</sub> &or; L<sub>2</sub> &or; ... : se representa 
+     mediante el cunjunto de literales, como {L<sub>1</sub>, L<sub>2</sub>, ... }
+     </pre>
+     <br>
+     <p><strong>Contradicción:</strong> una contradicción L &and; &not;L, se representa como {}, lo que se denomina como cláusula vacía. Una fórmula contradictoria se representa por el siguiente símbolo: &#9744;.</p>
+     <br>
+     <p><strong>Teorema:</strong> sea un conjunto de cláusulas &Delta; que representa una fórmula estándar de una fórmula A. La fórmula A es insatisfacible si y solo si &Delta; es insatisfacible.</p>
+     <br>
+     <pre>
+     El siguiente símbolo, representa: si y solo si, 
+     
+         &xhArr;
+     </pre>
+     <br>
+     <p>Una cláusula no vacia puede escribirse, agrupando los literales positivos y negativos, de la siguiente forma:</p>
+     <br>
+     <pre>
+     (&forall;X<sub>1</sub>), ... , (&forall;X<sub>s</sub>)(M<sub>1</sub> &or; ... &or; M<sub>m</sub> &or; &notN<sub>1</sub> &or; ... &or; &not;N<sub>n</sub>)
+     
+     Aplicando la equivalencia, tenemos:
+     (&forall;X<sub>1</sub>), ... , (&forall;X<sub>s</sub>)(N<sub>1</sub> &and; ... &and; N<sub>n</sub> &rarr; M<sub>1</sub> &or; ... &or; M<sub>m</sub> )
+     
+     Se puede expresar de la siguiente forma:
+     (&forall;X<sub>1</sub>), ... , (&forall;X<sub>s</sub>)(M<sub>1</sub> &or; ... &or; M<sub>m</sub> &larr; N<sub>1</sub> &and; ... &and; N<sub>n</sub>)
+     </pre>
+     <br>
+     <p><strong>Cláusula general.</strong> Es una fórmula de la siguiente forma:</p>
+     <br>
+     <pre>
+     A<sub>1</sub> &or; ... &or; A<sub>m</sub> &larr; L<sub>1</sub> &and; ... &and; L<sub>n</sub>
+     </pre>
+     <p>Donde A<sub>1</sub> &or; ... &or; A<sub>m</sub> es la cabeza o conclusión o consecuencia de la cláusula general y L<sub>1</sub> &and; ... &and; L<sub>n</sub> es el cuerpo o condición o antecedente. Donde cada A<sub>i</sub> es un átomo, y cada L<sub>i</sub> es una literal (átomo positivo o negativo). Si m > 1 la cláusula general es indefinida y si m = 1 la cláusula general es definida. Y si m = 0 la cláusula general es un objetivo.</p>
+     <br>
+     <p><strong>Cláusula de Horn:</strong> es una cláusula definida que se compone de una disyunción de literales de los cuales uno, como mucho, es positivo.</p>
+     <br>
+     <pre>
+     A &larr; L<sub>1</sub> &and; ... &and; L<sub>n</sub>
+     
+     O expresado de la siguiente forma:
+     A<sub>1</sub> &or; ... &or; A<sub>k</sub> &larr; B<sub>1</sub> &and; ... &and; B<sub>n</sub> con k = 1, o k = 0, y n &ge; 0
+     </pre>
+     <br>
+     <p>Las cláusulas de Horn con K = 1 y n > 0 se denominan <strong>reglas</strong>. La cláusulas de Horn con k = 1 y n = 0 se denominan <strong>hechos</strong>. Las clausulas de Horn con k = 0 y n > 0 se denominan <strong>objetivos</strong>.</p>
+     <br>
+     <pre>
+     Rglas, son:
+     A<sub>1</sub> &larr; B<sub>1</sub> &and; ... &and; B<sub>n</sub>
+     
+     Hechos, son:
+     A<sub>1</sub> &larr; 
+     
+     Objetivos, son:
+     &larr; B<sub>1</sub> &and; ... &and; B<sub>n</sub>
+     </pre>
+     <br>
+     <p><strong>Un programa lógico definido:</strong> por un conjunto de cláusulas de Horn con cabeza. Es un conjunto de cláusulas definidas &Pi;. La definición de un símbolo de predicado p que aparece en &Pi; es el subconjunto de cláusulas de &Pi; cuyas cabezas tienen como símbolo de predicado el predicado p.</p>
+     <br>
+     <p><strong>Ejemplo de programa definido</strong></p>
+     <br>
+     <pre>
+     C<sub>1</sub> : p(X,Y) &larr; q(X,Y)
+     C<sub>2</sub> : p(X,Y) &larr; q(X,Y) &and; p(Z,Y)
+     C<sub>3</sub> : q(a,b)
+     C<sub>4</sub> : q(b,c)
+     </pre>
+     <br>
+     <p><strong>Regla de computación</strong> o función de selección &phi; que, cuando se aplica a un objetivo G, selecciona uno y solo uno de los átomos de G.</p>
+     <br>
+     <p><strong>Resolución SLD:</strong> la estrategia de resolución SLD es un caso particular de resolución lineal en el que, dado un programa &Pi; y un objetivo G, para probar la inconsistencia de &Pi; &cup; {G} se parte del objetivo G, que se toma como cláusula inicial, y se resuelve ésta con alguna cláusula del programa &Pi;. Las cláusulas laterales solamente pueden ser cláusulas del programa &Pi; de forma que, en cada paso, siempre se obtiene una cláusula objetivo como cláusula central. Más aún, basta con seleccionar uno de los laterales del objetivo que se está resolviendo en cada momento para mantener la completitud del procedimiento de refutación.</p>
+     <br>
+     <pre>
+     Dado un objetivo G &equiv; &larr; A<sub>1</sub> &and; ... &and; A<sub>j</sub> &and; ... &and; A<sub>n</sub> 
+     y una cláusula C &equiv; A &larr; B<sub>1</sub> &and; ... &and; B<sub>m</sub>, entonces G' 
+     es un resolvente de G y C. Para resolver se usa la regla de 
+     computación &phi; si se cumple:
+     
+         1. A<sub>j</sub> = &phi;(G) es el átomo de G seleccionado por &phi; ;
+         2. &theta; = mgu(A,A<sub>j</sub>) ;
+         3. G' &equiv; &larr; &theta;(A<sub>1</sub> &and; ... &and; A<sub>j - 1</sub> &and; B<sub>1</sub> &and; ... &and; B<sub>m</sub> &and; A<sub>j + 1</sub> &and; ... &and; A<sub>n</sub>)
+     </pre>
+     <br>
+    <article>
+    
+    </article>
+    </section>
+      <aside>
+     <hr>
+     <h1>Origenes de la programación lógica</h1>
+     <hr>
+     <br>
+     <p><strong>Surgimiento de la programación lógica:</strong> comenzó con las investigaciones de la demostración automática de teoremas a inicios de la década de 1960.</p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <p><strong>Paradigmas de programación </strong> </p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+      <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+          
+     
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+        <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias formas o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+           <p>La notación para lambda es la siguiente:  </p>
+     <br>
+           <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+           <br>
+           <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+     <br>
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+     <br>
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+     <br>
+     <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+           
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.3.6</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

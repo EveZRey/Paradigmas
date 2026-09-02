@@ -1,0 +1,41 @@
+class CompraCatalogo:
+    def inicio(lista):
+        lista.items = []
+    def agregarElem(lista,nombreElem,precio):
+        lista.items.append({"nombre":nombreElem,"precio":precio})
+        print(f""{nombreElem}" fue agregado a su lista de compras.")
+    def totalCompras(lista):
+        total = sum(elemento[precio] for elemento in lista.items)
+        return total
+
+usuarioCatalogo = CompraCatalogo()
+
+# Función para aplicar el descuento
+def aplicarDescuentoCliente(cart):
+    total = cart.totalCompras()
+    if total > 50 and cart.elemetos:
+        print(f"Aplicar descuento! su total final es ${total:.2f}.")
+        cart.items[0]['precio'] = 0
+
+    return cart.calculoTotal()
+
+# Agregar usuarios a la list
+usuarioCatalogo.agregarElem("Libro de phyton avanzado",55.00)
+usuarioCatalogo.agregarElem("Cafe",12.50)
+
+# Ver el total
+print(f"Iniciar total: ${usuarioCatalogo.totalCompras:.2f}")
+
+# Aplicar el descuento
+descuentoTotal = aplicarDescuento(usuariCatalogo)
+print(f"precio despues del descuento: ${descuentoTotal:.2f}")
+
+
+print("Su pago final")
+
+print("Aquí esta la suma de su lista")
+for elemento in usuarioCatalogo.elemento:
+    print(f"Su total carTotal: ${totalFinal:.2f}")
+
+finalTotal = usuarioCatalago.totalCompras()
+print(f"Catalogo final totalCompras:${totalFinal:.2f}")

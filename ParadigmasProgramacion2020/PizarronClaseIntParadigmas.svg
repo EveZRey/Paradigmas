@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="29cm" height="28cm" viewBox="325 41 562 550" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Fondo">
+    <text font-size="33.9118" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="325" y="73">
+      <tspan x="325" y="73">Paradigmas de programación</tspan>
+    </text>
+    <text font-size="33.9118" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="448.4" y="122.677">
+      <tspan x="448.4" y="122.677">Introducción</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="370.4" y="585.83">
+      <tspan x="370.4" y="585.83">Forma de evaluar </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="369.4" y="187.352">
+      <tspan x="369.4" y="187.352">Presentación de la información </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="369.8" y="519.552">
+      <tspan x="369.8" y="519.552">Espectativas del curso </tspan>
+    </text>
+    <g>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="432,219 438.218,219 448.58,199 514.9,199 525.263,219 628.888,219 639.25,222.45 639.25,288 432,288 "/>
+      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="442" y="240.881">
+        <tspan x="442" y="240.881">Página web</tspan>
+        <tspan x="442" y="256.881">Paradigmas de Programación</tspan>
+      </text>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="484" y="311" width="87.4" height="52"/>
+      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="494" y="332.881">
+        <tspan x="494" y="332.881">Teoría</tspan>
+        <tspan x="494" y="348.881">Conceptos</tspan>
+      </text>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="481.5,393 599.5,393 570,429 452,429 "/>
+      <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="491.5" y="414.881">
+        <tspan x="491.5" y="414.881">Programas</tspan>
+      </text>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="530" y1="290" x2="528.747" y2="306.293"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="528.171,313.771 523.953,303.416 528.747,306.293 533.924,304.183 "/>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="529" y1="365" x2="528.324" y2="385.269"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="528.074,392.765 523.41,382.604 528.324,385.269 533.405,382.937 "/>
+    </g>
+  </g>
+</svg>

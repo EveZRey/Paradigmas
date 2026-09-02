@@ -1,0 +1,542 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.3.4 LÓGICA DE PRIMER ORDEN</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Programación lógica</h1>
+     <hr>
+     <br>
+     <p><strong>Lógica formal</strong></p>
+     <br>
+     <p>La lógica formal se puede definir como un sistema formal: el cuál se puede representar por sus
+características sintácticas y semánticas.</p>
+     <br>
+     <pre>
+     Un Sistema formal S es un modelo de razonamiento matemático en
+     el que se distinguen los siguientes componentes:
+     
+         1. Sintaxis-
+             a) Lenguaje formal: conjunto de símbolos y fórmulas
+                sintácticamente correctas. Para definir un lenguaje
+                formal se necesita:
+                    - Un vocabulario o alfabeto: un conjunto (infinito
+                      numerable) de letras y símbolos a utilizar en
+                      la construcción de S.
+                    - Reglas que establezcan qué cadenas de símbolos
+                      son fórmulas bien formadas en S.
+             b) Cálculo deductivo: conjunto de reglas que permitan
+                obtener fórmulas nuevas atendiendo solo a aspectos
+                sintácticos de los símbolos. Un cálculo deductivo
+                queda definido especificando:
+                    - Un conjunto (posiblemente vacio) de fórmulas
+                      bien formadas de S que van a utilizarse como
+                      axiomas.
+                    - Un conjunto finito de reglas de inferencia.
+                    - Un concepto de deducción (demostración), for-
+                      malizado como un conjunto de reglas para
+                      construir las estructuras deductivas correctas,
+                      junto con las condiciones que debe reunir una
+                      deducción para dar como resultado un teorema
+                      de S.
+        2. Semántica.
+            La semántica estudia la adscripción de significado a los
+            símbolos y fórmulas de los lenguajes formales. Para ello
+            se introduce el concepto de interpretación que, habitualmente,
+            consiste en una serie de reglas precisas que permiten asignar
+            objetos de un dominio (no necesariamente matemático) a ciertas
+            expresiones del lenguaje formal. Esto se acompaña de una noción
+            de valoración y un conjunto de reglas de valoración que hace
+            posible identificar cuándo una fórmula es verdadera en una
+            interpretación.
+     </pre>
+     <br>
+     <p><strong>Nota:</strong> aridad es el número de argumentos u operandos que necesita un predicado, función,u operación para formular una proposición o término válido.</p>
+     <br>
+     <p><strong>Lógica de primer orden o lógica de predicados</strong></p>
+     <br>
+     <p>La lógica de primer orden, es un sistema formal. El lenguaje formal que se utiliza, para caracterizar las reglas, se hace a partir de un alfabeto para representar expresiones sintácticamente correctas (términos y fórmulas bien formadas).</p>
+     <br>
+     <p><strong>1. Alfabeto.</strong></p>
+     <pre>
+     a) Símbolos comunes a todos los formalismos.
+         - Un conjunto infinito numerable de símbolos de variables V = {X,Y, ...}
+         - Un conjunto de conectivas {&not;,&rarr;} y cuantificadores {&forall;}
+         - Signos de puntuación: "(" , ")" , ",".
+     b) Símbolos propios.
+         Los alfabetos de cada formalismo se diferencian en sus propios símbolos,
+         distintos para cada uno de ellos.
+          - El conjunto de símbolos de constantes C = {a,b,c, ...}
+          - El conjunto de símbolos de función de aridad n F = {f,g,h, ...}
+          - El conjunto de símbolos de predicado (o conjunto de símbolos de relación
+            de aridad n) P = {p,q,r, ...}
+     </pre>
+     <br>
+     <p><strong>2. Términos y fórmulas.</strong></p>
+     <br>
+     <pre>
+     Son las cadenas de símbolos, formados de acuerdo a las
+     reglas inductivas especificadas como se muestra:
+         - Término
+             a) Si t &in; (V &cup; C) entonces t es un término.
+             b) Si t<sub>1</sub>,t<sub>2</sub>,t<sub>3</sub>, ... t<sub>n</sub> son términos y f
+             es un símbolo de función entonces
+             f(t<sub>1</sub>,t<sub>2</sub>,t<sub>3</sub>, ... t<sub>n</sub>) es un término.
+             
+             Se denota el conjunto de todos los términos
+             mediante la letra T. Un término básico (ground)
+             es un término sin variable.
+         - Fórmula atómica
+             Si t<sub>1</sub>,t<sub>2</sub>,t<sub>3</sub>, ... t<sub>n</sub> son términos y p<sup>n</sup> es
+             un símbolo de relación entonces p<sup>n</sup>(t<sub>1</sub>,t<sub>2</sub>,t<sub>3</sub>, ... t<sub>n</sub>)
+             es una fórmula atómica.
+         - Fórmula bien formada (fbf).
+             a) Toda fórmula atómica es una fbf.
+             b) Si A y B son fbf, también los son: (&not; A),
+                (&not; B) y (A &rarr; B).
+             c) Si A es una fbf y X &in; V entonces, (&forall;X)A
+                es una fbf. La variable X se denomina variable
+                cuantificada.
+                
+             Una fórmula básica (ground) es una fbf que no
+             contiene variables.
+         - Equivalencias.
+             (A &or; B) es abreviatura de: ((&not;A) &rarr; B)
+             (A &and; B) es abreviatura de: (&not;(A &rarr; (&not;B)))
+             (A &harr; B) es abreviatura de: (&not;((A &rarr; B) &rarr; (&not; (B &rarr; A))))
+             (&exist;X)A es abreviatura de: (&not;((&forall;X)(&not;A)))
+     </pre>
+     <br>
+     <p>En forma BNF:</p>
+     <br>
+     <pre>
+     &lt;hechos&gt; ::= &lt;término&gt;
+     &lt;regla&gt; ::= &lt;término&gt; :- &lt;términos&gt;
+     &ltconsulta&gt; ::= &lt;términos&gt;
+     </pre>
+     <br>
+     <p>Cuando no se usan variables y cuantificadores, en ocasiones se simplifica la fórmula atómica proposicional al usar simples variables de predicado, también llamadas variables enunciativas (e, ... , g, p). Un ejemplo es el siguiente:</p>
+     <br>
+     <pre>
+     mujer(madre(Lola)))
+     </pre>
+     <br>
+     <p><strong>Fórmulas atómicas:</strong> son las expresiones más simples del lenguaje a las que se les puede atribuir un significado de verdadero o falso. A las cuales se les puede llamar también átomo, literal positivo, o literal negativo. </p>
+     <br>
+     <p>Como ejemplo tenemos lo siguiente: sea A un átomo.</p>
+     <br>
+     <pre>
+     Y se tiene: L<sub>1</sub> &equiv; A y L<sub>2</sub> &equiv; &not; A
+     entonces L<sub>1</sub> y L<sub>2</sub> son un par de literales complementarias una de otra.
+     </pre>
+     <br>
+     <hr>
+     <h1>Ejemplos </h1>
+     <hr>
+     <br>
+     <p><strong>Ejemplo 1: </strong>  para cada conjunto X, hay un conjunto Y, tal que el cardinal de Y es mayor que el cardinal de X. </p>
+     <br>
+     <pre>
+     (&forall;X){conjunto(X) &rarr; (&exist;Y)[conjunto(Y) &and; mayor(card(Y),card(X))]}
+     </pre>
+     <br>
+     <p><strong>Ejemplo 2: </strong>  todos los bloques que están encima de bloques que han sido movidos o están unidos a bloques que han sido movidos, también han sido movidos. </p>
+     <br>
+     <pre>
+     (&forall;X)(&forall;Y)[{bloque(X) &and; bloque(Y) &and; [encima(X,Y) &or; unido(X,Y)] &and; movido(Y)} &rarr; movido(X)]
+     </pre>
+     <br>
+     <p><strong>Ocurrencia de una variable:</strong> es cualquier aparición de una variable en una fórmula</p>
+     <br>
+     <p><strong>Radio de acción:</strong> ámbito o alcance de un cuantificador.</p>
+     <br>
+     <pre>
+     En la fbf (&forall;X)A, el radio de acción de (&forall;X) es A.
+     
+     En la fbf (&exist;X)A, el radio de acción de (&exist;X) es A.
+     </pre>
+     <br>
+     <p><strong>Variable ligada:</strong> es una ocurrencia de la variable X en una fbf cuando aparece dentro del radio de acción de un cuantificador universal (&forall;X) o un cuantificador existencial (&exist;X).</p>
+     <br>
+     <p><strong>Variable no ligada o libre:</strong> es cuando la variable no ocurre en una fbf en el radio de acción del cuantificador universal o del cuantificador existencial.</p>
+     <br>
+     <p><strong>Fórmula cerrada o sentencia:</strong> es la que tiene ocurrencia de variables libres.</p>
+     <br>
+     <article>
+     <p><strong>Convenio:</strong> también se requiere introducir los siguientes convenios de notación referidos a metavariables que representan fbf: dada una fbf A, se escribe A(X<sub>i</sub>) o bien A(X<sub>1</sub>,X<sub>2</sub>,X<sub>3</sub>, ... , X<sub>n</sub>) cuando estemos interesados en prestar atención a ciertas variables que ocurren en ellas. </p>
+     <br>
+     <p><strong>Expresar cuando las variables son libres:</strong> en una fbf si X<sub>i</sub> es libre A(X<sub>i</sub>) entonces se representará como A(t), dónde <strong>t</strong> substituye a la variable libre X<sub>i</sub> en A.</p>
+     <br>
+     <p><strong>Ejemplo:</strong> se tiene la fbf (&forall;X<sub>1</sub>)(r(X<sub>1</sub>,X<sub>2</sub>) &rarr; (&forall;X<sub>2</sub>)p(X<sub>2</sub>)), comprobar que: </p>
+     <br>
+     <pre>
+     1. X<sub>1</sub> aparece ligada, ya que esta incluida en un cuantificador universal.
+     2. La primera ocurrencia de X<sub>2</sub> aparece libre. Por consiguiente, la 
+        fórmula no es cerrada; tampoco es una fórmula básica.
+     3. La segunda ocurrencia de X<sub>2</sub> aparece ligada.
+     4. El radio de acción del cuantificador (&forall;X<sub>1</sub>) es la fbf (r(X<sub>1</sub>,X<sub>2</sub>) &rarr; (&forall;X<sub>2</sub>)p(X<sub>2</sub>)).
+     5. El radio de acción del cuantificador (&forall;X<sub>2</sub>) es la fbf p(X<sub>2</sub>).
+     </pre>
+     <br>
+     <p><strong>Ejemplo de fórmula básica:</strong> (r(a,b) &rarr; p(b)), ya que no aparecen variables. Las fórmulas cerradas y las básicas formalizan enunciados.</p>
+     <br>
+     <p>La teoría de la deducción formaliza los conceptos de inferencia o prueba de teoremas, es decir, el proceso que permite obtener una conclusión a partir de ciertas premisas.</p>
+     <br>
+     <p align="center"><img src="Bloques1.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p>Los bloques se pueden representar cómo: </p>
+     <br>
+     <pre>
+     Relaciones: {encima(X,Y), arriba(X,Y), derecha(X,Y)}
+     
+     El dominio, es: {a,b,c,d}
+     La relación encima, es: {(a,b),(b,c)}
+     La relación arriba, es: {(a,b),(b,c),(a,c)}
+     La relación derecha, es: {(a,d)}
+     </pre>
+     <br>
+     <p>Otro ejemplo:</p>
+     <br>
+     <pre>
+     (a) Toda madre ama a sus hijos.
+     (b) Julia es madre y Luis es hijo de Julia.
+     Se puede inferir que:
+     (c) Julia ama a Luis.
+     
+     Se usa la lógica de primer orden:
+     (&forall;X)(&forall;Y)[madre(X) &and; hijo(Y,X) &rarr; ama(X,Y)]
+     &forall;X &forall;Y madre(X) &and; hijo(Y,X) &rarr; ama(X,Y)
+     
+     madre(Julia) &and; hijo(Luis,Julia)
+     ama(Julia,Luis)
+     </pre>
+     <br>
+     <p>Siguiendo con el ejemplo, para justificar la reducción:</p>
+     <br>
+     <pre>
+     &forall;X &forall;Y madre(X) &and; hijo(Y,X) &rarr; ama(X,Y)
+     Si se elimina el cuantificador universala &forall;X se obtiene:
+     &forall;Y (madre(Julia por X) &and; hijo(Y,Julia por X) &rarr; ama(Julia por X,Y))
+     
+     Si se elimina el cuantificador &forall;Y nuevamente se obtiene:
+     madre(Julia por X) &and; hijo(Luis por Y,Julia por X) &rarr; ama(Julia por X,Luis por Y)
+     madre(Julia) &and; hijo(Luis,Julia) &rarr; ama(Julia,Luis)
+     
+     Ahora si se aplica <strong>MP</strong> se obtiene:
+     ama(Julia,Luis)
+     </pre>
+     <br>
+     <p><strong>Axiomas del cálculo deductivo.</strong> </p>
+     <br>
+     <p>Sean A, B, y C fbf:</p>
+     <br>
+     <pre>
+     (a) (A &rarr; (B &rarr; A))
+     (b) (A &rarr; (B &rarr; C)) &rarr; ((A &rarr; B) &rarr; (A &rarr; C)))
+     (c) (((&not;A) &rarr; (&not;B)) &rarr; (B &rarr; A))
+     (d) ((&forall;X)A &rarr; A), si X no aparece libre en A
+     (e) ((&forall;X)A(X) &rarr; A(t)), si t no introduce variables ligadas en A
+     (f) (&forall;X)(A &rarr; B) &rarr; (A &rarr; (&forall;X)B), si X no aparece libre en A
+     </pre>
+     <br>
+     <p><strong>Reglas de inferencia del cálculo deductivo</strong></p>
+     <br>
+     <pre>
+     Sean A y B fbf:
+     
+     a) <strong>Modus ponens (MP):</strong> o regla de eliminación de la implicación, 
+         que afirma que A y (A &rarr; B) se puede inferir como
+         consecuencia inmediata a B.
+     b) <strong>Generalización (Gen):</strong> que afirma que de A se puede inferir como
+         consecuencia inmediata (&forall;X)A, siendo X cualquier variable.
+     </pre>
+     <br>
+     <p><strong>Concepto de deducción del cálculo deductivo</strong></p>
+     <br>
+     <p>Sea F un conjunto de fbf. Una sucesión finita A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ... , A<sub>n</sub> de fbf es una deducción a partir de F si, para todo i &in; {1, 2, 3, ... ,n}, se cumple alguna de las siguientes condiciones: </p>
+     <br>
+     <pre>
+     a) A<sub>i</sub> es un axioma del cálculo deductivo
+     b) A<sub>i</sub> &in; F
+     c) A<sub>i</sub> se infiere inmediatamente de los dos elementos anteriores
+        de la secuencia, digamos A<sub>j</sub> y A<sub>k</sub> (con j < i y k < i), mediante
+        la aplicación de la regla <strong>MP</strong> o de la regla <strong>Gen</strong>.
+     </pre>
+     <br>
+     <p>El último miembro A<sub>n</sub> se dice que es deducible a partir de F, o que es derivable a partir de F, lo que se denota como F &vdash; A<sub>n</sub>.</p>
+     <br>
+     <pre>
+     F &vdash; A<sub>n</sub> lo que se lee como:
+     A<sub>n</sub> es deducible a partir de F o
+     A<sub>n</sub> es derivable a partir de F
+     </pre>
+     <br>
+     <p> Se dice que los elementos del conjunto F son premisas y A<sub>n</sub> se llama la <strong>conclusión de la deducción</strong>. El número n de fórmulas en la sucesión A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ... , A<sub>n</sub> se llama <strong>longitud de la derivación</strong> o una derivación de n pasos.</p>
+     <br>
+     <p><strong>Ejemplo:</strong> cómo se hacen las inferencias en el sistema deductivo. Para demostrar el siguiente teorema: &vdash; (&forall;X)(p(X) &rarr; p(X)), veamos lo siguiente:</p>
+     <br>
+     <pre>
+     Se utiliza el axioma (b) cambiando B por (p(X) &rarr; p(X)) y  C por p(X).
+     Por lo que queda, como:
+     Axioma (b): (A &rarr; (B &rarr; C)) &rarr; ((A &rarr; B) &rarr; (A &rarr; C)))
+     (A &rarr; ((p(X) &rarr; p(X)) &rarr; p(X))) &rarr; ((A &rarr; (p(X) &rarr; p(X))) &rarr; (A &rarr; p(X))))
+     
+     Se utiliza el axioma (a) cambiando B por (p(X) &rarr; p(X)).
+     Axioma (a): (A &rarr; (B &rarr; A))
+     (A &rarr; ((p(X) &rarr; p(X)) &rarr; A))
+     
+     Se utiliza el axioma (a) cambiando B por p(X):
+     Axioma (a): (A &rarr; (B &rarr; A))
+     (A &rarr; (p(X) &rarr; A))
+     
+     Utilizando <strong>MP</strong>, queda de la siguiente forma:
+     (p(X) &rarr; p(X))
+     
+     Utilizando <strong>Gen</strong>, queda de la siguiente forma:
+     (&forall;X)(p(X) &rarr; p(X))
+     </pre>
+     <br>
+     <p><strong>Teorema de la deducción</strong></p>
+     <br>
+     <pre>
+     <strong>Teorema</strong> sean A y B fbf y F un conjunto de fbf.
+     
+         1. Si F &cup; {A} &vdash; B y A es una fbf <strong>cerrada</strong> entonces, F &vdash; (A &rarr; B).
+         
+         2. Si F &vdash; (A &rarr; B) entonces, F &cup; {A} &vdash; B.
+     </pre>
+     <br>
+     <p><strong>Corolario 1.</strong> Sea B una fbf y F = {A<sub>1</sub>, ... , A<sub>n</sub>} un conjunto de fbf cerradas. F &vdash; B si y solo si &vdash; (A<sub>1</sub> &and; ... &and; A<sub>n</sub> &rarr; B).</p>
+     <br>
+     <p><strong>Teorema de intercambio.</strong> Sean A, B, y C[A] dos fbf cualesquiera, si &vdash; (A &harr; B) entonces &vdash; C[A] &harr; C[B].</p>
+     <br>
+     <p><strong>Terminología</strong> Sea fbf &not;(A<sub>1</sub> &rarr; (A<sub>2</sub> &rarr; A<sub>1</sub>)), donde A<sub>1</sub> y A<sub>2</sub> son fbf. La estructura &not;(...  &rarr; (A<sub>2</sub> &rarr; ... )), se dice que es contexto de la fbf A<sub>1</sub>. En general, dada una fbf C que contiene una o más ocurrencias de una fbf A, se denota por C[A]. Se dice que C[] es el contexto de A.</p>
+     <br>
+     <p><strong>Ejemplo</strong></p>
+     <br>
+     <p>Para toda X e Y, X es nieto de Y si existe alguna Z tal que Z es hijo de Y y X es hijo de Z. Lo que se escribe de la siguiente manera: </p>
+     <br>
+     <pre>
+     &forall;X&forall;Y(nieto(X,Y) &larr; &exist;Z(hijo(Z,y) &and; hijo(X,Z)))
+     </pre>
+     <br>
+     <p>Si usamos la siguiente equivalencia:</p>
+     <br>
+     <pre>
+     &phi; &rarr; &psi; &equiv; &not;&phi; &or; &psi;
+     
+     Para cuantificadores:
+         &forall;X&phi; &equiv; &not;&exist;X&not;&phi;
+     
+     Lo que se escribe de la siguiente manera:
+     &forall;X&forall;Y(nieto(X,Y) &or; &not;&exist;Z(hijo(Z,Y) &and; hijo(X,Z)))
+     &forall;X&forall;Y(nieto(X,Y) &or; &forall;Z &not;(hijo(Z,Y) &and; hijo(X,Z)))
+     &forall;X&forall;Y&forall;Z(nieto(X,Y) &or; &not;(hijo(Z,Y) &and; hijo(X,Z)))
+     &forall;X&forall;Y&forall;Z(nieto(X,Y) &larr; (hijo(Z,Y) &and; hijo(X,Z)))
+     </pre>
+     <br>
+     <p>La siguiente regla, es fbf:</p>
+     <br>
+     <pre>
+     &phi;<sub>0</sub> &larr; &phi;<sub>1</sub> &and; ... &and; &phi;<sub>n</sub> (n &ge; 0)
+     Se define que cada &phi;<sub>i</sub> es una literal.
+     </pre>
+     <br>
+     <p><strong>Definición de literal:</strong> es un átomo o la negación de un átomo. Una literal positiva es un átomo. Una literal negativa es la negación de un átomo.</p>
+     <br>
+     <p><strong>Ejemplo</strong></p>
+     <br>
+     <p>Ejemplo de literal positiva: hijo(Juan,Marcos). Ejemplo de literal negativa: &not;hijo(Juan,Alicia). Si p y q son predicados f es un functor, entonces p(X,alicia) y q(Y) son literales positivas. Si se tiene: &not;(Alicia,f(Y)) es una literal negativa. </p>
+     <br>
+     <p><strong>Definición de cláusula:</strong> es una disyunción finita de cero a más literales.</p>
+     <br>
+     <p><strong>Definición de cláusula definitiva:</strong> es si tiene exactamente una literal positiva.</p>
+     <br>
+     <pre>
+     &phi;<sub>0</sub> &or; &not;&phi;<sub>1</sub> &or; ... &or; &not;&phi;<sub>n</sub> (n &ge; 0)
+     Que es equivalente a la siguiente cláusula:
+     &phi;<sub>0</sub> &larr; &phi;<sub>1</sub> &and; ... &and; &phi;<sub>n</sub> (n &ge; 0)
+     </pre> 
+     <br>
+     <p class="cita"><cite>Programación Lógica: Teoría y Práctica, Pascual Julián Iranzo, María Alpuente Frasnedo, Pearson, 2007.</cite></p>
+     <br>
+     </article>
+     </section>
+     
+      <aside>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <p><strong>Paradigmas de programación </strong> </p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+      <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+          
+     
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+        <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias formas o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+           <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+           <br>
+           <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+     <br>
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+     <br>
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+     <br>
+     <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.3.4</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

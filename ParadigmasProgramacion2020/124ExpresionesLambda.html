@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.2.4 EXPRESIONES LAMBDA</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Representaciones de lambda</h1>
+     <hr>
+     <br>
+     <p><strong>El cálculo lambda.</strong></p>
+     <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+     <p>La notación para lambda es la siguiente:  </p>
+     <br>
+     <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+     <br>
+     <hr>
+     <h1>Lambda para python </h1>
+     <hr>
+     <br>
+     <p>La lambda en python se representa con la siguiente sintaxis:</p>
+     <br>
+     <pre>
+     <strong>lambda</strong> argumentos: expresión
+     </strong>
+     <br>
+     <p>Si se tiene la siguiente función:</p>
+     <br>
+     <strong>
+     def sumaNumeros(numeros):
+         return numeros + 5
+     </pre>
+     <bre>
+     <p>Se puede observar que la lambda hace lo mismo que la función, pero sin nombre. A esta se
+le llama <strong>función anónima</strong>.</p>
+     <br>
+     <pre>
+     <strong>lambda</strong> numeros: numeros + 5
+     </pre>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     <p><strong>Programa: </strong>  </p>
+     <br>
+     <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p> </p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+     <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Lambda para C++</h1>
+     <hr>
+     <br>
+     <p><strong>Sintaxis de la lambda en C++.</strong> </p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Lambda para Java</h1>
+     <hr>
+     <br>
+     <p><strong>Sintaxis de la lambda en Java.</strong> </p>
+     <br>
+     <pre>
+     variable -> expresion
+     </pre>
+     <p>Como ejemplo, el siguiente:</p>
+     <br>
+     <pre>
+     n -> System.out.println(n)
+     </pre>
+     <br>
+     <p>Construcción de listas en java:</p>
+     <br>
+     <pre>
+     List&lt;String&gt; palabras = List.of("Alfa", "Bien", "Casa", "Dedo", "Eufemismo");
+     List&lt;String&gt; palabras = Arrays.asList("Alfa", "Bien", "Casa", "Dedo", "Eufemismo");
+     List&lt;Integer&gt; lonPal = new ArrayList<>();
+     </pre>
+     <br>
+     <p>Convertir una lista en stream:</p>
+     <br>
+     <pre>
+     List&lt;Integer&gt; numeros = Arrays.asList(1,2,3,4,5,6,7,8);
+     Stream&lt;Integer&gt; lista = numeros.stream();
+     Stream&lt;Integer&gt; numeros = Arrays.asList(1,2,3,4,5,6,7,8);
+
+     List&lt;String&gt; nombres = Arrays.asList("Ana", "Juan", "Luis", "Pedro");
+     long cantidad = nombres.stream()
+          .filter(n -> n.length() < 4)
+          .count();
+     </pre>
+     <br>
+     <p>Cómo se usa la lambda:</p>
+     <br>
+     <pre>
+     @FunctionalInterface
+     interface nombreInterface {
+          metodoAbstracto();
+     }
+
+     nombreInterface NombreLambda = () -> System.out.println("Cadena a imprimir");
+     nombreLambda.metodoAbstracto();
+     </pre>
+     <br>
+     <p>Otra forma de usar la lambda:</p>
+     <br>
+     <pre>
+     Function&lt;String,Integer&gt; nombreLambda = (s) -> s.length();
+     int longitud = nombreLambda.apply("Cadena a imprimir");
+     System.out.println(longitud);
+     </pre>
+     <br>
+     <p>Aplicación de las lambdas:</p>
+     <br>
+     <p align="center" class="p5">
+Archivo: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=Lambda3.java target="_blank" style="float:center"><strong>Lambda3.java</strong></font></a>
+</p>
+     <br>
+     <p>Programa:<strong> ListasLamb3.java.</strong></p>
+     <br>
+     <p>Programa:<strong> ListasLamb5.java.</strong></p>
+     <br>
+     <p>Programa:<strong> ListasLamb6.java.</strong></p>
+     <br>
+     <p>Programa:<strong> ListasLamb7.java.</strong></p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+        <hr>
+        <h1>Preguntas primera etapa</h1>
+        <hr>
+        <br>
+        <p>En el siguiente enlace estan las preguntas:</p>
+        <br>
+        <p align="center" class="p5">
+Archivo: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=PreguntasPP1.pdf target="_blank" style="float:center"><strong>PreguntasPP1.pdf</strong></font></a>
+</p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.2.4</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

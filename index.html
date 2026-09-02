@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paradigmas de Programación 3CM4</title>
+    <!-- Importamos una fuente moderna de Google (Opcional pero se ve genial) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Variables de colores para mantener un diseño limpio */
+      :root {
+        --bg-color: #f0f4f8;
+        --card-bg: #ffffff;
+        --primary-color: #2563eb;
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --hover-shadow: rgba(37, 99, 235, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-dark);
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        color: var(--text-dark);
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+
+      /* Convertimos la lista en una cuadrícula (Grid) */
+      ul {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      /* Estilo de Tarjeta para cada archivo */
+      li {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 15px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        border-left: 4px solid transparent;
+      }
+
+      /* Efecto al pasar el cursor (Hover) */
+      li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px var(--hover-shadow);
+        border-left: 4px solid var(--primary-color);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        width: 100%;
+        word-break: break-all; /* Evita que nombres largos rompan la tarjeta */
+        margin-left: 10px;
+        font-size: 0.95rem;
+      }
+
+      a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Ajustes para celulares */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+        ul {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📚 Paradigmas de Programación</h1>
+      <p class="subtitle">
+        Repositorio de Archivos y Documentación - Grupo 3CM4
+      </p>
+
+      <ul>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/.~lock.PreguntasPP1.doc#"
+            target="_blank"
+            >.~lock.PreguntasPP1.doc#</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11-1Definicion.dia"
+            target="_blank"
+            >11-1Definicion.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11-1Definicion.jpeg"
+            target="_blank"
+            >11-1Definicion.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11-1Definicion.svg"
+            target="_blank"
+            >11-1Definicion.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11-2Gramaticas.dia"
+            target="_blank"
+            >11-2Gramaticas.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11-2Gramaticas.svg"
+            target="_blank"
+            >11-2Gramaticas.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/111CriteriosLenguajes.html"
+            target="_blank"
+            >111CriteriosLenguajes.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/112RelacionesEntreLenguajesParadigmas.html"
+            target="_blank"
+            >112RelacionesEntreLenguajesParadigmas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/113ParadigmasProgramacionFundamentales.html"
+            target="_blank"
+            >113ParadigmasProgramacionFundamentales.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/11LenguajesYparadigmas.html"
+            target="_blank"
+            >11LenguajesYparadigmas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/11Problema1.dia" target="_blank"
+            >11Problema1.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/11Problema1.jpeg" target="_blank"
+            >11Problema1.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/11Problema1.svg" target="_blank"
+            >11Problema1.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/11Problema2.dia" target="_blank"
+            >11Problema2.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/11Problema2.svg" target="_blank"
+            >11Problema2.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/121LenguajesFuncionalesPurosEhibridos.html"
+            target="_blank"
+            >121LenguajesFuncionalesPurosEhibridos.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/122CalculoLambda.html"
+            target="_blank"
+            >122CalculoLambda.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/123FuncionesPuras.html"
+            target="_blank"
+            >123FuncionesPuras.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/124ExpresionesLambda.html"
+            target="_blank"
+            >124ExpresionesLambda.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/125AritmeticaFunciones.html"
+            target="_blank"
+            >125AritmeticaFunciones.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/126ComposicionFunciones.html"
+            target="_blank"
+            >126ComposicionFunciones.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/127TecnicasProgramacionFuncional.html"
+            target="_blank"
+            >127TecnicasProgramacionFuncional.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/128RecursionListas.html"
+            target="_blank"
+            >128RecursionListas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/129FuncionesPolimorficas.html"
+            target="_blank"
+            >129FuncionesPolimorficas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda1.dia" target="_blank"
+            >12Lambda1.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda1.svg" target="_blank"
+            >12Lambda1.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda2.dia" target="_blank"
+            >12Lambda2.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda2.svg" target="_blank"
+            >12Lambda2.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda3.dia" target="_blank"
+            >12Lambda3.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda3.svg" target="_blank"
+            >12Lambda3.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda4.dia" target="_blank"
+            >12Lambda4.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/12Lambda4.svg" target="_blank"
+            >12Lambda4.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/12ProgramacionFuncional.html"
+            target="_blank"
+            >12ProgramacionFuncional.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/12ProgramacionFuncional1.html"
+            target="_blank"
+            >12ProgramacionFuncional1.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/131LenguajesLogicos.html"
+            target="_blank"
+            >131LenguajesLogicos.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/132ElementosProgramacionLogica.html"
+            target="_blank"
+            >132ElementosProgramacionLogica.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/133CalculoPredicados.html"
+            target="_blank"
+            >133CalculoPredicados.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/134LogicaPrimerOrden.html"
+            target="_blank"
+            >134LogicaPrimerOrden.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/135TecnicasProgramacionLogica.html"
+            target="_blank"
+            >135TecnicasProgramacionLogica.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/136ReglasRecursivas.html"
+            target="_blank"
+            >136ReglasRecursivas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/13ProgramacionLogica.html"
+            target="_blank"
+            >13ProgramacionLogica.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/1ProgramasPy.txt" target="_blank"
+            >1ProgramasPy.txt</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/211AtributosYmetodos.html"
+            target="_blank"
+            >211AtributosYmetodos.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/212ConstructoresYdestructores.html"
+            target="_blank"
+            >212ConstructoresYdestructores.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/213EncapsulamientoYmodificadores.html"
+            target="_blank"
+            >213EncapsulamientoYmodificadores.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/21ClasesYobjetos.html"
+            target="_blank"
+            >21ClasesYobjetos.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/221AsociacionAgregacion.html"
+            target="_blank"
+            >221AsociacionAgregacion.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/222HerenciaSimple.html"
+            target="_blank"
+            >222HerenciaSimple.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/22RelacionEntreClases.html"
+            target="_blank"
+            >22RelacionEntreClases.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/2ProgramasPy.txt" target="_blank"
+            >2ProgramasPy.txt</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/312InterfacesGraficasUsuario.html"
+            target="_blank"
+            >312InterfacesGraficasUsuario.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/3ProgramasPy.txt" target="_blank"
+            >3ProgramasPy.txt</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/BaseConocimientoFamilia.tex"
+            target="_blank"
+            >BaseConocimientoFamilia.tex</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/BaseConocimientoFamilia.txt"
+            target="_blank"
+            >BaseConocimientoFamilia.txt</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Bloques1.dia" target="_blank"
+            >Bloques1.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Bloques1.svg" target="_blank"
+            >Bloques1.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/Calendario26-27.jpeg"
+            target="_blank"
+            >Calendario26-27.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/calendarioIPN26-27.pdf"
+            target="_blank"
+            >calendarioIPN26-27.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/CaracteristicasLenguaje.dia"
+            target="_blank"
+            >CaracteristicasLenguaje.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/CaracteristicasLenguaje.svg"
+            target="_blank"
+            >CaracteristicasLenguaje.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ClaPersona.dia" target="_blank"
+            >ClaPersona.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Classroom.png" target="_blank"
+            >Classroom.png</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Cociente.java" target="_blank"
+            >Cociente.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/CocienteExcepcion.java"
+            target="_blank"
+            >CocienteExcepcion.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/CocienteIf.java" target="_blank"
+            >CocienteIf.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/CodigoParProg.pdf" target="_blank"
+            >CodigoParProg.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/Cuestionario2aPp.html"
+            target="_blank"
+            >Cuestionario2aPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/Cuestionario2Pp.html"
+            target="_blank"
+            >Cuestionario2Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/DiagAgreComp.dia" target="_blank"
+            >DiagAgreComp.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/DiagAgreComp.dia.autosave"
+            target="_blank"
+            >DiagAgreComp.dia.autosave</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/DiagHerencia.dia" target="_blank"
+            >DiagHerencia.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/DiagInfPerFecha.dia"
+            target="_blank"
+            >DiagInfPerFecha.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/EncadeF.py" target="_blank"
+            >EncadeF.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/EspectativasParadigmas.html"
+            target="_blank"
+            >EspectativasParadigmas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/EvaluacionParadigmas.html"
+            target="_blank"
+            >EvaluacionParadigmas.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/EvaluaciónFinal2025.dia"
+            target="_blank"
+            >EvaluaciónFinal2025.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/EvaluaciónFinal2025.dia.autosave"
+            target="_blank"
+            >EvaluaciónFinal2025.dia.autosave</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Fimprimir.cpp" target="_blank"
+            >Fimprimir.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Fraiz.py" target="_blank"
+            >Fraiz.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/FunLen.py" target="_blank"
+            >FunLen.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/FunPolHer.py" target="_blank"
+            >FunPolHer.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/impNum.cpp" target="_blank"
+            >impNum.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/InfPer.java" target="_blank"
+            >InfPer.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Lambda3.java" target="_blank"
+            >Lambda3.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/LibroCodigoPP.pdf" target="_blank"
+            >LibroCodigoPP.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListaAlumnos.java" target="_blank"
+            >ListaAlumnos.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListasLamb11.java" target="_blank"
+            >ListasLamb11.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListasLamb3.java" target="_blank"
+            >ListasLamb3.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListasLamb5.java" target="_blank"
+            >ListasLamb5.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListasLamb6.java" target="_blank"
+            >ListasLamb6.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/ListasLamb7.java" target="_blank"
+            >ListasLamb7.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/MadameCurie.jpeg" target="_blank"
+            >MadameCurie.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/MiguelAngel.jpeg" target="_blank"
+            >MiguelAngel.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/OBjetoGePrueba.java"
+            target="_blank"
+            >OBjetoGePrueba.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/OrdenarLista.py" target="_blank"
+            >OrdenarLista.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/OrdenarLista1.py" target="_blank"
+            >OrdenarLista1.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/OrdenarLista2.py" target="_blank"
+            >OrdenarLista2.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PalabrasLexico.dia"
+            target="_blank"
+            >PalabrasLexico.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PalabrasLexico.jpeg"
+            target="_blank"
+            >PalabrasLexico.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PaPD1lenguajes1.dia"
+            target="_blank"
+            >PaPD1lenguajes1.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PaPD1lenguajes1.jpeg"
+            target="_blank"
+            >PaPD1lenguajes1.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PaPD1lenguajes1.pdf"
+            target="_blank"
+            >PaPD1lenguajes1.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PaPD1lenguajes1.svg"
+            target="_blank"
+            >PaPD1lenguajes1.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Persona1.java" target="_blank"
+            >Persona1.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase1Paradigmas.dia"
+            target="_blank"
+            >PizarronClase1Paradigmas.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase1Paradigmas.svg"
+            target="_blank"
+            >PizarronClase1Paradigmas.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase29Paradigmas.dia"
+            target="_blank"
+            >PizarronClase29Paradigmas.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase29Paradigmas.svg"
+            target="_blank"
+            >PizarronClase29Paradigmas.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase2Paradigmas.dia"
+            target="_blank"
+            >PizarronClase2Paradigmas.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClase2Paradigmas.svg"
+            target="_blank"
+            >PizarronClase2Paradigmas.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClaseIntParadigmas.dia"
+            target="_blank"
+            >PizarronClaseIntParadigmas.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PizarronClaseIntParadigmas.svg"
+            target="_blank"
+            >PizarronClaseIntParadigmas.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PlantillaPpP1.pdf" target="_blank"
+            >PlantillaPpP1.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PlantillaPpP2.pdf" target="_blank"
+            >PlantillaPpP2.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PlantillaPpP3.pdf" target="_blank"
+            >PlantillaPpP3.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PlantillaPrac6.pdf"
+            target="_blank"
+            >PlantillaPrac6.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PlantillaPrac7.pdf"
+            target="_blank"
+            >PlantillaPrac7.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PlantillaPrac8.pdf"
+            target="_blank"
+            >PlantillaPrac8.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PlantillaPracE1.pdf"
+            target="_blank"
+            >PlantillaPracE1.pdf</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo1.dia" target="_blank"
+            >PpEjemplo1.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo1.svg" target="_blank"
+            >PpEjemplo1.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo2.dia" target="_blank"
+            >PpEjemplo2.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo2.svg" target="_blank"
+            >PpEjemplo2.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo3.dia" target="_blank"
+            >PpEjemplo3.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo3.svg" target="_blank"
+            >PpEjemplo3.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo4.dia" target="_blank"
+            >PpEjemplo4.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PpEjemplo4.svg" target="_blank"
+            >PpEjemplo4.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaCINCOPp.html"
+            target="_blank"
+            >PracticaCINCOPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaCUATROlogicaPp.html"
+            target="_blank"
+            >PracticaCUATROlogicaPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaCUATROPp.html"
+            target="_blank"
+            >PracticaCUATROPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaDOSPp.html"
+            target="_blank"
+            >PracticaDOSPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaE1Pp.html" target="_blank"
+            >PracticaE1Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaE2Pp.html" target="_blank"
+            >PracticaE2Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaE3Pp.html" target="_blank"
+            >PracticaE3Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaE4Pp.html" target="_blank"
+            >PracticaE4Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaOCHOPp.html"
+            target="_blank"
+            >PracticaOCHOPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaPhPp.html" target="_blank"
+            >PracticaPhPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/PracticaPPp.html" target="_blank"
+            >PracticaPPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaSEIS1Pp.html"
+            target="_blank"
+            >PracticaSEIS1Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaSEISPp.html"
+            target="_blank"
+            >PracticaSEISPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaSIETEPp.html"
+            target="_blank"
+            >PracticaSIETEPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaTRES1Pp.html"
+            target="_blank"
+            >PracticaTRES1Pp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaTRESPp.html"
+            target="_blank"
+            >PracticaTRESPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PracticaUNOPp.html"
+            target="_blank"
+            >PracticaUNOPp.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/PresentacionCapitulo.css"
+            target="_blank"
+            >PresentacionCapitulo.css</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Profesorado.java" target="_blank"
+            >Profesorado.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Programas.jpeg" target="_blank"
+            >Programas.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Reactivo.java" target="_blank"
+            >Reactivo.java</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RecursividadInvertir.cpp"
+            target="_blank"
+            >RecursividadInvertir.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RecursividadPotencia.cpp"
+            target="_blank"
+            >RecursividadPotencia.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RecursividadSuma.cpp"
+            target="_blank"
+            >RecursividadSuma.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RecursividadSuma.dia"
+            target="_blank"
+            >RecursividadSuma.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RelacionClases.dia"
+            target="_blank"
+            >RelacionClases.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RelacionClases.svg"
+            target="_blank"
+            >RelacionClases.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RelacionClasesComposicion.dia"
+            target="_blank"
+            >RelacionClasesComposicion.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/RelacionClasesComposicion.svg"
+            target="_blank"
+            >RelacionClasesComposicion.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/RimpAbe.cpp" target="_blank"
+            >RimpAbe.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/script.js" target="_blank"
+            >script.js</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Sobrecarga1.cpp" target="_blank"
+            >Sobrecarga1.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Sobrecarga2.cpp" target="_blank"
+            >Sobrecarga2.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Sobrecarga3.cpp" target="_blank"
+            >Sobrecarga3.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Sobrecarga4.cpp" target="_blank"
+            >Sobrecarga4.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Sobrecarga5.cpp" target="_blank"
+            >Sobrecarga5.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/SobrecargaDefault.cpp"
+            target="_blank"
+            >SobrecargaDefault.cpp</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/SubclaseSuperclases.dia"
+            target="_blank"
+            >SubclaseSuperclases.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/TemarioParadigmasProgramacion.html"
+            target="_blank"
+            >TemarioParadigmasProgramacion.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/TemarioPPproyectos.html"
+            target="_blank"
+            >TemarioPPproyectos.html</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/Temarios.jpeg" target="_blank"
+            >Temarios.jpeg</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/TiposLenguajes.dia"
+            target="_blank"
+            >TiposLenguajes.dia</a
+          >
+        </li>
+        <li>
+          📄
+          <a
+            href="ParadigmasProgramacion2020/TiposLenguajes.svg"
+            target="_blank"
+            >TiposLenguajes.svg</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/UsoFiltro.py" target="_blank"
+            >UsoFiltro.py</a
+          >
+        </li>
+        <li>
+          📄
+          <a href="ParadigmasProgramacion2020/VentasCoches.java" target="_blank"
+            >VentasCoches.java</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

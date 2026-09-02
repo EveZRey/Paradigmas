@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.2.1 LENGUAJES FUNCIONALES PUROS E HÍBRIDOS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Lenguajes funcionales</h1>
+     <hr>
+     <br>
+     <p><strong>El paradigma.</strong></p>
+     <br>
+     <p>Es la forma de pensar de como se va estructurar el código para realizar un programa.  </p>
+     <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+           
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+           
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+           
+     </lo></p>
+           <br>
+     <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias forma o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p><strong>Cociente.java:</strong> forma de programar estructurado; <strong>Cuadrado.java:</strong> forma de programa funcional, construcción de funciones; <strong>CienFuncion.cpp:</strong> programación funcional, construcción de funciones; <strong>Lista.cpp: </strong> construcción de listas; <strong>NumerosArreglo.java: </strong> uso de arreglos; <strong>InfPer.java:</strong> poo; <strong>Fs.py: </strong> programación funcional, construcción de funciones; </p>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Lenguajes funcionales puros</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <pre>
+     (map (lambda (x) (* 2 x))  (1 2 3 4 5))
+     
+     salida:  (2 4 6 8 10)
+     </pe>
+     <br>
+     <hr>
+     <h1>Lenguajes funcionales hibridos</h1>
+     <hr>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera reactiva?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera procedimental?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 6.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+                        
+          </lo></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.2.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

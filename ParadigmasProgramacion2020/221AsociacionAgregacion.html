@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo II<br>Programación orientada a objetos</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">2.2.1 ASOCIACIÓN: AGREGACIÓN Y COMPOSICIÓN</h1>
+    <section class="interna">
+      
+    <article>
+     <hr>
+     <h1>Asociación</h1>
+     <hr>
+     <br>
+     <p>Una asociación es formalmente definida como una relación de cantidad entre dos o más clases que describen un grupo de enlaces con estructura y semántica comunes. Una asociación implica que un objeto de una clase esta haciendo uso de un objeto de otra clase y se indica simplemente por una linea sólida que conecta los dos íconos de las clases.
+     <br>
+     <p><strong>Relación:</strong> entre las clases para que funcionen debe haber una interrelación entre ellas. Asi que se deben ver que relación hay entre las clases.</p>
+     <br>
+     <p><strong>Agregación:</strong> es una clase de asociación donde el objeto de la clase A es "hecho de" objetos de la clase B. Este modelo tiene una relación y representa un propietario entre dos objetos. El objeto propietario es llamado un objeto de agregación y su clase una clase de agregación. El tema del objeto es llamado un objeto agregado y su clase una clase agregada.</p>
+     <br>
+     <p><strong>Composición:</strong> es un caso especial de la agregación. Un objeto puede ser apropiado por algunos objetos de agregación. Si un objeto es exclusivamente apropiado por un objeto de agrgación, esta relación es de composición. El siguiente ejemplo se puede representar er en UML: DiagAgreComp.dia.</p>
+     <br>
+     <pre>
+     public class Nombre {
+     
+     }
+     
+     public class Estudiante {
+         private Nombre nombre;
+         private Direccion direccion;
+     }
+     
+     public class Direccion {
+     
+     }
+     </pre>
+     <br>
+     <p>El punto es ahora como accesarse a los datos para verlos o modificarlos. Esto se hace con el uso de los métodos. Esto se puede hacer por medio del teclado, por lo que vea los siguientes programas: TecCadenas.java, TecPuntuacion.java.</p>
+     <br>
+     <p>Se comienza con el uso del teclados. Se ve con el siguiente ejemplo:</p>
+     <br>
+     <pre>
+     import java.util.*;
+     
+     public class Saludo {
+         static final int N = 12;
+         static Scanner consola = new Scanner(System.in);
+         
+         public static void main(String args[]) {
+             int priN;
+             int segN;
+             priN = 10;
+             System.out.println("Escribir un " + "entero: ");
+             System.out.println("Escribir otro " + "entero: ");
+             segN = consola.nextInt();
+             System.out.println();
+             
+             Scanner otec = new Scanner(System.in);
+             String nombre;
+             System.out.println("Escribe tu nombre: ");
+             nombre = otec.nextLine();
+             System.out.println("Buenas: " + nombre);
+         }
+     }
+     </pre>
+     <br>
+     <p>Los siguientes métodos de acceso por teclado, son los siguientes: nextInt(), nextLong(), nextFloat(), nextDouble(), nextLine() y next().</p>
+     <br>
+     <p>Los programas que muestran la comparación entre el teclado y las cajas de dialogo: ImpPre.java, ImpPreGUI.java. </p>
+     <br>
+     <p>La clase principal se forma de la siguiente manera: </p>
+     <br>
+     <pre>
+     public class NombreClase {
+         public static void main(String args[]) {
+         
+         }
+     }
+     </pre>
+     <br>
+     <p>Se pueden tener varias clases en un programa, de la siguiente forma:</p>
+     <br>
+     <pre>
+     public class ClasePrincipal {
+         public static void main(String args[]) {
+         
+         }
+     }
+     
+     class ClaseUno {
+         public void setMetodo(String datoCadena) {
+             this.datoCadena;
+         }
+     }
+
+     class ClaseDos {
+         public int getMetodo() {
+             return datoEntero;
+         }
+     }
+     </pre>
+     <br>
+     <pre>
+     import java.util.Scanner;
+
+     public class TecCadenas {
+         public static void main(String args[]) {
+             Scanner pal = new Scanner(System.in);
+             String cad;
+             Int posUcar;
+        
+             System.out.println("Escribe una cadena: ");
+             cad = pal.nextLine();
+             posUcar = cad.length() - 1;
+             if(cad.charAt(posUcar) != '.') {
+                 System.out.println("Error: la cadena debe tener un punto.");
+             }
+         }
+     }
+     </pre
+     <br>
+     <pre>
+     import java.util.Scanner;
+
+     publi class TecPuntuacion {
+         public static void main(String args[]) {
+             Scanner ot = new Scanner(System.in);
+             int punCasa;
+             int punExterno;
+        
+             System.out.println("Puntuación equipo de casa: ");
+             punCasa = ot.nextInt();
+             System.out.println("Puntuación equipo externo: ");
+             punExterno = ot.nextInt();
+         }
+     }
+     </pre>
+     <br>
+     <pre>
+     import javax.swing.JOptionPane;
+
+     public class ImpPreGUI {
+         public static void main(String args[]) {
+             String nomPro;
+             double pre;
+             int can;
+
+             nomPro = JOptionPane.showInputDialog("Nombre del producto: ");
+             pre = Double.parseDouble(JOptionPane.showInputDialog("Precio del producto: "));
+             can = Integer.parseInt(JOptionPane.showInputDialog("¿Que catidad?; "));
+             JOptionPane.showMessageDialog(null, "Producto: " + nomPro + 
+             "Cantidad: " + can + "\nEl precio a pagara es: " + pre * can);
+         }
+     }
+     </pre>
+     <br>
+     <p>Existen métodos: de acceso este método entrega los datos almacenados del objeto; el método mutador es el que muta el estado de un objeto para cambiar algo  o todo los datos almacenados del objeto; es un método booleano aquel que verifica si alguna condición es falsa o verdadera.</P>
+     <br>
+     <p>El método de acceso, es el siguiente:</p>
+     <br>
+     <pre>
+     class ClaseDos {
+         public int getMetodo() {
+             return datoEntero;
+         }
+     }
+     </pre>
+     <br>
+     <pre>
+     <p>El método mutador, es el siguiente:</p>
+     <br>
+     class ClaseUno {
+         public void setMetodo(String datoCadena) {
+             this.datoCadena;
+         }
+     }
+     </pre>
+     <br>
+     <p>El método booleano, es el siguiente:</p>
+     <br>
+     <pre>
+     class ClaseTres {
+         boolean isMetodo() {
+             return true;
+             o return false;
+         }
+     }
+     </pre>
+     <br>
+     
+     <hr>
+     <h1>Agregación</h1>
+     <hr>
+     <br>
+     <p><strong>Definición de modificadores:</strong> es una palabra como public, private, y protected, que sirve para indicar que clases, métodos, o datos se pueden acceder de otras clases o no se puede.</p>
+     <br>
+     <p>El modificador <strong>private</strong> indica que los métodos y los datos solamente se pueden accesar desde la misma clase.</p>
+     <br>
+     <p>El modificador <strong>protected</strong> indica que los métodos y los datos de la superclase solamente se pueden accesar desde la subclase.</p>
+     <br>
+     <pre>
+     public class Clase1 {
+         public int x;
+         int y;
+         private int z;
+         
+         public void metodo1() {
+         
+         }
+         
+         void metodo2() {
+         
+         }
+         
+         private void metodo3() {
+         
+         }
+     }
+     
+     class Clase2 {
+         void metodo() {
+             Clase1 o = new Clase1();
+         }
+     }
+     </pre>
+     <br>
+     <p>Se puede acceder desde el metodo() a o.x, o.y; no se puede acceder desde el metodo() a o.z; no se puede invocar desde el metodo() a o.metodo3(); se puede invocar desde el metodo() a o.metodo1(), y o.metodo2()., </p>
+     <br>
+     <pre>
+     public class Clase3 {
+         void metodo() {
+             Clase1 o = new Clase1();
+         }
+     }
+     </pre>
+     <br>
+     <p>Se puede acceder desde el metodo() a o.x; no se puede acceder desde el metodo() a o.y, o.z; se puede invocar desde el metodo() a o.metodo1(); no se puede invocar desde el metodo() a o.metodo2(), o.metodo3().</p>
+     <br>
+     <pre>
+     public class NumPrimos {
+         public static void main(String args[]) {
+             System.out.println(#Los primeros 50 números primos, son: ");
+             impPri(50);
+         }
+         
+         public static void impPri(int nsP) {
+             final int NUM = 10;
+             int con = 0;
+             int num = 2;
+             
+             while(con < nsP) {
+                 if(esPrimo(num)) {
+                     con++;
+                     
+                     if(con % NUM == 0) {
+                         System.out.println("%-5s\n",num);
+                     }
+                     else
+                         System.out.println("%-5s",num);
+                 }
+             }
+             num++;
+         }
+          
+         public static boolean esPrimo(int num) {
+             for(int div = 2; div <= num / 2; div++) {
+                 if(num % div == 0) {
+                     returl false;
+                 }
+             }
+             return true;
+         }
+     }
+     </pre>
+     <br>
+     <p>La relación entre clases también se hace a partir de los métodos.</p>
+     <br>
+     <pre>
+     public class SobreMet {
+         public static void main(String args[]) {
+             System.out.println("El número máximo entre  3 y 4, es: " + max(3,4));
+             System.out.println("El número máximo entre 3.0 y 5.4, es: " + max(3.0,5.4));
+             System.out.println("El número máximo entre 3.0, 3.4 y 10.14, es: " + max(3.0,5.4,10.14));
+         }
+         
+         public static int max(int n1, int n2) {
+             if(n1 < n2)
+                 return n1;
+             else
+                 return n2;
+         }
+         
+         public static double max(double n1, double n2) {
+             if(n1 < n2)
+                 return n1;
+             else
+                 return n2;
+         }
+         
+         public static int max(double n1, double n2, double n3) {
+             return max(max(n1,n2),n3);
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente programa es con el uso de ventanas de dialogo:</p>
+     <br>
+     <pre>
+     import javax.swing.JFrame;
+     
+     public class UnFrame {
+         public static void main(Stringf args[]) {
+             JFrame fra1 = new JFrame();
+             fra1.setTitle("Cuadro 1");
+             fra1.setSize(200,150);
+             fra1.setLocation(200,100);
+             fra1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             fra1.setVisible(true);
+             
+             JFrame fra2 = new JFrame();
+             fra2.setTitle("Cuadro 1");
+             fra2.setSize(200,150);
+             fra2.setLocation(410,100);
+             fra2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             fra2.setVisible(true);
+         }
+     }
+     </pre>
+     <br>
+     <p><strong>Creación de objetos:</strong> si se tienen diferentes clases, crear objetos de cada una de las clases.</p>
+     <br>
+     <pre>
+     public class NombreClase {
+         public static void main(String args[]) {
+             NombreDeLaClase nombreObjeto = new NombreConstructor();
+         }
+     }
+     </pre>
+     <br>
+     <hr>
+     <h1>Composición</h1>
+     <hr>
+     <br>
+     <p>Uno o más miembros de una clase son objeto de uno o más de otras clases. Es una relación uno a uno; por ejemplo, cada persona tiene una fecha de cumpleaños.</p>
+     <br>
+     <pre>
+     public class Fecha {
+         private int fM;
+         private int fD;
+         private int fA;
+         
+         public Fecha() {
+             fM = 1;
+             fD = 1;
+             fA = 2000;
+         }
+         
+         public Fecha(int m, int d, int a) {
+             fM = m;
+             fD = d;
+             fA = a;
+         }
+         
+         public void setFecha(int m, int d, int a) {
+             fM = m;
+             fD = d;
+             fA = a;
+         }
+         
+         public int get Mes() {
+             return fM;
+         }
+         
+         public int getDia() {
+             return fD;
+         }
+         
+         public int getAnio() {
+             return fA;
+         }
+
+         public String toString() {
+             return fM + "/" + fD + "/" + fA;
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente es la clase Persona: </p>
+     <br>
+     <pre>
+     public class Persona {
+         private String nombre;
+         private String apellido;
+         
+         public Persona() {
+             nombre = "";
+             apellido = "";
+         }
+         
+         public Persona(String nombre, String apellido) {
+             setNombre(nombre, apellido);
+         }
+         
+         public void setNombre(String pNom, String segNom) {
+             nombre = pNom;
+             apellido = segNom;
+         }
+         
+         public void setPrimNom(String pNom) {
+             nombre = pNom;
+         }
+         
+         public void setApellido(String segNom) {
+             apellido = segNom;
+         }
+         
+         public String getPnom() {
+             return nombre;
+         }
+         
+         public String getApellido() {
+             return apellido;
+         }
+         
+         public String toString() {
+             return nombre + apellido;
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente es la clase InfPersonal:</p>
+     <br>
+     <pre>
+     public class InfPersonal {
+         private Persona nombre;
+         private Fecha fD;
+         private int personaId;
+         
+         public InfPersonal() {
+             nombre = new Persona();
+             fD = new Fecha();
+             personaId = 0;
+         }
+         
+         public InfPersnal(String nombre, String apellido, int mes, int dia, int anio, int iD) {
+             nombre = new Persona(nombre, apellido);
+             fD = new Fecha(mes, dia, anio);
+              personaId = iD;
+         }
+         
+         public void setInfPersonal(String nombre, String apellido, int mes, int dia, int anio, int iD) {
+             nombre. setNombre(nombre, apellido);
+             fD.setFecha(mes, dia, anio);
+             personaId =  iD;
+         }
+         
+         public String toString() {
+             return nombre.toString() + fD.toString() + personaId;
+         }
+     }
+     </pre>
+     <br>
+    <article>
+    
+    </article>
+    </section>
+      <aside>
+     <hr>
+     <h1>Pensamientos</h1>
+     <hr>
+     <br>
+     <p><strong>Pensamiento 1.</strong> una mentira dicha una vez sigue siendo una mentira, pero una mentira dicha mil veces se convierte en verdad.</p>
+     <br>
+     <p class="cita"><cite>Joseph Goebbels, Ministro de propaganda de Adolfo Hitler</cite></p>
+     <br>
+     <p><strong>Pensamiento 2.</strong> existen dos clases sociales los burgueses y los trabajadores.</p>
+     <br>
+     <p class="cita"><cite>Karl Marx, Filosofo y economista del siglo XIX</cite></p>
+     <br>
+     <hr>
+     <h1>Origenes de la programación orientada a objetos</h1>
+     <hr>
+     <br>
+     <p><strong>Surgimiento:</strong> comenzó con las investigaciones de la demostración automática de teoremas a inicios de la década de 1980.</p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+          
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+      <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+         
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias formas o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+        <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+           <p>La notación para lambda es la siguiente:  </p>
+     <br>
+           <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+           <br>
+           <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+     <br>
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+     <br>
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+     <br>
+     <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+           
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 2.1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

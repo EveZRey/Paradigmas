@@ -1,0 +1,46 @@
+# Funciones puras e impuras
+IMPUESTO_MINIMO = 0.05
+
+def calculoImpuesto(precio):
+    precioTotal = precio * (1 + IMPUESTO_MINIMO)
+    print(f"Calcular el precio final, el precio final es: {precioTotal:.2f}")
+    return precioTotal
+
+
+
+def calculoImpuesto(precio,impuesto):
+    return precio * (1 + impuesto)
+
+# Funciones inmutables
+listaMutable = [1,2,3]
+listaMutable[0] = 99
+print(listaMutable)
+
+
+def aplicacionDescuento(elemtoCatalogo,precioTotal):
+    if precioTotal > 50 and elementoCatalogo:
+        primerElemento = elementoCatalogo[0].copy()
+        primerElemento['precio'] 0.0
+        nuevoCatalogo = [primerElemento] + list(elemnetoCatalogo[1:])
+        return nuevoCatalogo
+    else:
+        return list(elementoCatalogo)
+
+originalElementos = ({"nombr":"Libro phyton avanzado","precio":55.00},
+    {"nombre":"cafe","precio":12.50})
+
+originalTotal = 67.50
+
+elementoDescuento = aplicarDescuento(originalElementos,originalTotal)
+
+print("Catalogo de elementos original")
+print(originalElementos)
+
+print("Catalogo de elementos discontinuado")
+print(elementosDiscontinuado)
+
+elementosCatalogoOriginal: ({'nombre':'Libro phyton avanzado','precio':55.0,
+    {'nombre':'cafe','precio':12.5})
+
+elementosCatalogoDiscontinuado: ({'nombre':'Libro phyton avanzado','precio':0.0,
+    {'nombre':'cafe','precio':12.5})

@@ -1,0 +1,476 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.2.8 RECURSIÓN SOBRE LISTAS, CON VARIOS ARGUMENTOS Y MÚLTIPLE</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Recursión sobre listas</h1>
+     <hr>
+     <br>
+     <p><strong>Recursión en Java.</strong></p>
+     <br>
+     <p><strong>La estructura de un programa en Java:</strong></p>
+     <br>
+     <pre>
+     public class NombreClase {
+         public static void main(String[] args) {
+             creacionObjetos;
+             llamadaMetodos();
+         }
+     }
+     
+     class NombreClaseApoyo {
+         public metodo1() {
+         
+         }
+         
+         public metodo2() {
+         
+         }
+         
+         . . .
+         
+         public metodoN() {
+         
+         }
+     }
+     </pre>
+     <br>
+     <p>En programación funcional se hace uso de la recursión para sustituir a los bucles.</p>
+     <br>
+     <p>La recursión de cola es cuando una función lo último que ejecuta es otra función. Se muestra en el siguiente ejemplo una recursión de cola:</p>
+     <br>
+     <pre>
+     int metodoA() {
+         int x = C;
+         return metodoB(x);
+     }
+     </pre>
+     <br>
+     <p>Un ejemplo práctico es el cálculo del factorial de un número, que se presente a continuación:</p>
+     <br>
+     <pre>
+     int metodoFac(n) {
+         if(n == 0)
+             return 1;
+         else
+             return n * metodoFac(n - 1);
+     }
+     </pre>
+     <br>
+     <p>De otra manera la misma función para calcular el factorial de un número, es:</p>
+     <br>
+     <pre>
+     int metodoFac1(n) {
+         return metodoFacCola(n,1);
+     }
+     
+     int metodoFacCola(n.a) {
+         if(n == 0)
+             return a;
+         else
+             return metodoFacCola(n - 1,n * a);
+     }
+     </pre>
+     <br>
+     <p>La recursión es la siguiente:  </p>
+     <br>
+     <p>Para crear una lista con valores, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     List&lt;Integer&gt; nombreLista = Array.asList(Valores numéricos);
+     </pre>
+     <br>
+     <p>O de esta forma:</p>
+     <br>
+     <pre>
+     List&lt;Integer&gt; nombreLista = Array.of(Valores numéricos);
+     </pre>
+     <br>
+     <p>Si se quiere crear una variable que reciba una lista, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     List&lt;Tipo de dato&gt; variableLista = new List<>();
+     </pre>
+     <br>
+     <p>Si se quiere crear una variable que reciba una lista con una clase calificadora, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     List&lt;ClaseCalificadora&gt; variableLista = new List<>();
+     </pre>
+     <br>
+     <p>Las listas se pueden pasar como argumentos a funciones o métodos, de la siguiente forma:</p>
+     <br>
+     <pre>
+     public void setLista(List&lt;ClaseCalificadora&gt; variableLista) {
+         this.variableLista = variableLista;
+     }
+     </pre>
+     <br>
+     <p>Usar una lista como argumento para un método get, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     public List&lt;ClaseCalificadora&gt; getLista() {
+         return variableLista;
+     }
+     </pre>
+     <br>
+     <p>Usar una lista como argumento para un método cualquiera diferente de set y get, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     public ClaseCalificadora nombreMetodo(ClaseCalificadora nombreObjeto) {
+         this.variableLista.funcionUsada(nombreObjeto);
+         return this;
+     }
+     </pre>
+     <br>
+     <p><strong>La recursión de una función:</strong> en su definición básica, es la llamada a si mismo; su fundamento consta como se muestra en el siguiente ejemplo; la suma de números enteros.</p>
+     <br>
+     <pre>
+     Sea S(N) la suma de los primeros enteros.
+     Como S(1) = 1
+     Por lo que se escribe: S(N) = S(N - 1) + N
+     </pre>
+     <br>
+     <p>En Java se escribe la función de la siguiente forma:</p>
+     <br>
+     <pre>
+     public class ClasePrincipal {
+         public static void main(String[] args) {
+         
+         }
+         
+         public static long s(int n) {
+             if(n == 1)
+                 return 1;
+             else
+                 return s(n - 1) + n;
+         }
+     }
+     </pre>
+     <br>
+     <p>Para construir un método recursivo, se hace de la siguiente forma:</p>
+     <br>
+     <pre>
+     public class ClasePrincipal {
+         public static void main(String[] args) {
+         
+         }
+         
+         publis static void metodoRecursivo() {
+             return this;
+         }
+
+          publis static Stream&lt;ClaseCalificadora&gt; metodoRecursivo(ClaseCalificadora c, Tipo n) {
+             c.setN(n);
+             return Stream.funcion(Stream(c),
+                 c.metodo().stream().funcionUsar(lambda));
+         }
+     }
+     </pre>
+     <br>
+     <p>Construcción (<strong>programa: ManejoListas.java</strong>) de listas en java:</p>
+     <br>
+     <pre>
+     import java.util.stream.Stream;
+     import java.util.List;
+     import java.util.Arrays;
+     import java.util.stream.Collectors;
+
+     public class ManejoListas {
+         public static void main(String[] args) {
+             List&lt;Double&gt; lisNum = Arrays.asList(12,4,8,6,10,2,14)
+                 .stream()
+                 .filter(n -> n % 2 == 0)
+                 .map(n -> n * 0.5)
+                 //.sorted()
+                 .collect(Collectors.toList());
+            
+             System.out.println(lisNum);
+        
+             Stream&lt;Integer&gt; lisNum1 = Arrays.asList(12,4,8,6,10,2,14)
+                 .stream()
+                 .filter(n -> n % 2 == 0)
+                 .map(n -> n * 2)
+                 .sorted();
+                 //.collect(Collectors.toList());
+            
+             //System.out.println(lisNum1);
+             lisNum1.forEach(System.out::println);
+        
+             List&lt;Integer&gt; lisNum2 = Arrays.asList(12,4,8,6,10,2,14);
+             List&lt;String&gt; lisNom = Arrays.asList("caramelo","burro","hijo","lluvia","salon","cafe","cielo","agua");
+                
+             long cantidadElementos = lisNum2.stream()
+                 //.filter(n -> n.length() < 1)
+                 .count();
+            
+             long cantElemen = lisNom.stream()
+                 .map(n -> n.length() < 5)
+                 //.filter(n -> n.length() < 5)
+                 .count();
+                 //.collect(Collectors.toList());
+            
+             Stream&lt;String&gt; lisNom1 = lisNom.stream()
+                 .filter(n -> n.length() < 5);
+                 //.collect(Collectors.toList());
+        
+             System.out.println();  
+             System.out.println(cantidadElementos);
+             System.out.println(cantElemen);
+             lisNom1.forEach(System.out::println);
+        
+             List&lt;String&gt; lisNomCorta = lisNom.stream()
+                 .skip(3)
+                 .limit(1)
+                 //.map(n -> n.length())
+                 //.mapToInt(n -> n.length())
+                 //.map(String :: length)
+                 //.mapToInt(String :: length)
+                 .collect(Collectors.toList());
+            
+             List&lt;Integer&gt; lonCor = lisNomCorta.stream()
+                 .map(String::length)
+                 //.count();
+                 .collect(Collectors.toList());
+            
+             System.out.println(lisNomCorta);
+        
+             System.out.println();
+             System.out.println(lonCor);
+            
+            
+         }
+     }
+     </pre>
+     <br>
+     <p>Listas en python (<strong>programa : ListasOp.py</strong> :</p>
+     <br>
+     <pre>
+     lista = [1,2,3,4,5,6,7]
+     print(lista[0])
+
+     print(lista[1:])
+     print(lista[2:])
+     print(lista[3:])
+
+     print(lista[:1])
+     print(lista[:2])
+
+     print(lista[-1])
+     print(lista[-2])
+     print(lista[-3])
+     print(lista[-4])
+     </pre>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Solución de problemas en lenguaje Java </h1>
+     <hr>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     
+     
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     
+     
+     <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias forma o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+     <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+          
+     
+     
+     <hr>
+     <h1>Solución de problemas en lenguaje Python</h1>
+     <hr>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Solución de problemas en lenguaje C++</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <p><strong>Paradigmas de programación </strong> </p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Conceptos</h1>
+        <hr>
+        <br>
+        <p><strong>Concepto 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+        <p><strong>Concepto 2.</strong> Los paradigmas.</p>
+        <br>
+        <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+        <br>
+        <p><strong>Concepto 3.</strong> Estilos de programación.</p>
+        <br>
+        <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+        <br>
+        <p><strong>Concepto 4.</strong> Formas de escribir las lambdas.</p>
+        <br>
+        <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+        </pre>
+        <br>
+        <p><strong>Concepto 5.</strong> Pequeña historia de los lenguajes de programación.</p>
+        <br>
+        
+        <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+        <br>
+        
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Problemas</h1>
+        <hr>
+        <br>
+       <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+        <br>
+        <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+        <br>
+        <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+        <br>
+        <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados adyacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+        <br>
+        <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+        <br>
+        <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.2.8</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

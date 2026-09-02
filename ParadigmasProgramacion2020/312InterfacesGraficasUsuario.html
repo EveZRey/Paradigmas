@@ -1,0 +1,886 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo III<br>Programación orientada a objetos</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">3.1.2 INTERFACES GRÁFICAS DE USUARIO</h1>
+    <section class="interna">
+      
+    <article>
+     <hr>
+     <h1>Interfaces de usuario</h1>
+     <hr>
+     <br>
+     <p>Ya que es la ventana por donde se comunica el usuario con la computadora, esta comunicación se puede hacer por medio de instrucciones de texto llamados comandos o por medio de íconos o ventanas de dialogo esto es de la forma gráfica. </p>
+     <br>
+     <p><strong>La clase JOptionPane:</strong> esta en el paquete  javax.swing. Los dos métodos de esta clase, son: showInputDialog() que permite al usuario alimentar una cadena desde el teclado; showMessageDialog() permite al programador desplegar el resultado.</p>
+     <br>
+     <p><strong>showInputDialog:</strong> la sintaxis para el uso de este método. Presentará un cuadro de dialogo que va a recibir una cadena para guardarla en la "variableTipoCadena".</p>
+     <br>
+     <pre>
+     variableTipoCadena = JOptionPane.showInputDialog("Cadena 
+     que se presentará en el cuadro de dialogo");
+     </pre>
+     <br>
+     <p><strong>showMessageDialog:</strong> la sintaxis para el uso de este método. Presentará un cuadro de dialogo con mucha información y con un boton que tiene OK.</p>
+     <br>
+     <pre>
+     JOptionPane.showMessageDialog(Componente pariente, 
+     mensaje a expresar, titulo de la caja, tipo de mensaje);
+     
+     Un ejemplo:
+     
+     JOptinPane.showMessageDialog(null, "Impuesto = $ " 
+     + 500.45, "Invocado", JOptionPane.PLAN_MENSAJE);
+     
+     Otro ejemplo:
+     
+     String cad;
+     int n1 = 45;
+     int n2 = 56;
+     int sum;
+     
+     cad = "Escribir dos números: " + n1 + "y" + n2 + "\n";
+     sum = n1 + n2;
+     
+     cad = cad + "La suma de números: " + sum + "\n";
+     cad = cad + "Es todo por ahora!";
+     
+     JOptionPane.showMessageDialog(null, cad, "Sumar números",
+      JOptionPane.ERROR_MESSAGE);
+     </pre>
+     <br>
+     <p>El siguiente programa es un ejemplo completo:</p>
+     <br>
+     <pre>
+     import javax.swing.JOptionPane;
+     
+     public class CalculoParametros {
+         public static void main(String args[]) {
+             double radio;
+             double area;
+             double circunferencia;
+             
+             String radioCad;
+             String salidaCad;
+             
+             radioCad = JOptionPane.showInputDialog("Escriba el radio: ");
+             
+             radio = Double.parseDouble(radioCad);
+             
+             area = Math.PI * radio * radio;
+             circunferencia = 2 * Math.PI * radio;
+             
+             salidaCad = "Radio: " + radio + "\n" +
+             "Área: " + area + " unidades cuadradas \n" +
+             "unidades";
+             
+             JOptionPane.showMessageDialog(null, salidaCad, "Circulo",
+             JOptionPane.INFORMATION_MESSAGE);
+             
+             System.exit(0);
+         }
+     }
+     </pre>
+     <br>
+     <p><strong>Convertir cadenas a números:</strong> para convertir las cadenes de números se utilizan los siguientes comandos:</p>
+     <br>
+     <pre>
+     Integer.parseInt(Cadena a convertir);
+     Float.parseFloat(Cadena a convertir);
+     Double.parseDouble(Cadena a convertir);
+     </pre>
+     <br>
+     <p>Otra forma de expresar el formato con la salida a consola, se hace de la siguiente manera:</p>
+     <br>
+     
+     <pre>
+     public class MetodosFormatoCadenas {
+                  
+         public static void main(String args[]) {
+             double x = 15.674;
+             double y = 235.73;
+             double z = 9525.9864;
+             int num = 83;
+             String cad;
+             
+             System.out.println("123456789012345678901234567890");
+             System.out.println(String.format("%.2f", x));
+             System.out.println(String.format("%.3f", y));
+             System.out.println(String.format("%.2f", z));
+             
+             System.out.println(String.format("%.2f", x));
+             System.out.println(String.format("%5d%7.2f", num, x));
+             System.out.println(String.format("El valor de: " + 
+             "num = %5d", num));
+             
+             cad = String.format("%.2f", z);
+                          
+             System.out.println(cad);
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente es un ejemplo de como usar el formato con System.out println():</p>
+     <br>
+     <pre>
+     import javax.swing.JOptionPane;
+     
+     public class EjemploFormatoGUI {
+         public static void main(String args[]) {
+             double x = 15.674;
+             double Y = 235.73;
+             double z = 9525.9864;
+             String cad;
+             
+             cad = String.format("El valor de x con dos decimales " + "lugares = %.2f%n", x) + String.format("Elvalor de y con dos decimales " + "lugares = %.2f%n", y) +
+             String.format("El valor de z con dos decimales " +
+             "lugares = %.2f%n", z);
+             
+             JOption.Pane.showMessageDialog(null, cad, "Formateando con el
+             mod format: ", JOptionPane. INFORMACION_MENSAJE);
+             
+             System.exit(0);
+         }
+     }
+     </pre>
+     <br>
+     <hr>
+     <h1>GUI JFrame, JLabel</h1>
+     <hr>
+     <br>
+     <p>La clase JFrame tiene varios métodos para controlar los atributos de una ventana, como el: título; el ancho y largo de la ventana. Los siguientes métodos estan en esta clase:</p>
+     <br>
+     <pre>
+     public JFrame()
+     public JFrame(String s)
+     public void setSize(int ancho, int alto)    
+     public void setTitle(String s)
+     public void setVisible(String s)
+     public void setDefaultCloseOperation(int operación)
+     public void removeAll()
+     public void repaint()
+     public void validate()
+     public void addWindowListener(WindowEvent e)
+     </pre>
+     <br>
+     <p>El siguiente es un programa que ejemplifica el uso de JFrame:</p>
+     <br>
+     <pre>
+     import javax.swing.*;
+
+     public class Etiqueta extends JFrame {
+         private static final int ANCHO = 350;
+         private static final int ALTURA = 100;
+         
+         public Etiqueta() {
+             setTitle("Etiqueta, letras, y colores");
+             setSize(ANCHO, ALTURA);
+             setDefaultCloseOperation(EXIT_ON_CLOSE);
+         }
+         
+         public static void main(String args[]) {
+             
+             Etiqueta oG = new Etiqueta();
+         }
+     }
+     </pre>
+     <br>
+     <p>El uso del JLabel:</p>
+     <br>
+     <p>Los siguientes son los métodos que se usan con la clase Container:</p>
+     <br>
+     <pre>
+     public void add(Objeto ob) {}
+     public void setLayout(Objeto ob) {}
+     </pre>
+     <br>
+     <p>Los siguientes son los métodos constructores que se usan con la clase JLabel:</p>
+     <br>
+     <pre>
+     public JLabel(String s) {}
+     public Jlabel(String s, int alinear) {}
+     public JLabel(String s, Icon i, int alinear) {}
+     public JLabel(Icon i) {}
+     </pre>
+     <br>
+     <p>Los siguientes son los métodos que se usan con la clase JLabel:</p>
+     <br>
+     <pre>
+     public String getText() {}
+     public void setText(String s) {}
+     </pre>
+     <br>
+     <p>Ejemplo de un programa que usa la clase JLabel:</p>
+     <br>
+     <pre>
+     import javax.swing.*;
+     import java.awt.*;
+     import java.awt.event.*;
+
+     public class EtiquetaColor extends JFrame {
+         private JLabel javaL, programmingL;
+         private Container pane;
+         private static final int ANCHO = 350;
+         private static final int ALTURA = 100;
+         
+         public EtiquetaColor() {
+             javaL = new JLabel("Java", SwingConstants.CENTER);
+             programmingL = new JLabel("Programming", SwingConstants.CENTER);
+                      
+             setTitle("Etiqueta, tipos, y colores");
+             pane = getContentPane();
+             pane.setLayout(new GridLayouy(1,2));
+             pane.add(JavaL);
+             pane.add(programmingL);
+             setSize(WIDTH, HEIGHT);
+             setVisible(true);
+             setDefaultCloseOperation(EXIT_ON_CLOSE);
+         }
+         public static void main(String args[]) {
+             LabelsColorsFontTwo demoObject = new LabelsColorsFontsTwo();
+         }
+     }
+     </pre>
+     <br>
+     <p>Uso de la clase <strong>Color</strong></p>
+     <br>
+     <p>Los siguientes son métodos constructores de la clase <strong>Color</strong></p>
+     <br>
+     <pre>
+     Color(int r, int g, int b) {}
+     Color(float r, float g, float b) {}
+     </pre>
+     <br>
+     <p>Los siguientes son métodos de la clase <strong>Color</strong></p>
+     <br>
+     <pre>
+     public Color brighter() {}
+     public Color darker() {}
+     public boolean equals(Object o) {}
+     public int getBlue() {}
+     public int getGreen() {}
+     public int getRed() {}
+     public int getRGB89 {}
+     public String toString() {}
+     </pre>
+     <br>
+     <p>Los siguientes son constructores y métodos de la clase <strong>Font</strong></p>
+     <br>
+     <pre>
+     public Font(String nom, int estilo, int tamaño) {}
+     public String getFamily() {}
+     public String getFontName() {}
+     </pre>
+     <br>
+     <p>Los siguientes son constructores y métodos de la clase <strong>JButton</strong></p>
+     <br>
+     <pre>
+     public JButton(Icon i) {}
+     public JButton(String s) {}
+     public JButton(String s, Icon i) {}
+     public void setText(String s) {}
+     public String getText() {}
+     public void addActionListener(ActionListener o) {}
+     </pre>
+     <br>
+     <p>Si se quiere crear dos botones, se hace como sigue:</p>
+     <br>
+     <pre>
+     private JButton colorB, fontB;
+     colorB = new JButtton("Color");
+     fontB = new JButton("Font");
+     </pre>
+     <br>
+     <p>Para colocar los botones en un contenedor pane, se hace de la siguiente manera:</p>
+     <br>
+     <pre>
+     pane.add(colorB);
+     pane.add(fontB);
+     pane.add(programmingL);
+     pane.setLayout(new GridLayout(2, 2));
+     </pre>
+     <br>
+     <p>La clase <strong>ActionListener</strong> sirve para manejar eventos, tiene el método <strong>actionPerformed</strong>, donde usted incluye el código que hace que el sistema ejecute la acción del evento que se genera.</P>
+     <br>
+     <p>Con la palabra reservada <strong>interface</strong> se representa una clase que contiene solamente un método, llamado método de encabezado el cual termina siempre por un punto y coma, como se muestra a continuación:</p>
+     <br>
+     <pre>
+     public interface ActionListener {
+         public void actionPerformed(ActionEvent e);
+     }
+     </pre>
+     <br>
+     <p>El método <strong>actionPerformed</strong> no tiene cuerpo, java no permite instanciar un objeto del tipo <strong>ActionListener</strong>. La manera hacer la instanciación es crear una clase que implemente el método requerido por <strong>ActionListener</strong> de modo que el objeto que se necesita se pueda instanciar. La clase creada debe proveer el código para el método <strong>actionPerformed</strong>, como en el siguiente ejemplo:</p>
+     <br>
+     <pre>
+     private class ColorButtonHandler implements ActionListener {
+         public void actionPerformed(ActionEvent e) {
+             //El código para poner los colores que estan en el objeto
+         }
+     }
+     </pre>
+     <br>
+     <p>Otro ejemplo:</p>
+     <br>
+     <pre>
+     private class ColorButtonHandler implements ActionListener {
+         public void actionPerformed(ActionEvent e) {
+             javaL.setForeground(Color.red);
+             programmingL.setForeground(Color.blue);
+             pane.setBackground(Color.cyan);
+             colorB.setBackground(Color.orange);
+             fontB.setBackground(Color.orange);
+         }
+     }
+     </pre>
+     <br>
+     <p>Para crear un objeto listener de tipo <strong>ColorButtonHandler</strong>, se hace como sigue:</p>
+     <br>
+     <pre>
+     ColorButtonHandler cHandler;
+     cHandlere = new ColorButtonHandler();
+     
+     colorB.addActionListener(cHandler);
+     </pre>
+     <br>
+     <p>Se crea la clase FontButtonHandler:</p>
+     <br>
+     <pre>
+     private class FontButtonHandler implements ActionListener {
+         public void actionPerformed(ActionEvent e) {
+             javaL.setFont(new Font("Arial", Font.BOLD, 24);
+             programmingL.setFont(new Font("Arial", Fon.BOLD, 24));
+         }
+     }
+     </pre>
+     <br>
+     <p>Crear objetos de la clase FontButtonHandler: </p>
+     <br>
+     <pre>
+     FontButtonHandler fHandler;
+     fHandlere = new FontButtonHandler();
+     
+     fontB.addActionListener(fHandler);
+     </pre>
+     <br>
+     <p>El programa para crear las etiquetas y botones y cambiar el color:</p>
+     <br>
+     <pre>
+     import javax.swing.*;
+     import java.awt.*;
+     import java.awt.event.*;
+     
+     public class LabelColorsFonts extends JFrame {
+         private JLabel javaL, programmingL;
+         private JButton colorB, fontB;
+         private ColorButtonHandler cHandler;
+         p'rivate FontButtonHandler fHandler;
+         private static final int WIDTH = 350;
+         private static final int HEIGHT = 100;
+
+         public LabelsColorFonts() {
+             javaL = new JLabel("Java", SwingConstants.CENTER);
+             programmingL = new JLabel("Programming", SwingConstants.CENTER);
+             colorB = new JButton("Color");
+             cHandler = new ColorButtonHandler();
+             colorB.addActionListener(cHandler);
+             fontB = new JButton("Font");
+             fHandler = new FontButtonHandler();
+             fontB.addActionListener(fHandler);
+             setTitle("Labels, fonts, and colors demostration");
+             pane = getContentPane();
+             pane.setLayout(new GridLayout(2, 2));
+             pane.add(javaL);
+             pane.add(programmmingL);
+             pane.add(colorB);
+             pane.add(fontB);
+             setSize(WIDTH, HEIGHT);
+             setVisible(true);
+             setDefaultCloseOpretation(EXIT_ON_CLOSE);
+         }
+         private class ColorButtonHandler implements ActionListene {
+             public void actionPerformed(Action e) {
+                 javaL.setForeground(Color.red);
+                 programmingL.setForeground(Color.blue);
+                 pane.setBacground(Color.cyan);
+                 colorB.setBackground(Color.orange);
+                 fontB.setBackground(Color.orange);
+             }
+         }
+         private class FontButtonHandler implements ActionListener {
+             public void actionPerformed(Action e) {
+                 javaL.setFont(new Font("Arial", Font.BOLD, 24);
+                 programmingL.setFont(new Font("Ariel", Font.BOLD, 24);
+             }
+         }
+         public static void main(String args[]) {
+             LabelsColorsFonts demoObject = new LabelsColorsFonts();
+         }
+     }
+     </pre>
+     <br>
+     
+     <hr>
+     <h1>Agregación</h1>
+     <hr>
+     <br>
+     <p><strong>Definición de modificadores:</strong> es una palabra como public, private, y protected, que sirve para indicar que clases, métodos, o datos se pueden acceder de otras clases o no se puede.</p>
+     <br>
+     <p>El modificador <strong>private</strong> indica que los métodos y los datos solamente se pueden accesar desde la misma clase.</p>
+     <br>
+     <p>El modificador <strong>protected</strong> indica que los métodos y los datos de la superclase solamente se pueden accesar desde la subclase.</p>
+     <br>
+     <pre>
+     public class Clase1 {
+         public int x;
+         int y;
+         private int z;
+         
+         public void metodo1() {
+         
+         }
+         
+         void metodo2() {
+         
+         }
+         
+         private void metodo3() {
+         
+         }
+     }
+     
+     class Clase2 {
+         void metodo() {
+             Clase1 o = new Clase1();
+         }
+     }
+     </pre>
+     <br>
+     <p>Se puede acceder desde el metodo() a o.x, o.y; no se puede acceder desde el metodo() a o.z; no se puede invocar desde el metodo() a o.metodo3(); se puede invocar desde el metodo() a o.metodo1(), y o.metodo2()., </p>
+     <br>
+     <pre>
+     public class Clase3 {
+         void metodo() {
+             Clase1 o = new Clase1();
+         }
+     }
+     </pre>
+     <br>
+     <p>Se puede acceder desde el metodo() a o.x; no se puede acceder desde el metodo() a o.y, o.z; se puede invocar desde el metodo() a o.metodo1(); no se puede invocar desde el metodo() a o.metodo2(), o.metodo3().</p>
+     <br>
+     <pre>
+     public class NumPrimos {
+         public static void main(String args[]) {
+             System.out.println(#Los primeros 50 números primos, son: ");
+             impPri(50);
+         }
+         
+         public static void impPri(int nsP) {
+             final int NUM = 10;
+             int con = 0;
+             int num = 2;
+             
+             while(con < nsP) {
+                 if(esPrimo(num)) {
+                     con++;
+                     
+                     if(con % NUM == 0) {
+                         System.out.println("%-5s\n",num);
+                     }
+                     else
+                         System.out.println("%-5s",num);
+                 }
+             }
+             num++;
+         }
+          
+         public static boolean esPrimo(int num) {
+             for(int div = 2; div <= num / 2; div++) {
+                 if(num % div == 0) {
+                     returl false;
+                 }
+             }
+             return true;
+         }
+     }
+     </pre>
+     <br>
+     <p>La relación entre clases también se hace a partir de los métodos.</p>
+     <br>
+     <pre>
+     public class SobreMet {
+         public static void main(String args[]) {
+             System.out.println("El número máximo entre  3 y 4, es: " + max(3,4));
+             System.out.println("El número máximo entre 3.0 y 5.4, es: " + max(3.0,5.4));
+             System.out.println("El número máximo entre 3.0, 3.4 y 10.14, es: " + max(3.0,5.4,10.14));
+         }
+         
+         public static int max(int n1, int n2) {
+             if(n1 < n2)
+                 return n1;
+             else
+                 return n2;
+         }
+         
+         public static double max(double n1, double n2) {
+             if(n1 < n2)
+                 return n1;
+             else
+                 return n2;
+         }
+         
+         public static int max(double n1, double n2, double n3) {
+             return max(max(n1,n2),n3);
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente programa es con el uso de ventanas de dialogo:</p>
+     <br>
+     <pre>
+     import javax.swing.JFrame;
+     
+     public class UnFrame {
+         public static void main(Stringf args[]) {
+             JFrame fra1 = new JFrame();
+             fra1.setTitle("Cuadro 1");
+             fra1.setSize(200,150);
+             fra1.setLocation(200,100);
+             fra1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             fra1.setVisible(true);
+             
+             JFrame fra2 = new JFrame();
+             fra2.setTitle("Cuadro 1");
+             fra2.setSize(200,150);
+             fra2.setLocation(410,100);
+             fra2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             fra2.setVisible(true);
+         }
+     }
+     </pre>
+     <br>
+     <p><strong>Creación de objetos:</strong> si se tienen diferentes clases, crear objetos de cada una de las clases.</p>
+     <br>
+     <pre>
+     public class NombreClase {
+         public static void main(String args[]) {
+             NombreDeLaClase nombreObjeto = new NombreConstructor();
+         }
+     }
+     </pre>
+     <br>
+     <hr>
+     <h1>Composición</h1>
+     <hr>
+     <br>
+     <p>Uno o más miembros de una clase son objeto de uno o más de otras clases. Es una relación uno a uno; por ejemplo, cada persona tiene una fecha de cumpleaños.</p>
+     <br>
+     <pre>
+     public class Fecha {
+         private int fM;
+         private int fD;
+         private int fA;
+         
+         public Fecha() {
+             fM = 1;
+             fD = 1;
+             fA = 2000;
+         }
+         
+         public Fecha(int m, int d, int a) {
+             fM = m;
+             fD = d;
+             fA = a;
+         }
+         
+         public void setFecha(int m, int d, int a) {
+             fM = m;
+             fD = d;
+             fA = a;
+         }
+         
+         public int get Mes() {
+             return fM;
+         }
+         
+         public int getDia() {
+             return fD;
+         }
+         
+         public int getAnio() {
+             return fA;
+         }
+
+         public String toString() {
+             return fM + "/" + fD + "/" + fA;
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente es la clase Persona: </p>
+     <br>
+     <pre>
+     public class Persona {
+         private String nombre;
+         private String apellido;
+         
+         public Persona() {
+             nombre = "";
+             apellido = "";
+         }
+         
+         public Persona(String nombre, String apellido) {
+             setNombre(nombre, apellido);
+         }
+         
+         public void setNombre(String pNom, String segNom) {
+             nombre = pNom;
+             apellido = segNom;
+         }
+         
+         public void setPrimNom(String pNom) {
+             nombre = pNom;
+         }
+         
+         public void setApellido(String segNom) {
+             apellido = segNom;
+         }
+         
+         public String getPnom() {
+             return nombre;
+         }
+         
+         public String getApellido() {
+             return apellido;
+         }
+         
+         public String toString() {
+             return nombre + apellido;
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente es la clase InfPersonal:</p>
+     <br>
+     <pre>
+     public class InfPersonal {
+         private Persona nombre;
+         private Fecha fD;
+         private int personaId;
+         
+         public InfPersonal() {
+             nombre = new Persona();
+             fD = new Fecha();
+             personaId = 0;
+         }
+         
+         public InfPersnal(String nombre, String apellido, int mes, int dia, int anio, int iD) {
+             nombre = new Persona(nombre, apellido);
+             fD = new Fecha(mes, dia, anio);
+              personaId = iD;
+         }
+         
+         public void setInfPersonal(String nombre, String apellido, int mes, int dia, int anio, int iD) {
+             nombre. setNombre(nombre, apellido);
+             fD.setFecha(mes, dia, anio);
+             personaId =  iD;
+         }
+         
+         public String toString() {
+             return nombre.toString() + fD.toString() + personaId;
+         }
+     }
+     </pre>
+     <br>
+    <article>
+    
+    </article>
+    </section>
+      <aside>
+     <hr>
+     <h1>Pensamientos</h1>
+     <hr>
+     <br>
+     <p><strong>Pensamiento 1.</strong> una mentira dicha una vez sigue siendo una mentira, pero una mentira dicha mil veces se convierte en verdad.</p>
+     <br>
+     <p class="cita"><cite>Joseph Goebbels, Ministro de propaganda de Adolfo Hitler</cite></p>
+     <br>
+     <p><strong>Pensamiento 2.</strong> existen dos clases sociales los burgueses y los trabajadores.</p>
+     <br>
+     <p class="cita"><cite>Karl Marx, Filosofo y economista del siglo XIX</cite></p>
+     <br>
+     <hr>
+     <h1>Origenes de la programación orientada a objetos</h1>
+     <hr>
+     <br>
+     <p><strong>Surgimiento:</strong> comenzó con las investigaciones de la demostración automática de teoremas a inicios de la década de 1980.</p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+          
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+      <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+         
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias formas o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+        <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+           <p>La notación para lambda es la siguiente:  </p>
+     <br>
+           <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+           <br>
+           <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+     <br>
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+     <br>
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+     <br>
+     <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+           
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 3.1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="55cm" height="33cm" viewBox="94 46 1089 658" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Fondo">
+    <text font-size="33.9118" style="fill: #00ff00; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="287.4" y="77.6776">
+      <tspan x="287.4" y="77.6776">Paradigmas de programación</tspan>
+    </text>
+    <text font-size="33.9118" style="fill: #00ff00; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="365.4" y="128.678">
+      <tspan x="365.4" y="128.678">Lenguajes y paradigmas </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #0000ff; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="94.6" y="241.9">
+      <tspan x="94.6" y="241.9">Espectativas de los estudiantes: </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="486.6" y="243.4">
+      <tspan x="486.6" y="243.4">Enseñanza dinámica. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="484.6" y="289.4">
+      <tspan x="484.6" y="289.4">Resolver problemas con</tspan>
+      <tspan x="484.6" y="317.679">el paradigma adecuado. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="487.2" y="374.8">
+      <tspan x="487.2" y="374.8">Usar la modularidad y la</tspan>
+      <tspan x="487.2" y="403.079">reutilización de código. Para</tspan>
+      <tspan x="487.2" y="431.357">que sea sostenible. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="486.8" y="496.2">
+      <tspan x="486.8" y="496.2">Circulos de decisión en clase</tspan>
+      <tspan x="486.8" y="524.479">, pero la clase ya debe estar</tspan>
+      <tspan x="486.8" y="552.757">cargada en la página. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="491.4" y="609.1">
+      <tspan x="491.4" y="609.1">Optimizar código. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="492" y="670.5">
+      <tspan x="492" y="670.5">Explicar lo aprendido cómo</tspan>
+      <tspan x="492" y="698.779">se aplica en el mundo laboral. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="484.4" y="181.199">
+      <tspan x="484.4" y="181.199">Propuesta 1 </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="873.4" y="181.199">
+      <tspan x="873.4" y="181.199">Propuesta 2 </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="821.902" y="246.9">
+      <tspan x="821.902" y="246.9">Detallar el funcionamiento</tspan>
+      <tspan x="821.902" y="275.179">del código. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="826.262" y="326.9">
+      <tspan x="826.262" y="326.9">Cumplir con el temario. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="830.262" y="385.9">
+      <tspan x="830.262" y="385.9">Usar un lenguaje base para</tspan>
+      <tspan x="830.262" y="414.179">describir otros paradigmas. </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="834.026" y="481.9">
+      <tspan x="834.026" y="481.9">Buscar inquietudes en internet</tspan>
+      <tspan x="834.026" y="510.179">y presentarlas en clase, para</tspan>
+      <tspan x="834.026" y="538.457">provocar la aclaración en las</tspan>
+      <tspan x="834.026" y="566.736">siguientes clases(5 minutos). </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #ff0000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="837.026" y="645.9">
+      <tspan x="837.026" y="645.9">Análisis de las soluciones. </tspan>
+    </text>
+  </g>
+</svg>

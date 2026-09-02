@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo II<br>Programación orientada a objetos</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">2.1.3 ENCAPSULAMIENTO Y MODIFICADORES</h1>
+    <section class="interna">
+      
+    <article>
+     <hr>
+     <h1>Encapsulamiento</h1>
+     <hr>
+     <br>
+     <p><strong>Definición de encapsulamiento:</strong> es cuando algo es envuelto dentro de una cubierta protectora. Cuando se aplica a objetos significa que los datos del objeto son protegidos ocultandose dentro del objeto.</p>
+     <br>
+     <p>El punto es ahora como accesarse a los datos para verlos o modificarlos. Esto se hace con el uso de los métodos.</p>
+     <br>
+     <p>Se comienza con el uso del teclados. Se ve con el siguiente ejemplo:</p>
+     <br>
+     <pre>
+     import java.util.Scanner;
+     
+     public class Saludo {
+         public static void main(String args[]) {
+             Scanner otec = new Scanner(System.in);
+             String nombre;
+             System.out.println("Escribe tu nombre: ");
+             nombre = otec.nextLine();
+             System.out.println("Buenas: " + nombre);
+         }
+     }
+     </pre>
+     <br>
+     <p>Los siguientes métodos de acceso por teclado, son los siguientes: nestInt(), nextLong(), nextFloat(), nextDouble(), nextLine() y next().</p>
+     <br>
+     <p>La clase principal se forma de la siguiente manera: </p>
+     <br>
+     <pre>
+     public class NombreClase {
+         public static void main(String args[]) {
+         
+         }
+     }
+     </pre>
+     <br>
+     <p>Se pueden tener varias clases en un programa, de la siguiente forma:</p>
+     <br>
+     <pre>
+     public class ClasePrincipal {
+         public static void main(String args[]) {
+         
+         }
+     }
+     
+     class ClaseUno {
+         public void setMetodo(String datoCadena) {
+             this.datoCadena;
+         }
+     }
+
+     class ClaseDos {
+         public int getMetodo() {
+             return datoEntero;
+         }
+     }
+     </pre>
+     <br>
+     <p>Existen métodos: de acceso este método entrega los datos almacenados del objeto; el método mutador es el que muta el estado de un objeto para cambiar algo  o todo los datos almacenados del objeto; es un método booleano aquel que verifica si alguna condición es falsa o verdadera.</P>
+     <br>
+     <p>El método de acceso, es el siguiente:</p>
+     <br>
+     <pre>
+     class ClaseDos {
+         public int getMetodo() {
+             return datoEntero;
+         }
+     }
+     </pre>
+     <br>
+     <pre>
+     <p>El método mutador, es el siguiente:</p>
+     <br>
+     class ClaseUno {
+         public void setMetodo(String datoCadena) {
+             this.datoCadena;
+         }
+     }
+     </pre>
+     <br>
+     <p>El método booleano, es el siguiente:</p>
+     <br>
+     <pre>
+     class ClaseTres {
+         boolean isMetodo() {
+             return true;
+             o return false;
+         }
+     }
+     </pre>
+     <br>
+     
+     <hr>
+     <h1>Modificadores</h1>
+     <hr>
+     <br>
+     <p><strong>Definición de objeto:</strong> es un conjunto de datos relacionados que identifican el estado actualizado del objeto más un conjunto de comportamientos.</p>
+     <br>
+     <p><strong>Creación de objetos:</strong> si se tienen diferentes clases, crear objetos de cada una de las clases.</p>
+     <br>
+     <p><strong>La palabra reservada static:</strong> la sentencia para declarar a las constantes que se colocan fuera del método main. Se muestra en el siguiente código:</p>
+     <br>
+     <p>Una variable static también llamada variables de clase. Un método static puede ser llamado sin crear una instancia de la clase. Se puede ver en el programa <strong>Pprueba.java</strong>.</p>
+     <br>
+     <pre>
+     public class ProgramaJava {
+         static final int NUMERO = 12;
+         public static void main(String args[]) {
+             int priNum;
+             int segNum;
+             priNum = 18;
+             System.out.println("El primer número, es: " + priNum);
+             segNum = priNum + 2 * NUMERO;
+             System.out.println("Segundo número, es: " + segNum);
+         }
+     }
+     </pre>
+     <br>
+     <p>
+     El siguiente es un ejemplo cuando se usa la palabra static con la clase Scanner.
+     </P>
+     <br>
+     <pre>
+     public class NombreClase {
+         static Scanner consola = new Scanner(System.in);
+         public static void main(String args[]) {
+             int pies;
+             int pulgadas;
+             System.out.println("Escribir dos enteros separados por un espacio");
+             
+             pies = consola.nextInt();
+             pulgadas = consola.nextInt();
+             
+             System.out.println("pies = " + pies);
+             System.out.println("pulgadas = " + pulgadas);
+         }
+     }
+     </pre>
+     <br>
+     <p>Otro ejemplo de teclado:</p>
+     <br>
+     <pre>
+     public class Ejemplo {
+         static Scanner consola = new Scanner(System.in);
+         public static void main(String args[]) {
+             String nombre;
+             String apellido;
+             int edad;
+             double peso
+             
+             System.out.println("Escribir el nombre");
+             nombre = consola.next();
+             apellido = consola.next();
+             edad = consola.nextInt();
+             peso = consola.nextDouble();
+             
+             System.out.println("Se escriben los datos:");
+         }
+     }
+     </pre>
+     <br>
+     <p>El siguiente ejemplo:</p>
+     <br>
+     <pre>
+     public class Ejemplo {
+         static final int NUMERO = 12;
+         static Scanner consola = new Scanner(System.in);
+         public static void main(String args[]) {
+             String nombre;
+             String apellido;
+             int edad;
+             double peso
+             
+             System.out.println("Escribir el nombre");
+             nombre = consola.next();
+             apellido = consola.next();
+             edad = consola.nextInt();
+             peso = consola.nextDouble();
+             
+             System.out.println("Se escriben los datos:");
+         }
+     }
+     </pre>
+     <br>
+     <p>El ejemplo presenta:</p>
+     <pre>
+     import static java.lang.Math.*;
+
+     public class Nombre {
+     
+     }
+     </pre>
+     <br>  
+    <article>
+    
+    </article>
+    </section>
+      <aside>
+     <hr>
+     <h1>Pensamientos</h1>
+     <hr>
+     <br>
+     <p><strong>Pensamiento 1.</strong> una mentira dicha una vez sigue siendo una mentira, pero una mentira dicha mil veces se convierte en verdad.</p>
+     <br>
+     <p class="cita"><cite>Joseph Goebbels, Ministro de propaganda de Adolfo Hitler</cite></p>
+     <br>
+     <p><strong>Pensamiento 2.</strong> existen dos clases sociales los burgueses y los trabajadores.</p>
+     <br>
+     <p class="cita"><cite>Karl Marx, Filosofo y economista del siglo XIX</cite></p>
+     <br>
+     <hr>
+     <h1>Origenes de la programación orientada a objetos</h1>
+     <hr>
+     <br>
+     <p><strong>Surgimiento:</strong> comenzó con las investigaciones de la demostración automática de teoremas a inicios de la década de 1980.</p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+          
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+      <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+         
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias formas o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+        <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+                        
+          </lo></p>
+        <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+     </lo></p>
+           <br>
+           <p>La notación para lambda es la siguiente:  </p>
+     <br>
+           <pre>
+     <strong>lambda</strong> (parámetro) (expresión)
+     
+     &lambda;x.M
+     
+     <strong>lambda</strong> (x) (x*x)
+     
+     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     
+     (&lambda;x.x*x)5
+     </pre>
+           <br>
+           <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
+     <br>
+     <p align="center"><img src="12Lambda2.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 2: </strong> la temperatura del cuerpo humano es de 36 grados centigrados. Si tenemos una lista de pacientes con temperatura de 40, 30. 39, 38, 36, determinar si tienen calentura o presión baja o esta bien su temperatura. </p>
+     <br>
+     <p align="center"><img src="12Lambda3.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 3: </strong> obtener (x<sup>2</sup> + 1)<sup>1/2</sup> por medio de composición de funciones. Sea u(x) = x<sup>2</sup>, h(x) = x + 1, g(x) = x<sup>1/2</sup></p>
+     <br>
+     
+     <p align="center"><img src="12Lambda4.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p align="center"><img src="12Lambda5.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Problema 5: </strong> implementar el algoritmo de Gauss de la suma de los 100 números.</p>
+     <br>
+     <p><strong>Problema 6: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+           
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 2.1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

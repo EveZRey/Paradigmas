@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="46cm" height="61cm" viewBox="93 47 906 1210" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Fondo">
+    <text font-size="33.9118" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="336" y="79">
+      <tspan x="336" y="79">Lenguajes y paradigmas</tspan>
+    </text>
+    <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="182" y="145">
+      <tspan x="182" y="145"></tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="224" y="479">
+      <tspan x="224" y="479">h = 8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="226" y="511">
+      <tspan x="226" y="511">v = 100</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="135.6" y="152.4">
+      <tspan x="135.6" y="152.4">Quiero saber cuanto gano al día:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="207.6" y="199.4">
+      <tspan x="207.6" y="199.4">Lo que tengo que saber:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="389.2" y="245.8">
+      <tspan x="389.2" y="245.8">Las horas que trabajo en un día:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="385.8" y="291.2">
+      <tspan x="385.8" y="291.2">¿Cuanto me pagan por una hora?:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="812.6" y="247.4">
+      <tspan x="812.6" y="247.4">8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="815.2" y="288.8">
+      <tspan x="815.2" y="288.8">100 pesos</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="218.8" y="356.2">
+      <tspan x="218.8" y="356.2">Lo que tengo que hacer con los datos:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="522.4" y="389.6">
+      <tspan x="522.4" y="389.6">Realizar una multiplicación.</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="415" y="456.5">
+      <tspan x="415" y="456.5">8 * 100 = 800 pesos</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="233.6" y="614.9">
+      <tspan x="233.6" y="614.9">Presentar:</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #0000ff; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:italic;font-weight:normal" x="393.2" y="651.3">
+      <tspan x="393.2" y="651.3">Gano 800 pesos al día</tspan>
+    </text>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="95" y="732" width="153" height="111" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="171.5" y="791.381">
+        <tspan x="171.5" y="791.381"></tspan>
+      </text>
+      <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="109.6" y="823.4">
+        <tspan x="109.6" y="823.4">P</tspan>
+      </text>
+      <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="195.6" y="820.4">
+        <tspan x="195.6" y="820.4">Alfa</tspan>
+      </text>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="140" y1="812" x2="165.268" y2="812.722"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="172.765,812.936 162.626,817.649 165.268,812.722 162.912,807.653 "/>
+      <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="106.2" y="766.8">
+        <tspan x="106.2" y="766.8">Producción</tspan>
+      </text>
+    </g>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="367.8" y="789.2">
+      <tspan x="367.8" y="789.2">T </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="451" y="787">
+      <tspan x="451" y="787">i</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="472" y="787">
+      <tspan x="472" y="787">V</tspan>
+    </text>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="401" y1="781" x2="417.264" y2="781"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="424.764,781 414.764,786 417.264,781 414.764,776 "/>
+    </g>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="599.6" y="721.4">
+      <tspan x="599.6" y="721.4">i = entero</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="601.2" y="761.8">
+      <tspan x="601.2" y="761.8">V = variables</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="366.8" y="838.2">
+      <tspan x="366.8" y="838.2">V = {h, v}</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="497.4" y="786.6">
+      <tspan x="497.4" y="786.6">;</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="986" y="1222.5">
+      <tspan x="986" y="1222.5">P</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="219.6" y="1033.4">
+      <tspan x="219.6" y="1033.4">h = 8.0</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="354.2" y="1033.3">
+      <tspan x="354.2" y="1033.3">v = 100.8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="395.6" y="1093">
+      <tspan x="395.6" y="1093">T </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="480" y="1092">
+      <tspan x="480" y="1092">f</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="499.8" y="1090.8">
+      <tspan x="499.8" y="1090.8">V</tspan>
+    </text>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="428.8" y1="1084.8" x2="445.064" y2="1084.8"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="452.564,1084.8 442.564,1089.8 445.064,1084.8 442.564,1079.8 "/>
+    </g>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="525.2" y="1090.4">
+      <tspan x="525.2" y="1090.4">;</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="182.2" y="931.4">
+      <tspan x="182.2" y="931.4">T </tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="265.4" y="929.2">
+      <tspan x="265.4" y="929.2">i</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="286.4" y="929.2">
+      <tspan x="286.4" y="929.2">V</tspan>
+    </text>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="215.4" y1="923.2" x2="231.664" y2="923.2"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="239.164,923.2 229.164,928.2 231.664,923.2 229.164,918.2 "/>
+    </g>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="311.8" y="928.8">
+      <tspan x="311.8" y="928.8">;</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="690.6" y="1041.4">
+      <tspan x="690.6" y="1041.4">f = flotante</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="283.6" y="1184.4">
+      <tspan x="283.6" y="1184.4">+</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="308.2" y="1186.8">
+      <tspan x="308.2" y="1186.8">100.80</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="242.8" y="1186.2">
+      <tspan x="242.8" y="1186.2">8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="399.4" y="1185.6">
+      <tspan x="399.4" y="1185.6">= 108.8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="314.4" y="1246.9">
+      <tspan x="314.4" y="1246.9">+</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="357" y="1251.3">
+      <tspan x="357" y="1251.3">float 100.80</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="242.6" y="1250.7">
+      <tspan x="242.6" y="1250.7">int 8</tspan>
+    </text>
+    <text font-size="22.6229" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.2" y="1250.1">
+      <tspan x="516.2" y="1250.1">= float 108.8</tspan>
+    </text>
+  </g>
+</svg>

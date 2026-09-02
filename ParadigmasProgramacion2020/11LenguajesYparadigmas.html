@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
+      
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
+
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.1 LENGUAJES Y PARADIGMAS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Definición de lenguaje</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española</strong></p>
+     <br>
+     <p>1. m. Facultad del ser humano de expresarse y comunicarse con los demás a través del sonido articulado o de otros sistemas de signos.  </p>
+     <p>3. m. Manera de expresarse. Lenguaje culto, grosero, sencillo, técnico, forense, vulgar. </p>
+     <p>7. m. Inform. Conjunto de signos y reglas que permite la comunicación con una computadora. </p>
+     <br>
+     <p><strong>Otra definición del lenguaje en general</strong></p>
+     <br>
+     <p>El lenguaje es un método exclusivamente humano, y no instintivo, de comunicar ideas, emociones y deseos por medio de un sistema de símbolos producidos de manera deliberada.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p><strong>Para formalizar los lenguajes naturales y los lenguajes de programación</strong></p>
+     <br>
+     <p><strong>Los lenguajes naturales.</strong> El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+     <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+     <button onclick="abrirVentana7()">Definición del lenguaje</button>
+     <br>
+     <p><strong>Características de los lenguajes de programación</strong></p>
+     <br>
+     <button onclick="abrirVentana6()">Libro de programas</button>  
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java, Python)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript, C++, Java, Python)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     
+     <p><strong>Los tipos de paradigmas de programación </strong> </p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     <p><ol>
+           <li><strong> Paradigma imperativo.</strong> Es como se hace.</li>
+           
+           <li><strong> Paradigma declarativo.</strong> Es que se quiere.</li>
+
+           <li><strong> Paradigma orientado a objetos.</strong> Es modelar conceptos como objetos interactuantes.</li>
+
+           <li><strong> Paradigma funcional.</strong> Es componer transformaciones puras (basada en funciones matemáticas) evitando compartir estados.</li>
+           
+           <li><strong> Paradigma lógico.</strong> Es utilizar la lógica para resolver problemas.</li>
+     </ol></p>
+           <br>
+           <button onclick="abrirVentana5()">Los paradigmas</button>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     
+     <hr>
+     <h1>Formas de programar</h1>
+     <hr>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+         <p><ol>
+             <li><strong> Programación estructurada.</strong> Se aplican tres reglas de control: la secuencia (se lee una orden y se ejecuta), la decisión (if) y la repetición (for). </li>
+
+             <li><strong> Programación procedimental.</strong> Es secuencial, el código esta dividido en bloques cortos (parecido a funciones). Las variables y los datos en cada bloque son independientes. También usa desiciones y repeticiones.</li>
+
+             <li><strong> Programación modular (paradigma funcional).</strong> Se divide el programa en partes pequeñas que trabajan de manera independiente y que se comunican por medio de interfaces.</li>
+
+             <li><strong> Programación lógica.</strong> Es el uso de proposiciones lógicas para formular un programa.</li>
+
+             <li><strong> Programación reactiva.</strong> Su funcionamiento se basa en el flujo de datos. Si un dato cambia el programa reacciona de tal manera que no se suspende o se para.</li>
+         </ol></p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+             
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas sobre formas de programar</h1>
+        <hr>
+        <br>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera reactiva?</p>
+        
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?</p>
+        
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera procedimental?</p>
+        
+        <p><strong>Pregunta 5.</strong> ¿Que es programar de manera modular?</p>
+                
+        <br>
+        
+        <hr>
+        <h1>Preguntas sobre paradigmas</h1>
+        <hr>
+        <br>
+        <p><strong>Pregunta.</strong> ¿Que es el uso de los paradigmas?</p>
+        <br>
+        <p><strong>Otras preguntas.</strong> </p>
+        <br>
+          <ol>
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+                        
+          </ol></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

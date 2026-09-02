@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
+      
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.1.1 CRITERIOS DE LOS LENGUAJES DE PROGRAMACIÓN</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Características de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>El lenguaje como herramienta.</strong></p>
+     <br>
+     <p>El lenguaje es una herramienta que te permite implementar un paradigma de programación. </p>
+     <br>
+     <p>Provee la sintaxis y la semántica para escribir el código que entienda la computadora. </p>
+     <br>
+     <p>Especifica el conjunto de reglas e instrucciones que usas para comunicarte con la computadora. </p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <p><strong>Aplicación de los lenguajes de programación.</strong></p>
+     <br>
+     <p>La siguiente figura muestra las características más relevantes de un lenguaje de programación, que lo hacen amigable con el programador. Esto se hace poniendo énfasis en la sintaxis y la semántica. </p>
+     <br>
+     <br>
+     <button onclick="abrirVentana7()">Definición del lenguaje</button>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><strong>Por su necesidad:</strong> los lenguajes de programación deben atender las necesidades de los programas: el cambio de estado, la secuencia de instrucciones, el control. </p>
+     <br>
+     <p><strong>Por su objetivo:</strong> el lenguaje de programación sirve para comunicarse con la computadora para solicitar una operación o una información.  </p>
+     <br>
+     
+     <hr>
+     <h1>Ejemplos de código en diferentes lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p>Las instrucciones en lenguaje máquina: </p>
+     <br>
+     <pre>
+     00000010101111001010
+     00000010111111001000
+     00000011001110101000
+     </pre>
+     <br>
+     <p>En ensamblador: </p>
+     <br>
+     <pre>
+     LOAD   I
+     ADD    J
+     STORE  K
+     </pre>
+     <br>
+     <p>En pseudocódigo:</p>
+     <br>
+     <pre>
+     k = i + j
+     </pre>
+     <br>
+     <p><strong>En un lenguaje especifico.</strong> Por ejemplo en lenguaje Python: ordenar de menor a mayor los elementos de una lista de números. </p>
+     <br>
+     <pre>
+        numeros = [3,1,4,1,5]
+        resultado = []
+        for x in numeros:
+           if x > 2:
+              resultado.append(x)
+        print(resultado)
+     </pre>
+     <br>
+     <br>
+     <button onclick="abrirVentana8()">Las palabras del lenguaje</button>
+     <br>
+     <p align="center"><img src="11-1Definicion.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <p><strong>Los lenguajes de programación</strong> tienen una similitud con los lenguajes naturales en cuanto a estructura y estudio, pues también deben seguir las mismas etapas. Aunque la implementación de los lenguajes naturales para traducirlos a lenguaje máquina es muy diferente a los lenguajes de programación.</p>
+     <br>
+     <p><strong>Para el estudio de los lenguajes de programación</strong> se utiliza la jerarquía de Chomsky, dónde se representan por medio de producciones los elementos tales, como: palabras clave, identificadores, números, operadores, y delimitadores. </p>
+     <br>
+     <p align="center"><img src="11-2Gramaticas.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p>La expresión en Fortran: </p>
+     <br>
+     <pre>
+     B * B - 4 * A * C
+     </pre>
+     <br>
+     <p> Se requiere ordenar los siguientes números: 415, 201, 617, 201 y 705 </p>
+     <br>
+     <p>Los números ordenados aparecen de la siguiente forma: 415, 617, 705</p>
+     <br>
+     <pre>
+        numeros = [415,201,617,201,705]
+        resultado = []
+        for x in numeros:
+           if x > 300:
+              resultado.append(x)
+        print(resultado)
+     </pre>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p>Es la forma como se articulan matemáticas, ciencia y tecnología para llegar a un tipo específico de solución.</p>
+     <br>
+     <p class="cita"><cite>Programación imperativa con lenguaje C, Omar Iván Trejos Buriticá, 2017</cite></p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas. Para lo cual, los paradigmas son los siguientes:</p>
+     <br>
+     
+     <p><ol>
+           <li>Paradigma imperativo.</li>
+
+           <li>Paradigma orientado a objetos. Cuando los sitemas de software se hacen más complejos, especialmente con las interfaces gráficas y los requerimientos de simulación, se requirio modelar entidades del mundo real con mayor naturalidad. Se aplican los conceptos de <i>encapsulamiento, herencia</i> y <i>polimorfismo</i>.</li>
+
+           <li>Paradigma declarativo.</li>
+
+           <li>Paradigma reactivo.</li>
+     </ol></p>
+           <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     
+     <h2><strong>Formas de programar</strong> </h2>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     <p><ol>
+
+         <li><strong>Programación procedimental</strong> Que agrupa instrucciones en funciones o procedimientos reusables.</li>
+
+         <li><strong>Programación estructurada</strong> Es más clara, con más código mantenible mediante la aplicación de módulos y el control del flujo. Usa el <i>if, while</i> y <i>for</i>.</li>
+
+         <li><strong>Programación modular</strong> Del paradigma orientado a objetos surge la programación modular. Debido a los conceptos <i>encapsulamiento, herencia</i> y <i>polimorfismo</i> surge la programación modular.</li>
+
+         <li><strong>Programación lógica</strong> Es el uso de proposiciones lógicas para formular un programa.</li>
+
+         <li><strong>Programación reactiva</strong> Su funcionamiento se basa en el flujo de datos. Si un dato cambia el programa reacciona de tal manera que no se suspende o se para.</li>
+     </ol></p>
+     <br>
+     <button onclick="abrirVentana9()">Planteamiento de problemas</button>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Información</h1>
+        <hr>
+        <br>
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+        <hr>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> De acuerdo al siguiente problema utilice un lenguaje de programación que presente las características de los lenguajes de programación.</p>
+        <br>
+        
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar para ti?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera funcional?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera procedimental?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 6.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <ol>
+            <li> ¿Que es un paradigma orientado a objetos?</li>
+
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma imperativo?</li>
+
+            <li> ¿Que es un paradigma reactivo?</li>
+                        
+          </ol></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.1.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

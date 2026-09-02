@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica P Paradigmas de programación</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Paradigmas de programación<br>Práctica 4</header>
+ <nav>
+    
+     <p><img src="temario-icono.png" width=95% border=5></image></p>
+     
+     <p class="derecha"><a href="TemarioCompiladores.html">Temario<img src="iconoPoo.png" width=65% border=5></image></a></p>
+     
+     <p><a href="MaterialPoo.html"><img src="iconoPoo.png" width=90% border=5></image></a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">LÓGICA DE PRIMER ORDEN</h1>
+
+    <section class="interna">
+      
+      <article>
+       <hr>
+       <h1>Objetivo</h1>
+       <hr>
+       <br>
+       <p>Dado un problema lo cambiará a lenguaje de la lógica de primer orden.</p>
+      
+      <br>
+      <hr>
+      <h1>Actividades</h1>
+      <hr>
+      <br>
+
+      <p>Analizar los siguientes problemas que se presentan a continuación: </p>
+      <br>
+      <p><strong>Problema 1:</strong> si la alcaldía de Xochimilco es vecina de la alcaldía de Tlalpan, entonces la alcaldía de Tlalpan es vecina de la alcaldía de Xochimilco. Por tanto, la alcaldía de Xochimilco es vecina de la alcaldía de Tlalpan. Presentar todo esto en lógica de primer orden.</p> 
+      <br>
+      <p><strong>Problema 2:</strong> se tiene las siguientes proposiciones: sobre(X,Y) que representa que el bloque X está colocadeo sobre el bloque Y. La proposición enMesa(x) representa que el bloque X esta en la mesa. Construir en lógica de primer orden las proposiciones: bajo(X,Y) que debe indicar que el bloque X está debajo del bloque Y; encima(X,Y) que debe indicar que el bloque X está encima del bloque Y pudiendo haber otros bloques entre ellos; libre(X) que debe indicar que el bloque X no tiene bloques encima.</p>
+      <br>
+      <p><strong>Problema 3:</strong> si las siguientes proposiones: planeta(Tierra) que quiere decir que la tierra es un planeta; satélite(Luna) que quiere decir que la Luna es un satélite. Expresar en lógica de primer orden: todo planeta es un satélite, y ningún planeta es un satélite.</p>
+      <br>
+      <p><strong>Problema 4:</strong> para toda X e Y, X es nieto de Y si existe alguna Z tal que Z es hijo de Y y X es hijo de Z. Presentar todo esto en lógica de primer orden.</p>
+      <br>
+      <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> presentar la solución del problema 1.</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> presentar la solución del problema 2.</p>
+      <br>
+      <p><strong>Pregunta 3.</strong> presentar la solución del problema 3.</p>
+      <br>
+      <p><strong>Pregunta 4.</strong> presentar la solución del problema 4.</p>
+      <br>
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <hr>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> usar las siguientes reglas: </p>
+        <br>
+        <pre>
+        El símbolo:  &#8872
+        Significa: por tanto.
+        
+        Sean A una fbf y F un conjunto de fbf. 
+        Por lo que:
+        F &vdash; A
+        Significa que: A es deducible de F.
+        </pre>
+        <br>
+        <p><strong>Sugerencia 2. </strong> cuando se elimina un cuantificador &forall; o el &exist;, se substituye por el valor que toma la variable que esta calificando. </p>
+        <br>
+        <p><strong>Sugerencia 3. </strong> se usa la siguiente equivalencia: </p>
+        
+        <br>
+     <pre>
+     &phi;<sub>0</sub> &or; &not;&phi;<sub>1</sub> &or; ... &or; &not;&phi;<sub>n</sub> (n &ge; 0)
+     Que es equivalente a la siguiente cláusula:
+     &phi;<sub>0</sub> &larr; &phi;<sub>1</sub> &and; ... &and; &phi;<sub>n</sub> (n &ge; 0)
+     </pre> 
+     <br>
+        <p><strong>Sugerencia 4. </strong> ver el contenido del tema <strong>"Lógica de primer orden"</strong> en el temario. </p>
+
+        <br>
+       </aside>
+      <footer><p>Práctica 4</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>
+
+<p align="center" class="p5">
+Archivo C++: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=Programas/Lista.cpp target="_blank" style="float:center"><strong>Lista.c++</strong></font></a>
+</p>

@@ -1,0 +1,20 @@
+personas = [
+    {'nombre':'Alicia','edad':30},
+    {'nombre':'Roberto','edad':25},
+    {'nombre':'Carolina','edad':35}
+]
+
+def getEdad(persona):
+    return persona['edad']
+
+personaOrdenada = sorted(personas,key=getEdad)
+print(personaOrdenada)
+
+personas = [
+    {'nombre':'Alicia','edad':30},
+    {'nombre':'Roberto','edad':25},
+    {'nombre':'Carolina','edad':35}
+]
+
+personaOrdenada = sorted(personas,key=lambda persona:persona['edad'])
+print(personaOrdenada)

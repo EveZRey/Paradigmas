@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Lenguajes y paradigmas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
+      
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">1.2 PROGRMACIÓN FUNCIONAL</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Entre paradigmas y lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>El paradigma.</strong></p>
+     <br>
+     <p>Es la forma de pensar de como se va estructurar el código para realizar un programa.  </p>
+     <br>
+     <p><lo>
+           
+           <li>Paradigma imperativo. Es como se hace</li>
+           
+           <li>Paradigma declarativo. Es que quiere.</li>
+           
+           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
+
+           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
+                      
+     </lo></p>
+     <br>
+     <p><strong>El lenguaje de programación.</strong></p>
+     <br>
+     <p>Este es un método exclusivamente humano, y no instintivo, para comunicarse con la computadora por medio de un sistema de símbolos producidos de manera deliberada. Existen varias forma o estilos de codificar las instrucciones que deberá entender la computadora. Entre los cuales esta el estilo estructurado y otro que es el procedimental, entre otros.</p>
+     <br>
+     <p class="cita"><cite>El lenguaje, Edward Sapir, página 14, FCE, 2017</cite></p>
+     <br>
+     <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
+     <br>
+     <p><lo>
+         <li>Programación estructurada.</li>
+
+         <li>Programación procedimental.</li>
+
+         <li>Programación modular. </li>
+
+         <li>Programación lógica. </li>
+
+         <li>Programación reactiva. </li>
+     </lo></p>
+     <br>
+     <p><strong>Forma de programar estructurada.</strong></p>
+     <br>
+     <p>Los siguientes son métodos de estructuración: </p>
+     <p><strong>Composición:</strong> Si S<sub>1</sub>, S<sub>2</sub>, ... , S<sub>k</sub> son enunciados, k >= 0, entonces su composición es una lista de enunciados que se escribe así;</p>
+     <br>
+     <p>S<sub>1</sub> ; S<sub>2</sub> ; ... ; S<sub>k</sub> </p>
+     <p>El control fluye de manera secuencial a través de la lista.</p>
+     <br>
+     <p><strong>Condicional:</strong> Si E es una expresión y LE<sub>1</sub>, y LE<sub>2</sub> son listas de enunciados, entonces un enunciado condicional formados por esos elementos sería: </p>
+     <br>
+     <pre>
+     <strong>if</strong> E <strong>then</strong> LE<sub>1</sub> <strong>else</strong> LE<sub>2</sub> end
+     </pre>
+     <br>
+     <p>Otra variante, es: </p>
+     <br>
+     <pre>
+     <strong>if</strong> E <strong>then</strong> LE <strong>end</strong>
+     </pre>
+     <br>
+     <p><strong>Ciclo infinito:</strong> Si LE es una lista de enunciados, entonces una iteración o ciclo es: </p>
+     <br>
+     <pre>
+     <strong>loop</strong> LE <strong>end</strong>
+     </pre>
+     <br>
+     <p><strong>Ciclo while:</strong> Si E es una expresión y LE una lista de enunciados, entonces un ciclo <strong>while</strong> formado a partir de esos elementos puede escribirse de la siguiente forma: </p>
+     <br>
+     <pre>
+     <strong>while</strong> E <strong>do</strong> LE <strong>end</strong>
+     </pre>
+     <br>
+     <p>Enunciado de asignación:</p>
+     <br>
+     <pre>
+     Expresion<sub>a</sub> := Expresion<sub>1</sub>
+     
+     x := A[i]
+     
+     A[i] := x
+     
+     return Expresion
+     </pre>
+     <br>
+     <p>El siguiente enunciado es de entrada simple/salida simple: </p>
+     <br>
+     <pre>
+     <strong>while</strong> x &ge; y <strong>do</strong>
+             x := x - y ;
+     <strong>end</strong>
+     </pre>
+     <br>
+     <p>El siguiente enunciado es un loop: </p>
+     <br>
+     <pre>
+     <strong>loop</strong> <strong>while</strong> E <strong>do</strong> LE
+     </pre>
+     <br>
+     <p>El loop que también puede ser de la siguiente forma: </p>
+     <br>
+     <pre>
+     <strong>loop</strong>
+            {x &ge; 0 y y > 0}
+            <strong>while</strong> x &ge; y <strong>do</strong>
+                  x := x - y
+     <strong>end</strong>
+     </pre>
+     <br>
+     <p>Se puede hacer una búsqueda: </p>
+     <br>
+     <pre>
+     comience con el último elemento insertado
+     <strong>while</strong> quedan elementos por examinar <strong>do</strong>
+           <strong>if</strong> este elemento es x <strong>then</strong>
+                 <strong>return</strong> su posición
+           <strong>else</strong>
+                considere el elemento de la izquierda
+           <strong>end</strong>
+     <strong>end</strong>
+     no se encontró, por lo tato <strong>return</strong> 0
+     </pre>
+     <br>
+     <p>El último elemnto insertado es A[n]. Un elemnto A[i] puede examinarse si está en la tabla, es decir, si i &ge; 1. Se puede hacer de la siguiente manera: </p>
+     <br>
+     <pre>
+     i := n;
+     <strong>while</strong> i &ge; 1 <strong>do</strong>
+           <strong>if</strong> x := A[i] <strong>then</strong>
+                 <strong>return</strong> i ;
+           <strong>else</strong>
+                i := i - 1 ;
+           <strong>end</strong>
+     <strong>end</strong>
+     <strong>return</strong> 0
+     </pre>
+     <br>
+     <p>Busqueda en una tabla:</p>
+     <br>
+     <pre>
+     A[0] := x;
+     i := n;
+     <strong>while</strong> x &ne; A[i] <strong>do</strong>
+           i := i - 1;
+     <strong>end</strong>
+     <strong>return</strong> i;
+     </pre>
+     <br>
+     
+     <pre>
+     <strong>while</strong> ( x != A[i] ) 
+           i = i - 1;
+     </pre>
+     <br>
+     
+     <pre>
+     <strong>while</strong> ( x != A[i] ) 
+           --i;
+     </pre>
+     <br>
+     
+     <pre>
+     numeros = [
+     <strong>while</strong> ( x != A[i] ) 
+           --i;
+     </pre>
+     <br>
+     <p><strong>Forma de programar procedimental.</strong></p>
+     <br>
+     <p><strong>La programación procedimental pura</strong> está caracterizada por el siguiente principio establecido de manera informal: </p>
+     <br>
+     <p>El valor de una expresión depende sólo de los valores de sus subexpresiones, si las tiene. </p>
+     <br>
+     <p><strong>Las funciones son valores de primera clase.</strong> Las funciones tienen la misma jerarquía que cualquier otro valor. Una función puede ser el valor de una expresión, puede pasarse como argumento y puede colocarse en una estructura de datos. </p>
+     <br>
+     <p>La siguiente sintaxis es una forma de definir funciones: </p>
+     <br>
+     <pre>
+     (<strong>define</strong> (nombre de función  parámetros formales) expresión)
+     
+     (<strong>define</strong> (cuadrado x) (* x x))
+     
+     (<strong>define</strong> (nombre de función valor de función)
+     </pre>
+     <br>
+     <p>Por lo que necesitamosuna notación para valores de función. Scheme proporciona la notación:</p>
+     <br>
+     <pre>
+     (<strong>lambda</strong> (parámetros formales) (expresión))
+     
+     (<strong>lambda</strong> (x) (* x x))
+     
+     (<strong>define</strong> (nombre de función valor de función)
+     
+     (<strong>define</strong> cuadrado (<strong>lambda</strong> (x) (* x x))
+     </pre>
+     <br>
+     <p>Si se requiere aplicar a algún valor:</p>
+     <br>
+     <pre>
+     (cuadrado 5)
+     
+     ((<strong>lambda</strong> (x) ( * x x))  5)
+     <pre>
+     <br>
+     <p><strong>Problemas</strong></p>
+     <br>
+     <p><strong>Problema 1: </strong> haz la suma de los números a y b.</p>
+     <br>
+     <p><strong>Problema 2: </strong> calcula el área de un cuadrado, de un rectángulo y de un círculo.</p>
+     <br>
+     <p><strong>Problema 3: </strong> se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden.</p>
+     <br>
+     <p><strong>Problema 4: </strong> se tiene la siguiente lista o arreglo [a,b,a,a,a,c,c]. a) Elimina los duplicados ayacentes del segundo en adelante. b) Deja sólo los elementos no repetidos.</p>
+     <br>
+     <p><strong>Problema 5: </strong> calcular el promedio de una lista de números.</p>
+     <br>
+     <p>El estudio de los lenguajes naturales se hace por medio de la gramática, donde: las palabras que identifican a los objetos se hace con el Léxico, la conexión de las palabras se hace con la Sintaxis, y la interpretación de lo expresado se hace con la Semántica. </p>
+     <br>
+     <p><strong>Lenguaje de programación.</strong> Los programas de computadora son simplemente secuencias de operaciones abstractas escritas en un lenguaje de programación: un lenguaje formal diseñado para expresar cálculo. Los lenguajes de programación tienen propiedades y significados rígidos, como
+opuesto a los lenguajes naturales, como el chino o el portugués. Los lenguajes de programación están diseñados para la expresividad, la concisión y la claridad. Los lenguajes naturales permiten la ambigüedad. Los lenguajes de programación están diseñados para evitar
+ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programación están diseñados para especificar cálculos, para registrar la secuencia de acciones que realizan alguna tarea o producen algunos resultados.</p>
+     <br>
+     <p class="cita"><cite>Investigación de José Sánchez Juárez</cite></p>
+     <br>
+     <hr>
+     <h1>Pequeña historia de los lenguajes de programación</h1>
+     <hr>
+     <br>
+     <p><strong>Código máquina y lenguaje ensamblador</strong> se usaron de 1940 a 1950, el código máquina es una serie de instrucciones binarias, el lenguaje ensamblador se representa con mnemotecnia. <strong>La programación procedimental (Fortran, Cobol, C)</strong> de 1950 a 1970, esta se enfoca en dividir los programas en programas más pequeños, en procedimientos o funciones reusables, y emfatiza la ejecución secuencial y el control del flujo. <strong>La programación orientada a objetos (Smalltalk, C++, Java)</strong> de 1980 a 1990, esta introduce conceptos como: encapsulamiento, herencia, y polimorfismo, con lo que se mejora la organización y la reutilización del código. <strong>La programación lógica (Prolog)</strong> de 1970 a la fecha es una forma de programar con hechos y reglas, este paradigma se usa para IA, y representación del conocimiento. <strong>La programación funcional (Lisp, Haskell, JavaScript)</strong> del 2000 a la fecha, esta emfatiza la inmutabilidad, funciones puras, y funciones de orden superior, lo que se usa para programación concurrente y paralela.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, James Allen, 2025</cite></p>
+     <br>
+     <hr>
+     <h1>Definición de paradigma</h1>
+     <hr>
+     <br>
+     <p><strong>Tomado del diccionario de la Real Academia Española.</strong></p>
+     <br>
+     <p>2. m. Teoría o conjunto de teorías cuyo núcleo central se acepta sin cuestionar y que suministra la base y modelo para resolver problemas y avanzar en el conocimiento. </p>
+     <p>3. m. Ling. Relación de elementos que comparten un mismo contexto fonológico, morfológico o sintáctico en función de sus propiedades lingüísticas. </p>
+     <p>4. m. Ling. Esquema formal en el que se organizan las palabras que admiten modificaciones flexivas o derivativas. </p>
+     <br>
+     <p><strong>Paradigma de programación</strong></p>
+     <br>
+     <p>Es la forma fundamental de pensar para escribir y organizar el código. Es una mentalidad. Es como se resuelve un problema, se estructura una solución y como se razona acerca de un sistema. No es un estilo de escribir código. </p>
+     <br>
+     <p>El paradigma de la programación es una forma de pensar que guia como estructurar y resolver problemas mediante código. Esto te muestra como abordar la solución de un problema: que conceptos, que patrones debes usar, y como debes administrar la complejidad.</p>
+     <br>
+     <p><strong>Formas de programar.</strong> </p>
+     <br>
+     <p>Programar no es escribir instrucciones para una computadora. Es resolver problemas por medio de estructuras, lógica, e intenciones. </p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+     <p><strong>Paradigmas de programación </strong> </p>
+     <br>
+     <p>El paradigma es un modelo mental o cosmovisión. Es el lente por medio del cual definimos los problemas y construimos los programas.</p>
+     <br>
+     <p class="cita"><cite>Programming paradigm, Michael Williams, 2025</cite></p>
+     <br>
+          
+    <article>
+       
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Estructura de un lenguaje de programación.</p>
+        <br>
+
+        <p align="center"><img src="TiposLenguajes.svg" align="center" width=70% border=0> </p>
+        <br>
+
+        <p><strong>Ejercicio 2.</strong> Estructura de un lenguaje natural.</p>
+        <br>
+        <hr>
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que es programar de manera lógica?
+        <br>
+        <p><strong>Pregunta 4.</strong> ¿Que es programar de manera modular?
+        <br>
+        <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
+        <br>
+          <lo>
+            <li> ¿Que es un paradigma imperativo?</li>
+            
+            <li> ¿Que es un paradigma declarativo?</li>
+
+            <li> ¿Que es un paradigma funcional?</li>
+            
+            <li> ¿Que es un paradigma orientado a objetos?</li>            
+          </lo></p>
+        </aside>
+        <footer><p>Lenguajes y paradigmas: Tema 1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>
