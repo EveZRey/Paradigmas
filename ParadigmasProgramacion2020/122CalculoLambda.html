@@ -3,18 +3,19 @@
   <head>
     <Meta charset="utf-8">
     <title>Lenguajes y paradigmas</title>
-    <script src=".js"></script>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="PresentacionCapitulo.css">
   </head>
 <body>
 <header>Capitulo I<br>Introducción a los lenguajes de programación<br> y sus paradigmas</header>
  <nav>
    <!-- <div class="contenedor">--> 
-      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
-      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
       
-      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
-      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
     <!--</div>-->
  </nav>
   <section class="envoltura">
@@ -27,16 +28,17 @@
      <br>
      <p><strong>El cálculo lambda.</strong></p>
      <br>
-     <p><lo>
+     <p><ol>
            
-           <li>Paradigma imperativo. Es como se hace</li>
+           <li><strong>Paradigma imperativo.</strong> Es como se hace</li>
            
-           <li>Paradigma declarativo. Es que quiere.</li>
-
-           <li>Paradigma orientado a objetos. Es modelar conceptos como objetos interactuantes.</li>
-
-           <li>Paradigma funcional. Es componer transformaciones puras evitando compartir estados.</li>
-     </lo></p>
+           <li><strong>Paradigma declarativo.</strong> Es que quiere.</li>
+           
+           <li><strong>Paradigma funcional.</strong> Es componer transformaciones puras evitando compartir estados.</li>
+           
+           <li><strong>Paradigma orientado a objetos.</strong> Es modelar conceptos como objetos interactuantes.</li>
+                      
+     </ol></p>
            <br>
      <p>La notación para lambda es la siguiente:  </p>
      <br>
@@ -47,14 +49,20 @@
      
      <strong>lambda</strong> (x) (x*x)
      
-     cuadrdado(<strong>lambda</strong> (x) (x*x)) 5
+     cuadrado(<strong>lambda</strong> (x) (x*x)) 5
      
      (&lambda;x.x*x)5
      </pre>
      <br>
      <hr>
-     <h1>Problemas </h1>
+     <h1>Problemas con el uso de lambda</h1>
      <hr>
+     <br>
+     <p><strong>Programas:</strong> UsoMapFil.py, TempFiltro.py, AplicacionFun.py, ListaInmu.py, PacLamb.py (Problema 2), PacLamb1.py, MapMul.py, CopiarLista.py, TemFiltro.py (corregir), UsoReduce.py, UsoLambda.py, SumaElist.py (problema 6), DicFigGeo.py (problema 1), LisNoRep.py (problema 4), FunMap.cpp, FunMap1.cpp, ElemMap.cpp, CuadradoLambda.cpp </p>
+     <br>
+       <ol>
+           <li><strong>Problema:</strong> </li>
+       </ol>
      <br>
      <p><strong>Problema 1: </strong>  se tienen tres figuras: un cuadrado, un triángulo y un círculo. ¿En que orden estan las figuras? Cambiar el orden. </p>
      <br>
@@ -85,17 +93,17 @@
      <br>
      <p align="center"><img src="CaracteristicasLenguaje.svg" align="center" width=70% border=0> </p>
      <br>
-     <p><lo>
-         <li>Programación estructurada.</li>
+     <p><ol>
+         <li><strong>Programación estructurada.</strong></li>
 
-         <li>Programación procedimental.</li>
+         <li><strong>Programación procedimental.</strong></li>
 
-         <li>Programación modular. </li>
+         <li><strong>Programación modular.</strong> </li>
 
-         <li>Programación lógica. </li>
+         <li><strong>Programación lógica.</strong> </li>
 
-         <li>Programación reactiva. </li>
-     </lo></p>
+         <li><strong>Programación reactiva.</strong> </li>
+     </ol></p>
      <br>
      <p><strong>Forma de programar estructurada.</strong></p>
      <br>
@@ -156,6 +164,36 @@ ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programació
     </article>
     </section>
       <aside>
+      <h1>Información</h1>
+      <hr>
+      <br>
+      <p><strong>Función pura:</strong> esta siempre produce la misma salida para la misma entrada y no tiene efectos colaterales, Es decir no modifican cualquier estado externo.</p>
+      <br>
+      <p><strong>Función de primer orden:</strong> es la que se pasa como argumento.</p>
+      <br>
+      <p><strong>Sintaxis de la lambda en python:</strong> </p>
+        <br>
+        <pre>
+        <strong>lambda</strong> argumentos: expresión
+        </pre>
+        <br>
+        <p><strong>Sintaxis de la lambda en C++:</strong> </p>
+        <br>
+        <pre>
+          [] (argumentos) {expresión}
+        </pre>
+        <br>
+        <p><strong>Sintaxis de la lambda en Java:</strong> </p>
+        <br>
+        <pre>
+          (argumentos) -> expresión
+        </pre>
+        <br>
+      
+      <button onclick="abrirVentana10()">Libro de programas</button>
+      <br>
+      <br>
+        <hr>
         <h1>Ejercicios</h1>
         <hr>
         <br>
@@ -170,6 +208,7 @@ ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programació
         <hr>
         <h1>Preguntas</h1>
         <hr>
+        <br>
         <p><strong>Pregunta 1.</strong> ¿Que es programar de manera estructurada?</p>
         <br>
         <p><strong>Pregunta 2.</strong> ¿Que es programar de manera procedimental?</p>
@@ -180,7 +219,8 @@ ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programació
         <br>
         <p><strong>Pregunta 5.</strong> ¿Que es el uso de los paradigmas?
         <br>
-          <lo>
+        <br>
+          <ol>
             <li> ¿Que es un paradigma imperativo?</li>
 
             <li> ¿Que es un paradigma declarativo?</li>
@@ -189,7 +229,7 @@ ambigüedad; un programa ambiguo no tiene sentido. Los lenguajes de programació
 
             <li> ¿Que es un paradigma orientado a objetos?</li>
                         
-          </lo></p>
+          </ol></p>
         </aside>
         <footer><p>Lenguajes y paradigmas: Tema 1.2.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
    </section>
