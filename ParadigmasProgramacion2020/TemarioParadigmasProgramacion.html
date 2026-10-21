@@ -1,642 +1,1751 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temario Paradigmas de la programación | IPN - ESCOM</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Conservando referencias originales por compatibilidad con el directorio local -->
-  <link rel="stylesheet" href="PresentacionCapitulo.css" onerror="console.info('Usando estilos modernos integrados')">
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            ipn: {
-              guinda: '#6C1D45',
-              guindaDark: '#4E1230',
-              guindaLight: '#8E295C',
-              gold: '#D4AF37'
-            },
-            escom: {
-              blue: '#003B73',
-              blueLight: '#0066B2',
-              cyan: '#00A8E8'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <title>Temario Paradigmas de la Programación | IPN - ESCOM</title>
 
   <style>
-    /* Estilos personalizados y animaciones suaves */
+    /* ==========================================================================
+       1. RESET DEFENSIVO Y VARIABLES DE TEMA (CERO CDN EXTERNOS / CERO ERRORES)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Tema Claro */
+      --bg-body: #f1f5f9;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #f8fafc;
+      --bg-card-hover: #f1f5f9;
+      --bg-input: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --border-strong: #cbd5e1;
+
+      /* Identidad IPN & ESCOM */
+      --ipn-guinda: #7a163b;
+      --ipn-guinda-light: #9e1f4e;
+      --ipn-guinda-soft: rgba(122, 22, 59, 0.1);
+      --ipn-guinda-border: rgba(158, 31, 78, 0.35);
+
+      --escom-blue: #004a8f;
+      --escom-blue-light: #0284c7;
+      --escom-blue-soft: rgba(2, 132, 199, 0.1);
+      --escom-blue-border: rgba(2, 132, 199, 0.3);
+
+      --amber-accent: #d97706;
+      --amber-soft: rgba(217, 119, 6, 0.12);
+      --emerald-accent: #059669;
+      --emerald-soft: rgba(5, 150, 105, 0.12);
+
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+    }
+
+    html[data-theme="dark"] {
+      --bg-body: #090d16;
+      --bg-surface: #111827;
+      --bg-surface-alt: #1e293b;
+      --bg-card-hover: #1f2937;
+      --bg-input: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: #1f2937;
+      --border-strong: #334155;
+
+      --ipn-guinda: #9e1f4e;
+      --ipn-guinda-light: #f43f5e;
+      --ipn-guinda-soft: rgba(158, 31, 78, 0.18);
+      --ipn-guinda-border: rgba(244, 63, 94, 0.35);
+
+      --escom-blue: #0369a1;
+      --escom-blue-light: #38bdf8;
+      --escom-blue-soft: rgba(56, 189, 248, 0.12);
+      --escom-blue-border: rgba(56, 189, 248, 0.3);
+
+      --amber-accent: #fbbf24;
+      --amber-soft: rgba(251, 191, 36, 0.14);
+      --emerald-accent: #34d399;
+      --emerald-soft: rgba(52, 211, 153, 0.14);
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
-    .guinda-gradient {
-      background: linear-gradient(145deg, #6C1D45 0%, #4A102D 60%, #360A20 100%);
+
+    /* Reset explícito de elementos semánticos para evitar colisiones */
+    header, nav, main, section, article, aside, footer {
+      display: block;
+      float: none !important;
+      width: 100%;
+      max-width: 100%;
+      background: transparent;
+      border: none;
     }
-    .escom-gradient {
-      background: linear-gradient(135deg, #002B54 0%, #004A8F 50%, #6C1D45 100%);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      background: transparent;
     }
-    .topic-card {
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    button, input, select {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
     }
-    .topic-card:hover {
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+
+    /* ==========================================================================
+       2. HEADER INSTITUCIONAL
+       ========================================================================== */
+    .site-header {
+      background: linear-gradient(135deg, #002b54 0%, #004a8f 52%, #6c1d45 100%);
+      color: #ffffff;
+      padding: 1.5rem 0;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 860px) {
+      .header-inner {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fde047;
+    }
+
+    .brand-badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .brand-title {
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .brand-prof {
+      margin-top: 0.25rem;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      width: 100%;
+    }
+
+    @media (min-width: 860px) {
+      .header-actions {
+        width: auto;
+        justify-content: flex-end;
+      }
+    }
+
+    .progress-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--radius-lg);
+      flex: 1 1 auto;
+    }
+
+    @media (min-width: 480px) {
+      .progress-pill {
+        flex: 0 0 auto;
+      }
+    }
+
+    .radial-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .radial-svg {
+      width: 42px;
+      height: 42px;
+      transform: rotate(-90deg);
+    }
+
+    .radial-pct {
+      position: absolute;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .header-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* ==========================================================================
+       3. BARRA DE ACCESOS RÁPIDOS (NAV)
+       ========================================================================== */
+    .quick-nav {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 600px) {
+      .quick-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .quick-nav-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .nav-card {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+      min-width: 0;
+    }
+
+    .nav-card:hover {
+      border-color: var(--escom-blue-light);
+      background-color: var(--bg-card-hover);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+
+    .nav-card.guinda-hover:hover {
+      border-color: var(--ipn-guinda-light);
     }
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
+
+    .nav-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: var(--escom-blue-soft);
+      border: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--escom-blue-light);
     }
-    .dark ::-webkit-scrollbar-track {
-      background: #0f172a;
+
+    .nav-thumb.guinda-thumb {
+      background-color: var(--ipn-guinda-soft);
+      color: var(--ipn-guinda-light);
     }
-    ::-webkit-scrollbar-thumb {
-      background: #94a3b8;
-      border-radius: 9999px;
+
+    .nav-thumb.amber-thumb {
+      background-color: var(--amber-soft);
+      color: var(--amber-accent);
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #6C1D45;
+
+    .nav-thumb.emerald-thumb {
+      background-color: var(--emerald-soft);
+      color: var(--emerald-accent);
     }
-    mark.search-highlight {
-      background-color: #fef08a;
-      color: #1e293b;
-      padding: 0 2px;
-      border-radius: 3px;
+
+    .nav-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-card-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nav-card-tag {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--escom-blue-light);
+    }
+
+    .nav-card-tag.guinda-tag {
+      color: var(--ipn-guinda-light);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-card-file {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ==========================================================================
+       4. BARRA STICKY DE BÚSQUEDA Y FILTROS
+       ========================================================================== */
+    .filter-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-bar-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 960px) {
+      .filter-bar-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 100%;
+    }
+
+    @media (min-width: 960px) {
+      .search-box {
+        max-width: 460px;
+      }
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.6rem 2.4rem 0.6rem 2.5rem;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--escom-blue-light);
+      box-shadow: 0 0 0 3px var(--escom-blue-soft);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.2rem;
+      display: none;
+    }
+
+    .clear-search-btn.visible {
+      display: inline-flex;
+    }
+
+    .filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+      scrollbar-width: thin;
+    }
+
+    .filter-btn {
+      padding: 0.42rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      font-weight: 600;
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover {
+      background-color: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+      background-color: var(--escom-blue);
+      border-color: var(--escom-blue-light);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       5. LAYOUT PRINCIPAL DE 2 COLUMNAS (TEMARIO + PANEL GUINDA)
+       ========================================================================== */
+    .main-wrapper {
+      flex: 1;
+      padding: 1.75rem 0 3rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (min-width: 1060px) {
+      .content-grid {
+        grid-template-columns: minmax(0, 1fr) 400px;
+      }
+    }
+
+    /* Encabezado de columna izquierda */
+    .section-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 0.9rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--escom-blue-light);
+      display: block;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .toolbar-btns {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-subtle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      font-weight: 600;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-subtle:hover {
+      background-color: var(--bg-surface-alt);
+      color: var(--text-primary);
+    }
+
+    /* Tarjetas de Capítulo */
+    .chapters-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .chapter-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .chapter-header {
+      padding: 1.15rem 1.35rem;
+      background-color: var(--bg-surface-alt);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .chapter-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+      flex: 1 1 260px;
+    }
+
+    .chapter-badge-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+      background-color: var(--escom-blue);
+    }
+
+    .chapter-badge-icon.guinda {
+      background-color: var(--ipn-guinda);
+    }
+
+    .chapter-badge-icon.amber {
+      background-color: #d97706;
+    }
+
+    .chapter-heading-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .chapter-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .chapter-counter {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+    }
+
+    .chapter-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .chapter-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-left: auto;
+    }
+
+    .chapter-bar-wrap {
+      width: 110px;
+    }
+
+    .chapter-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--border-strong);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background-color: var(--escom-blue-light);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .chevron-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .chevron-box.collapsed {
+      transform: rotate(180deg);
+    }
+
+    .chapter-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .chapter-body.hidden {
+      display: none;
+    }
+
+    /* Grupos / Unidades dentro de un capítulo */
+    .unit-group {
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+    }
+
+    .unit-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .unit-badge {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ipn-guinda-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .unit-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .unit-title-link {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.15s ease;
+    }
+
+    .unit-title-link:hover {
+      color: var(--escom-blue-light);
+      text-decoration: underline;
+    }
+
+    .unit-file-pill {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+    }
+
+    .unit-file-pill:hover {
+      background-color: var(--escom-blue);
+      border-color: var(--escom-blue-light);
+      color: #ffffff;
+    }
+
+    /* Grid de subtemas */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+    }
+
+    @media (min-width: 640px) {
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      transition: all 0.15s ease;
+    }
+
+    .topic-item:hover {
+      border-color: var(--escom-blue-light);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topic-item.completed {
+      background-color: var(--emerald-soft);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .custom-check {
+      width: 17px;
+      height: 17px;
+      margin-top: 0.2rem;
+      accent-color: var(--escom-blue-light);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .topic-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .topic-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .topic-code {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 5px;
+      background-color: var(--escom-blue-soft);
+      color: var(--escom-blue-light);
+    }
+
+    .topic-filename {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+    }
+
+    .topic-name {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .topic-item:hover .topic-name {
+      color: var(--escom-blue-light);
+    }
+
+    .topic-item.completed .topic-name {
+      text-decoration: line-through;
+      opacity: 0.75;
+    }
+
+    /* Cita institucional inferior */
+    .quote-card {
+      margin-top: 1.5rem;
+      padding: 1.1rem 1.35rem;
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--ipn-guinda);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* ==========================================================================
+       6. COLUMNA DERECHA: SECCIÓN GUINDA (DISEÑO LIMPIO, ANCHO COMPLETO Y LEGIBLE)
+       ========================================================================== */
+    .guinda-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .guinda-panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--ipn-guinda-border);
+      border-top: 5px solid var(--ipn-guinda);
+      border-radius: var(--radius-xl);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-md);
+      width: 100%;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .panel-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .panel-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background-color: var(--ipn-guinda-soft);
+      border: 1px solid var(--ipn-guinda-border);
+      color: var(--ipn-guinda-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .panel-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .panel-subtitle {
+      font-size: 0.73rem;
+      color: var(--ipn-guinda-light);
       font-weight: 600;
     }
-    .dark mark.search-highlight {
-      background-color: #eab308;
+
+    .practices-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 0.9rem;
+    }
+
+    .practice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      transition: all 0.15s ease;
+    }
+
+    .practice-item:hover {
+      border-color: var(--ipn-guinda-light);
+      background-color: var(--bg-card-hover);
+    }
+
+    .practice-item.completed {
+      background-color: var(--emerald-soft);
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .practice-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .practice-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+
+    .practice-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--ipn-guinda-light);
+    }
+
+    .practice-label:hover {
+      text-decoration: underline;
+    }
+
+    .practice-tag {
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      background-color: var(--ipn-guinda-soft);
+      color: var(--ipn-guinda-light);
+    }
+
+    .practice-title-link {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0.15rem;
+    }
+
+    .practice-title-link:hover {
+      color: var(--ipn-guinda-light);
+    }
+
+    /* Pizarrón SVG del Proyecto */
+    .pizarron-box {
+      margin-top: 0.85rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid #047857;
+      background-color: #064e3b;
+      padding: 0.75rem;
+      color: #ecfdf5;
+    }
+
+    .pizarron-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(110, 231, 183, 0.25);
+      font-size: 0.72rem;
+    }
+
+    /* Lista de reglas del curso */
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .rule-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background-color: var(--ipn-guinda);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* Botón CTA Evaluación Continua */
+    .cta-eval-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      margin: 0.75rem 0;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--ipn-guinda) 0%, #be123c 100%);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      box-shadow: var(--shadow-sm);
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+
+    .cta-eval-link:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
+    /* Tabla complementaria de calificaciones */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+      padding: 0.75rem;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-surface-alt);
+      border: 1px solid var(--border-color);
+    }
+
+    .sim-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .sim-control {
+      width: 100%;
+      padding: 0.4rem 0.55rem;
+      border-radius: 6px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      font-size: 0.82rem;
+    }
+
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: center;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+    }
+
+    .grade-table th {
+      background-color: var(--escom-blue);
+      color: #ffffff;
+      padding: 0.5rem;
+      font-weight: 700;
+    }
+
+    .grade-table td {
+      padding: 0.48rem;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-surface-alt);
+      cursor: pointer;
+    }
+
+    .grade-table tr.active-row td {
+      background-color: var(--amber-soft);
+      font-weight: 700;
+    }
+
+    .sim-banner {
+      margin-top: 0.65rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-sm);
+      background-color: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* Resaltado de búsqueda */
+    mark.search-highlight {
+      background-color: #fde047;
       color: #0f172a;
+      padding: 0 2px;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+
+    /* Modal seguro sin alert() */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background-color: rgba(9, 13, 22, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      max-width: 520px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #0b1120;
+      color: #cbd5e1;
+      border-top: 1px solid #1e293b;
+      padding: 1.35rem 0;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+<body>
 
   <!-- ================= HEADER INSTITUCIONAL ================= -->
-  <header class="escom-gradient text-white shadow-xl relative overflow-hidden">
-    <!-- Elementos decorativos de fondo -->
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <defs>
-          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100" height="100" fill="url(#grid)" />
-      </svg>
-    </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <div class="brand-icon" aria-hidden="true">
+          <!-- Icono SVG Código / Paradigmas -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-badges">
+            <span>IPN</span>
+            <span style="color:#fde047;">•</span>
+            <span>ESCOM</span>
+            <span style="color:#fde047;">•</span>
+            <span>Nivel II</span>
+          </div>
+          <h1 class="brand-title">Temario de Paradigmas de la Programación</h1>
+          <p class="brand-prof">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fde047" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Prof. José Sánchez Juárez</span>
+          </p>
+        </div>
+      </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        
-        <!-- Identidad del Curso -->
-        <div class="flex items-center gap-4 text-center md:text-left flex-col sm:flex-row">
-          <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center shadow-lg shrink-0">
-            <i class="fa-solid fa-code-branch text-3xl text-amber-300"></i>
+      <div class="header-actions">
+        <!-- Progreso Global -->
+        <div class="progress-pill">
+          <div class="radial-wrap">
+            <svg class="radial-svg" viewBox="0 0 36 36">
+              <path stroke="rgba(255,255,255,0.2)" stroke-width="3.6" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path id="globalProgressCircle" stroke="#fbbf24" stroke-dasharray="0, 100" stroke-width="3.6" stroke-linecap="round" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span id="globalProgressText" class="radial-pct mono">0%</span>
           </div>
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold tracking-wider uppercase mb-2 border border-white/20">
-              <span>IPN</span>
-              <span class="text-amber-300">•</span>
-              <span>ESCOM</span>
-              <span class="text-amber-300">•</span>
-              <span>Nivel II</span>
-            </div>
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
-              Temario de Paradigmas de la Programación
-            </h1>
-            <p class="text-slate-200 text-sm sm:text-base mt-1 flex items-center justify-center md:justify-start gap-2">
-              <i class="fa-solid fa-chalkboard-user text-amber-300"></i>
-              <span>Prof. José Sánchez Juárez</span>
-            </p>
+            <div style="font-size:0.72rem; color:#cbd5e1; font-weight:600;">Avance del Curso</div>
+            <div id="globalProgressFraction" class="mono" style="font-size:0.78rem; font-weight:700; color:#ffffff;">0 / 67 completados</div>
           </div>
         </div>
 
-        <!-- Controles Superiores y Progreso Global -->
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <!-- Tarjeta de Progreso Global -->
-          <div class="bg-slate-900/40 backdrop-blur-md border border-white/15 rounded-2xl px-4 py-2.5 flex items-center gap-3">
-            <div class="relative w-11 h-11 flex items-center justify-center">
-              <svg class="w-11 h-11 -rotate-90" viewBox="0 0 36 36">
-                <path class="text-white/20" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path id="globalProgressCircle" class="text-amber-400 transition-all duration-500" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-              </svg>
-              <span id="globalProgressText" class="absolute text-xs font-bold font-mono">0%</span>
-            </div>
-            <div class="text-left">
-              <p class="text-xs text-slate-300 font-medium">Avance del Curso</p>
-              <p id="globalProgressFraction" class="text-xs font-mono font-semibold text-white">0 / 64 completados</p>
-            </div>
-          </div>
+        <!-- Botón Reiniciar -->
+        <button type="button" id="btnResetProgress" class="header-btn" title="Reiniciar progreso guardado">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          <span>Reiniciar</span>
+        </button>
 
-          <!-- Botón Reiniciar Progreso -->
-          <button id="btnResetProgress" title="Reiniciar progreso guardado" class="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition flex items-center gap-2 text-xs font-medium">
-            <i class="fa-solid fa-rotate-left"></i>
-            <span class="hidden sm:inline">Reiniciar</span>
-          </button>
-
-          <!-- Botón Tema Oscuro / Claro -->
-          <button id="btnThemeToggle" title="Cambiar modo de color" class="p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition flex items-center gap-2 text-xs font-medium">
-            <i id="themeIcon" class="fa-solid fa-moon text-amber-300 text-sm"></i>
-            <span id="themeText" class="hidden sm:inline">Modo Oscuro</span>
-          </button>
-        </div>
-
+        <!-- Botón Tema Claro / Oscuro -->
+        <button type="button" id="btnThemeToggle" class="header-btn" title="Cambiar entre modo oscuro y modo claro">
+          <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fde047" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="themeText">Modo Claro</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= NAV: FORMAS DE ENSEÑAR Y ENLACES ================= -->
-  <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
-        
-        <!-- Enlace Original 1: Por Proyectos (MiguelAngel.jpeg) -->
-        <a href="TemarioPPproyectos.html" class="group flex items-center gap-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-escom-blue hover:text-white dark:hover:bg-escom-blueLight border border-slate-200 dark:border-slate-700/80 transition shadow-sm">
-          <div class="w-14 h-14 rounded-xl overflow-hidden border-2 border-escom-blue group-hover:border-white shrink-0 bg-slate-200 dark:bg-slate-700 flex items-center justify-center relative">
-            <img src="MiguelAngel.jpeg" alt="Por proyectos" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-            <div class="hidden flex-col items-center justify-center text-escom-blue dark:text-sky-400 group-hover:text-white text-xs font-bold">
-              <i class="fa-solid fa-diagram-project text-xl"></i>
-            </div>
-          </div>
-          <div class="flex-1 min-w-0">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-escom-blue dark:text-sky-400 group-hover:text-amber-300 block">Formas de enseñar</span>
-            <p class="font-bold text-base truncate">Por proyectos</p>
-            <span class="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-200 truncate block font-mono">TemarioPPproyectos.html</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-white mr-1"></i>
-        </a>
+  <!-- ================= NAV: ACCESOS DIRECTOS Y FORMA DE TRABAJO ================= -->
+  <nav class="quick-nav" aria-label="Accesos principales del curso">
+    <div class="container quick-nav-grid">
 
-        <!-- Enlace Original 2: Classroom (Classroom.png) -->
-        <a href="MaterialPoo.html" class="group flex items-center gap-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-ipn-guinda hover:text-white border border-slate-200 dark:border-slate-700/80 transition shadow-sm">
-          <div class="w-14 h-14 rounded-xl overflow-hidden border-2 border-ipn-guinda group-hover:border-white shrink-0 bg-slate-200 dark:bg-slate-700 flex items-center justify-center relative">
-            <img src="Classroom.png" alt="Classroom" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
-            <div class="hidden flex-col items-center justify-center text-ipn-guinda dark:text-pink-400 group-hover:text-white text-xs font-bold">
-              <i class="fa-solid fa-chalkboard text-xl"></i>
-            </div>
-          </div>
-          <div class="flex-1 min-w-0">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-ipn-guinda dark:text-pink-400 group-hover:text-amber-300 block">Enlaces directos</span>
-            <p class="font-bold text-base truncate">Classroom y Material</p>
-            <span class="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-200 truncate block font-mono">MaterialPoo.html</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-white mr-1"></i>
-        </a>
+      <!-- 1. Formas de enseñar: Por proyectos -->
+      <a href="TemarioPPproyectos.html" class="nav-card">
+        <div class="nav-thumb">
+          <img src="MiguelAngel.jpeg" alt="Por proyectos" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </span>
+        </div>
+        <div class="nav-card-info">
+          <span class="nav-card-tag">Formas de enseñar</span>
+          <div class="nav-card-title">Por proyectos</div>
+          <span class="nav-card-file mono">TemarioPPproyectos.html</span>
+        </div>
+      </a>
 
-        <!-- Forma de Trabajo: Expectativas del Curso -->
-        <a href="EspectativasParadigmas.html" class="group flex items-center gap-3.5 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-800 hover:text-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/80 transition shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 group-hover:bg-white/15 group-hover:text-amber-300 flex items-center justify-center shrink-0">
-            <i class="fa-solid fa-compass text-xl"></i>
-          </div>
-          <div class="flex-1 min-w-0">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 group-hover:text-amber-300 block">Forma de trabajo</span>
-            <p class="font-bold text-sm sm:text-base truncate">Expectativas del curso</p>
-            <span class="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-300 truncate block font-mono">EspectativasParadigmas.html</span>
-          </div>
-        </a>
+      <!-- 2. Enlaces: Classroom -->
+      <a href="MaterialPoo.html" class="nav-card guinda-hover">
+        <div class="nav-thumb guinda-thumb">
+          <img src="Classroom.png" alt="Classroom" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span style="display:none; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </span>
+        </div>
+        <div class="nav-card-info">
+          <span class="nav-card-tag guinda-tag">Enlaces</span>
+          <div class="nav-card-title">Classroom</div>
+          <span class="nav-card-file mono">MaterialPoo.html</span>
+        </div>
+      </a>
 
-        <!-- Forma de Trabajo: Evaluación del Curso -->
-        <a href="EvaluacionParadigmas.html" class="group flex items-center gap-3.5 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-800 hover:text-white dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/80 transition shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 group-hover:bg-white/15 group-hover:text-emerald-300 flex items-center justify-center shrink-0">
-            <i class="fa-solid fa-clipboard-check text-xl"></i>
-          </div>
-          <div class="flex-1 min-w-0">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 group-hover:text-emerald-300 block">Expectativas y evaluación</span>
-            <p class="font-bold text-sm sm:text-base truncate">Evaluación del curso</p>
-            <span class="text-xs text-slate-500 dark:text-slate-400 group-hover:text-slate-300 truncate block font-mono">EvaluacionParadigmas.html</span>
-          </div>
-        </a>
+      <!-- 3. Forma de trabajo: Expectativas del curso -->
+      <a href="EspectativasParadigmas.html" class="nav-card">
+        <div class="nav-thumb amber-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+        </div>
+        <div class="nav-card-info">
+          <span class="nav-card-tag" style="color:var(--amber-accent);">Forma de trabajo</span>
+          <div class="nav-card-title">Expectativas del curso</div>
+          <span class="nav-card-file mono">EspectativasParadigmas.html</span>
+        </div>
+      </a>
 
-      </div>
+      <!-- 4. Forma de trabajo: Evaluación del curso -->
+      <a href="EvaluacionParadigmas.html" class="nav-card">
+        <div class="nav-thumb emerald-thumb">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+        </div>
+        <div class="nav-card-info">
+          <span class="nav-card-tag" style="color:var(--emerald-accent);">Expectativas y evaluación</span>
+          <div class="nav-card-title">Evaluación del curso</div>
+          <span class="nav-card-file mono">EvaluacionParadigmas.html</span>
+        </div>
+      </a>
+
     </div>
   </nav>
 
-  <!-- ================= BARRA DE BÚSQUEDA Y FILTROS INTERACTIVOS ================= -->
-  <section class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-      <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
-        
-        <!-- Buscador en tiempo real -->
-        <div class="relative flex-1 max-w-xl">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          <input 
-            id="searchInput" 
-            type="text" 
-            placeholder="Buscar tema, código (ej. 1.2.3, Lambda, Polimorfismo, Práctica 4)..." 
-            class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-escom-blue dark:focus:ring-sky-500 transition"
-          >
-          <button id="btnClearSearch" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-            <i class="fa-solid fa-circle-xmark"></i>
-          </button>
-        </div>
+  <!-- ================= BARRA DE BÚSQUEDA Y FILTROS ================= -->
+  <section class="filter-bar" aria-label="Filtros del temario">
+    <div class="container filter-bar-inner">
+      <div class="search-box">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          id="searchInput"
+          type="text"
+          class="search-input"
+          placeholder="Buscar tema, código o práctica (ej. 1.2.3, Lambda, Polimorfismo, Práctica 4)..."
+        >
+        <button type="button" id="btnClearSearch" class="clear-search-btn" title="Limpiar búsqueda">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
 
-        <!-- Filtros por Paradigma / Bloque -->
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 no-scrollbar">
-          <button data-filter="all" class="filter-btn active-filter px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-escom-blue text-white shadow-sm">
-            Todos
-          </button>
-          <button data-filter="fundamentos" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            1.1 Fundamentos
-          </button>
-          <button data-filter="funcional" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            1.2 Funcional
-          </button>
-          <button data-filter="logico" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            1.3 Lógico
-          </button>
-          <button data-filter="poo" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            Cap. 2 POO
-          </button>
-          <button data-filter="multiparadigma" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            Cap. 3 Eventos y Servicios
-          </button>
-          <button data-filter="evaluacion" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
-            Cuestionarios
-          </button>
-        </div>
-
+      <div class="filter-pills">
+        <button type="button" data-filter="all" class="filter-btn active">Todos</button>
+        <button type="button" data-filter="fundamentos" class="filter-btn">1.1 Fundamentos</button>
+        <button type="button" data-filter="funcional" class="filter-btn">1.2 Funcional</button>
+        <button type="button" data-filter="logico" class="filter-btn">1.3 Lógico</button>
+        <button type="button" data-filter="poo" class="filter-btn">Cap. 2 POO</button>
+        <button type="button" data-filter="multiparadigma" class="filter-btn">Cap. 3 Eventos y Servicios</button>
+        <button type="button" data-filter="evaluacion" class="filter-btn">Cuestionarios</button>
       </div>
     </div>
   </section>
 
-  <!-- ================= CONTENIDO PRINCIPAL (TEMARIO + SECCIÓN GUINDA) ================= -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-    
-    <!-- Mensaje cuando no hay resultados de búsqueda -->
-    <div id="emptySearchState" class="hidden mb-8 p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-      <div class="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-800 mx-auto flex items-center justify-center text-slate-400 mb-3">
-        <i class="fa-solid fa-magnifying-glass-minus text-2xl"></i>
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main class="main-wrapper">
+    <div class="container">
+
+      <!-- Estado sin resultados -->
+      <div id="emptySearchState" style="display:none; padding:2rem; text-align:center; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-xl); margin-bottom:1.5rem;">
+        <p style="font-size:1.05rem; font-weight:700; margin-bottom:0.35rem;">No se encontraron temas ni prácticas con ese criterio</p>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Prueba buscando otra palabra clave como "Lambda", "Herencia", "MVC" o restablece los filtros.</p>
+        <button type="button" id="btnResetFilters" class="btn-subtle" style="background:var(--escom-blue); color:#fff; border-color:transparent;">Mostrar todo el temario</button>
       </div>
-      <h3 class="text-lg font-bold">No se encontraron temas ni prácticas con ese término</h3>
-      <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Intenta buscar otra palabra clave como "Lambda", "Herencia", "Prolog", "MVC" o limpia el filtro.</p>
-      <button id="btnResetFilters" class="mt-4 px-4 py-2 rounded-xl bg-escom-blue text-white text-xs font-semibold hover:bg-escom-blueLight transition">
-        Mostrar todo el temario
-      </button>
-    </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      
-      <!-- ================= COLUMNA IZQUIERDA: EL TEMARIO (8 COLUMNAS) ================= -->
-      <section class="lg:col-span-8 space-y-8" id="temarioContainer">
-        
-        <!-- Encabezado de Sección -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-escom-blue dark:text-sky-400">Contenido Teórico</span>
-            <h2 class="text-2xl font-extrabold tracking-tight">EL TEMARIO</h2>
+      <div class="content-grid">
+
+        <!-- COLUMNA IZQUIERDA: EL TEMARIO -->
+        <section id="temarioContainer">
+          <div class="section-toolbar">
+            <div>
+              <span class="section-eyebrow">Contenido Teórico</span>
+              <h2 class="section-heading">EL TEMARIO</h2>
+            </div>
+            <div class="toolbar-btns">
+              <button type="button" id="btnExpandAll" class="btn-subtle">Expandir todo</button>
+              <button type="button" id="btnCollapseAll" class="btn-subtle">Contraer todo</button>
+            </div>
           </div>
-          <div class="flex items-center gap-2">
-            <button id="btnExpandAll" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition">
-              <i class="fa-solid fa-angles-down mr-1"></i> Expandir todo
-            </button>
-            <button id="btnCollapseAll" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition">
-              <i class="fa-solid fa-angles-up mr-1"></i> Contraer todo
-            </button>
-          </div>
-        </div>
 
-        <!-- Contenedor dinámico de Capítulos renderizado por JS para mantener código limpio y 100% fiel -->
-        <div id="chaptersRoot" class="space-y-8"></div>
+          <!-- Capítulos dinámicos -->
+          <div id="chaptersRoot" class="chapters-stack"></div>
 
-        <!-- Cita Institucional Original -->
-        <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200/60 dark:from-slate-900 dark:to-slate-800/60 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <i class="fa-solid fa-quote-left text-2xl text-ipn-guinda dark:text-pink-400 opacity-80"></i>
-            <p class="cita text-sm sm:text-base italic font-medium text-slate-700 dark:text-slate-300">
+          <!-- Cita institucional -->
+          <div class="quote-card">
+            <p class="cita" style="font-style:italic; font-weight:600; color:var(--text-secondary);">
               <cite>Temario de Paradigmas de Programación del IPN-ESCOM, nivel II.</cite>
             </p>
+            <span class="mono" style="font-size:0.75rem; padding:0.2rem 0.6rem; border-radius:6px; background:var(--bg-surface-alt); border:1px solid var(--border-strong); color:var(--text-muted);">
+              ESCOM • IPN
+            </span>
           </div>
-          <span class="text-xs font-mono uppercase px-2.5 py-1 rounded bg-white dark:bg-slate-950 text-slate-500 border border-slate-200 dark:border-slate-700 shrink-0">ESCOM • IPN</span>
-        </div>
+        </section>
 
-      </section>
-
-      <!-- ================= COLUMNA DERECHA: ASIDE / SECCIÓN GUINDA (4 COLUMNAS) ================= -->
-      <aside class="lg:col-span-4 space-y-6">
-        
-        <!-- Panel Principal Guinda (Prácticas, Proyecto, Reglas y Evaluación) -->
-        <div class="guinda-gradient text-white rounded-3xl p-6 shadow-2xl border border-pink-900/40 relative overflow-hidden">
-          
-          <!-- Brillo decorativo -->
-          <div class="absolute -top-24 -right-24 w-48 h-48 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- COLUMNA DERECHA: SECCIÓN GUINDA (PRÁCTICAS, PROYECTO, REGLAS Y EVALUACIÓN) -->
+        <aside class="guinda-sidebar">
 
           <!-- 1. PRÁCTICAS SUGERIDAS -->
-          <div class="relative z-10">
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <div class="flex items-center gap-2.5">
-                <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-amber-300 shadow-inner">
-                  <i class="fa-solid fa-flask-vial"></i>
-                </span>
+          <div class="guinda-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v7.31"></path>
+                    <path d="M14 9.3V1.99"></path>
+                    <path d="M8.5 2h7"></path>
+                    <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                  </svg>
+                </div>
                 <div>
-                  <h2 class="text-xl font-extrabold tracking-tight">Prácticas sugeridas</h2>
-                  <p class="text-xs text-pink-200">Sección Guinda • Laboratorio</p>
+                  <h2 class="panel-title">Prácticas sugeridas</h2>
+                  <p class="panel-subtitle">Sección Guinda • Laboratorio</p>
                 </div>
               </div>
-              <span id="practicesProgressBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-black/30 text-amber-300 border border-white/15">
+              <span id="practicesProgressBadge" class="mono" style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:999px; background:var(--ipn-guinda-soft); color:var(--ipn-guinda-light); border:1px solid var(--ipn-guinda-border);">
                 0/12
               </span>
             </div>
 
-            <!-- Barra de progreso de prácticas -->
-            <div class="w-full h-2 bg-black/30 rounded-full overflow-hidden mb-5">
-              <div id="practicesProgressBar" class="h-full bg-gradient-to-r from-amber-400 to-emerald-400 transition-all duration-500" style="width: 0%"></div>
+            <div class="bar-track">
+              <div id="practicesProgressBar" class="bar-fill" style="width:0%; background:var(--ipn-guinda-light);"></div>
             </div>
 
-            <!-- Lista de las 12 Prácticas Originales -->
-            <div id="practicesListContainer" class="space-y-2.5"></div>
+            <div id="practicesListContainer" class="practices-list"></div>
           </div>
 
-          <hr class="my-6 border-white/15">
-
-          <!-- 2. PROYECTO -->
-          <div class="relative z-10">
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-amber-300">
-                <i class="fa-solid fa-microchip"></i>
-              </span>
-              <h2 class="text-xl font-extrabold tracking-tight">Proyecto</h2>
-            </div>
-
-            <div class="bg-black/25 rounded-2xl p-4 border border-white/10 text-sm text-pink-50 space-y-3 leading-relaxed">
-              <p>
-                Selecciona un bloque de código del lenguaje de alto nivel que quieras. El cuál se traducirá a un lenguaje de bajo nivel usando las etapas de un compilador. Este proyecto se implementará con un <strong>máximo de tres Estudiantes</strong>.
-              </p>
-              <p class="text-xs text-amber-200 font-medium">
-                <i class="fa-solid fa-chalkboard mr-1"></i> Se entregará la documentación de acuerdo al siguiente pizarrón:
-              </p>
-
-              <!-- Imagen original DocumentaciónProyecto.svg con fallback de Pizarrón Interactivo SVG -->
-              <div class="pt-2 text-center">
-                <img 
-                  src="DocumentaciónProyecto.svg" 
-                  alt="Pizarrón de Documentación del Proyecto" 
-                  class="w-full rounded-xl border border-white/20 shadow-md mx-auto bg-slate-900/60 p-2"
-                  onerror="this.style.display='none'; document.getElementById('svgFallbackPizarron').classList.remove('hidden');"
-                >
-                <!-- Fallback interactivo si DocumentaciónProyecto.svg no se encuentra en la carpeta -->
-                <div id="svgFallbackPizarron" class="hidden rounded-xl overflow-hidden border-2 border-amber-400/40 bg-emerald-950 p-3 text-left shadow-inner">
-                  <div class="flex items-center justify-between border-b border-emerald-800 pb-2 mb-2">
-                    <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-300 flex items-center gap-1.5">
-                      <i class="fa-solid fa-diagram-next"></i> DocumentaciónProyecto.svg
-                    </span>
-                    <button type="button" onclick="openProjectBoardModal()" class="text-[11px] bg-emerald-800 hover:bg-emerald-700 text-white px-2 py-0.5 rounded transition">
-                      Ampliar pizarrón
-                    </button>
-                  </div>
-                  <svg viewBox="0 0 360 170" class="w-full h-auto font-mono">
-                    <rect width="360" height="170" rx="8" fill="#064e3b"/>
-                    <text x="180" y="22" fill="#fde047" font-size="11" font-weight="bold" text-anchor="middle">PIZARRÓN: TRADUCCIÓN ALTO NIVEL → BAJO NIVEL</text>
-                    <!-- Cajas de etapas -->
-                    <rect x="12" y="36" width="95" height="42" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
-                    <text x="60" y="54" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">1. Código Fuente</text>
-                    <text x="60" y="68" fill="#a7f3d0" font-size="8" text-anchor="middle">(Alto Nivel)</text>
-
-                    <path d="M107 57 L128 57" stroke="#fde047" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-                    <rect x="130" y="36" width="100" height="42" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
-                    <text x="180" y="54" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">2. Análisis</text>
-                    <text x="180" y="68" fill="#a7f3d0" font-size="8" text-anchor="middle">Léxico / Sintáctico</text>
-
-                    <path d="M230 57 L251 57" stroke="#fde047" stroke-width="1.5"/>
-
-                    <rect x="253" y="36" width="95" height="42" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
-                    <text x="300" y="54" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle">3. Semántico y</text>
-                    <text x="300" y="68" fill="#a7f3d0" font-size="8" text-anchor="middle">Cód. Intermedio</text>
-
-                    <rect x="55" y="102" width="250" height="48" rx="6" fill="#065f46" stroke="#fde047" stroke-width="1.2" stroke-dasharray="3,2"/>
-                    <text x="180" y="122" fill="#fde047" font-size="9.5" font-weight="bold" text-anchor="middle">4. Generación de Código Bajo Nivel / Ensamblador</text>
-                    <text x="180" y="138" fill="#d1fae5" font-size="8" text-anchor="middle">Documentación por equipo (Máx. 3 Estudiantes)</text>
+          <!-- 2. PROYECTO (CON PIZARRÓN SVG INTEGRADO SIN ERROR 404) -->
+          <div class="guinda-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                    <line x1="15" y1="20" x2="15" y2="23"></line>
                   </svg>
+                </div>
+                <div>
+                  <h2 class="panel-title">Proyecto</h2>
+                  <p class="panel-subtitle">Traducción Alto Nivel → Bajo Nivel</p>
                 </div>
               </div>
             </div>
+
+            <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.55;">
+              Selecciona un bloque de código del lenguaje de alto nivel que quieras. El cuál se traducirá a un lenguaje de bajo nivel usando las etapas de un compilador. Este proyecto se implementará con un <strong>máximo de tres Estudiantes</strong>.
+            </p>
+            <p style="font-size:0.8rem; color:var(--amber-accent); font-weight:600; margin-top:0.5rem;">
+              Se entregará la documentación de acuerdo al siguiente pizarrón:
+            </p>
+
+            <!-- Pizarrón SVG Integrado (Evita el 404 automático en consola) -->
+            <div class="pizarron-box">
+              <div class="pizarron-toolbar">
+                <span class="mono" style="color:#6ee7b7; font-weight:700;">Pizarrón: DocumentaciónProyecto.svg</span>
+                <a href="DocumentaciónProyecto.svg" target="_blank" rel="noopener" style="color:#fde047; text-decoration:underline; font-weight:600;">
+                  Abrir SVG local
+                </a>
+              </div>
+              <svg viewBox="0 0 360 175" style="width:100%; height:auto; display:block;" role="img" aria-label="Pizarrón de etapas del compilador para el proyecto">
+                <rect width="360" height="175" rx="6" fill="#064e3b"/>
+                <text x="180" y="20" fill="#fde047" font-size="10.5" font-weight="bold" text-anchor="middle" font-family="monospace">ETAPAS DE TRADUCCIÓN (COMPILADOR)</text>
+
+                <rect x="10" y="34" width="98" height="44" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
+                <text x="59" y="53" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">1. Alto Nivel</text>
+                <text x="59" y="67" fill="#a7f3d0" font-size="8" text-anchor="middle" font-family="monospace">Bloque fuente</text>
+
+                <line x1="108" y1="56" x2="128" y2="56" stroke="#fde047" stroke-width="1.6"/>
+
+                <rect x="128" y="34" width="104" height="44" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
+                <text x="180" y="53" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">2. Léxico/Sintác.</text>
+                <text x="180" y="67" fill="#a7f3d0" font-size="8" text-anchor="middle" font-family="monospace">Tokens y Árbol</text>
+
+                <line x1="232" y1="56" x2="252" y2="56" stroke="#fde047" stroke-width="1.6"/>
+
+                <rect x="252" y="34" width="98" height="44" rx="5" fill="#047857" stroke="#6ee7b7" stroke-width="1.2"/>
+                <text x="301" y="53" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">3. Semántico</text>
+                <text x="301" y="67" fill="#a7f3d0" font-size="8" text-anchor="middle" font-family="monospace">Cód. Intermedio</text>
+
+                <rect x="35" y="98" width="290" height="58" rx="6" fill="#065f46" stroke="#fde047" stroke-width="1.3" stroke-dasharray="4,2"/>
+                <text x="180" y="120" fill="#fde047" font-size="9.5" font-weight="bold" text-anchor="middle" font-family="monospace">4. Optimización y Código de Bajo Nivel</text>
+                <text x="180" y="138" fill="#d1fae5" font-size="8.2" text-anchor="middle" font-family="monospace">Entrega documentada (Máx. 3 Estudiantes)</text>
+              </svg>
+            </div>
           </div>
 
-          <hr class="my-6 border-white/15">
-
           <!-- 3. FORMA DE LLEVAR EL CURSO -->
-          <div class="relative z-10">
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-amber-300">
-                <i class="fa-solid fa-list-check"></i>
-              </span>
-              <h2 class="text-xl font-extrabold tracking-tight">Forma de llevar el curso</h2>
+          <div class="guinda-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="panel-title">Forma de llevar el curso</h2>
+                  <p class="panel-subtitle">Lineamientos generales</p>
+                </div>
+              </div>
             </div>
 
-            <ul class="space-y-2.5 text-sm text-pink-50">
-              <li class="flex items-start gap-2.5 bg-black/20 p-3 rounded-xl border border-white/10">
-                <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+            <ul class="rules-list">
+              <li class="rule-item">
+                <span class="rule-num">1</span>
                 <span>El contenido teórico se impartirá usando esta página, dónde se presenta el temario en el cuál se seleccionará el tema dando click en el enlace correspondiente.</span>
               </li>
-              <li class="flex items-start gap-2.5 bg-black/20 p-3 rounded-xl border border-white/10">
-                <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <li class="rule-item">
+                <span class="rule-num">2</span>
                 <span>Las prácticas se enlistan en la sección guinda, las que se realizarán durante el curso conforme al avance teórico.</span>
               </li>
-              <li class="flex items-start gap-2.5 bg-black/20 p-3 rounded-xl border border-white/10">
-                <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <li class="rule-item">
+                <span class="rule-num">3</span>
                 <span>Los proyectos se podrán realizar en grupos de tres Estudiantes, como máximo.</span>
               </li>
-              <li class="flex items-start gap-2.5 bg-black/20 p-3 rounded-xl border border-white/10">
-                <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+              <li class="rule-item">
+                <span class="rule-num">4</span>
                 <span>Se aplicarán tres cuestionarios, cómo máximo.</span>
               </li>
             </ul>
           </div>
 
-          <hr class="my-6 border-white/15">
-
-          <!-- 4. EVALUACIÓN DEL CURSO Y TABLA COMPLEMENTARIA RESCATADA -->
-          <div class="relative z-10">
-            <div class="flex items-center gap-2.5 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-amber-300">
-                <i class="fa-solid fa-award"></i>
-              </span>
-              <h2 class="text-xl font-extrabold tracking-tight">Evaluación del curso</h2>
-            </div>
-
-            <div class="space-y-3 text-sm text-pink-50">
-              <p>1.- Las ponderaciones de las prácticas y el proyecto se muestran en el siguiente link:</p>
-              
-              <a href="../EvaluacionContinua.html" class="flex items-center justify-between p-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs sm:text-sm tracking-wide transition shadow-lg">
-                <span class="flex items-center gap-2">
-                  <i class="fa-solid fa-chart-pie"></i>
-                  EVALUACIÓN DE CONOCIMIENTOS
-                </span>
-                <i class="fa-solid fa-arrow-right"></i>
-              </a>
-
-              <p class="pt-1">2.- Los cuestionarios se realizarán en el laboratorio correspondiente.</p>
-            </div>
-
-            <!-- Tabla Complementaria de Calificaciones (Rescatada del comentario original y hecha interactiva) -->
-            <div class="mt-5 pt-4 border-t border-white/15">
-              <button 
-                type="button" 
-                id="btnToggleGradeTable" 
-                class="w-full flex items-center justify-between text-left px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-bold uppercase tracking-wider text-amber-300 transition"
-              >
-                <span><i class="fa-solid fa-calculator mr-1.5"></i> Tabla complementaria de calificaciones</span>
-                <i id="gradeTableChevron" class="fa-solid fa-chevron-down transition-transform"></i>
-              </button>
-
-              <div id="gradeTableContainer" class="mt-3 space-y-3">
-                <p class="text-xs text-pink-100">
-                  Haz clic en una fila o ingresa tus puntos según el tamaño de tu equipo (<strong>2E</strong> = 2 Estudiantes, <strong>3E</strong> = 3 Estudiantes) para consultar la Calificación Final (<strong>CF</strong>):
-                </p>
-
-                <!-- Simulador Rápido -->
-                <div class="grid grid-cols-2 gap-2 bg-black/25 p-2.5 rounded-xl border border-white/10">
-                  <div>
-                    <label class="block text-[10px] uppercase font-bold text-pink-200 mb-1">Integrantes</label>
-                    <select id="simTeamSize" class="w-full rounded-lg bg-slate-900 text-white text-xs px-2 py-1.5 border border-white/20 focus:outline-none">
-                      <option value="2E">2 Estudiantes (2E)</option>
-                      <option value="3E">3 Estudiantes (3E)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block text-[10px] uppercase font-bold text-pink-200 mb-1">Puntaje obtenido</label>
-                    <input id="simPoints" type="number" min="0" max="30" value="20" class="w-full rounded-lg bg-slate-900 text-white text-xs px-2.5 py-1.5 border border-white/20 focus:outline-none font-mono">
-                  </div>
+          <!-- 4. EVALUACIÓN DEL CURSO Y TABLA COMPLEMENTARIA -->
+          <div class="guinda-panel">
+            <div class="panel-header">
+              <div class="panel-title-group">
+                <div class="panel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
                 </div>
-
-                <!-- Tabla Original Estilizada -->
-                <div class="overflow-hidden rounded-xl border border-white/20 shadow-inner">
-                  <table class="w-full text-center text-xs font-mono">
-                    <caption class="caption-bottom bg-black/40 py-1.5 text-[11px] text-pink-200 font-sans">
-                      Tabla complementaria de calificaciones (2E / 3E → CF)
-                    </caption>
-                    <thead class="bg-escom-blue text-amber-300 uppercase">
-                      <tr>
-                        <th scope="row" class="py-2 px-2 border-r border-white/15">2E</th>
-                        <th class="py-2 px-2 border-r border-white/15">3E</th>
-                        <th class="py-2 px-2">CF</th>
-                      </tr>
-                    </thead>
-                    <tbody id="gradeTableBody" class="divide-y divide-white/10 bg-slate-900/80 text-white">
-                      <tr data-cf="4" class="grade-row hover:bg-escom-blue/50 cursor-pointer transition">
-                        <td class="py-2 px-2 border-r border-white/10">20, 19</td>
-                        <td class="py-2 px-2 border-r border-white/10">30, 29, 28</td>
-                        <td class="py-2 px-2 font-bold text-emerald-400">4</td>
-                      </tr>
-                      <tr data-cf="3" class="grade-row hover:bg-escom-blue/50 cursor-pointer transition">
-                        <td class="py-2 px-2 border-r border-white/10">18, 17, 16</td>
-                        <td class="py-2 px-2 border-r border-white/10">27, 26, 25, 24</td>
-                        <td class="py-2 px-2 font-bold text-sky-400">3</td>
-                      </tr>
-                      <tr data-cf="2" class="grade-row hover:bg-escom-blue/50 cursor-pointer transition">
-                        <td class="py-2 px-2 border-r border-white/10">16, 15, 14</td>
-                        <td class="py-2 px-2 border-r border-white/10">23, 22, 21, 20</td>
-                        <td class="py-2 px-2 font-bold text-amber-300">2</td>
-                      </tr>
-                      <tr data-cf="1" class="grade-row hover:bg-escom-blue/50 cursor-pointer transition">
-                        <td class="py-2 px-2 border-r border-white/10">13, 12, 11</td>
-                        <td class="py-2 px-2 border-r border-white/10">19, 18, 17, 16</td>
-                        <td class="py-2 px-2 font-bold text-orange-400">1</td>
-                      </tr>
-                      <tr data-cf="0" class="grade-row hover:bg-escom-blue/50 cursor-pointer transition">
-                        <td class="py-2 px-2 border-r border-white/10">10</td>
-                        <td class="py-2 px-2 border-r border-white/10">15</td>
-                        <td class="py-2 px-2 font-bold text-rose-400">0</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div id="simResultBanner" class="text-center py-2 px-3 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-xs font-semibold text-emerald-200">
-                  Puntaje correspondiente a <strong>CF = 4</strong>
+                <div>
+                  <h2 class="panel-title">Evaluación del curso</h2>
+                  <p class="panel-subtitle">Ponderaciones y Calificación Final</p>
                 </div>
               </div>
             </div>
 
+            <p style="font-size:0.84rem; color:var(--text-secondary);">
+              1.- Las ponderaciones de las prácticas y el proyecto se muestran en el siguiente link:
+            </p>
+
+            <a href="../EvaluacionContinua.html" class="cta-eval-link">
+              <span>EVALUACIÓN DE CONOCIMIENTOS</span>
+              <span>→</span>
+            </a>
+
+            <p style="font-size:0.84rem; color:var(--text-secondary); margin-bottom:0.85rem;">
+              2.- Los cuestionarios se realizarán en el laboratorio correspondiente.
+            </p>
+
+            <!-- Tabla Complementaria de Calificaciones Interactiva -->
+            <div style="border-top:1px solid var(--border-color); padding-top:0.85rem;">
+              <div style="font-size:0.78rem; font-weight:800; text-transform:uppercase; color:var(--amber-accent); margin-bottom:0.35rem;">
+                Tabla complementaria de calificaciones
+              </div>
+              <p style="font-size:0.76rem; color:var(--text-muted);">
+                Calcula tu Calificación Final (<strong>CF</strong>) según integrantes (<strong>2E</strong> o <strong>3E</strong>):
+              </p>
+
+              <div class="sim-grid">
+                <div>
+                  <label class="sim-label" for="simTeamSize">Equipo</label>
+                  <select id="simTeamSize" class="sim-control">
+                    <option value="2E">2 Estudiantes (2E)</option>
+                    <option value="3E">3 Estudiantes (3E)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="sim-label" for="simPoints">Puntos</label>
+                  <input id="simPoints" type="number" min="0" max="30" value="20" class="sim-control mono">
+                </div>
+              </div>
+
+              <table class="grade-table mono">
+                <thead>
+                  <tr>
+                    <th scope="col">2E</th>
+                    <th scope="col">3E</th>
+                    <th scope="col">CF</th>
+                  </tr>
+                </thead>
+                <tbody id="gradeTableBody">
+                  <tr data-cf="4" class="grade-row">
+                    <td>20, 19</td>
+                    <td>30, 29, 28</td>
+                    <td><strong>4</strong></td>
+                  </tr>
+                  <tr data-cf="3" class="grade-row">
+                    <td>18, 17, 16</td>
+                    <td>27, 26, 25, 24</td>
+                    <td><strong>3</strong></td>
+                  </tr>
+                  <tr data-cf="2" class="grade-row">
+                    <td>16, 15, 14</td>
+                    <td>23, 22, 21, 20</td>
+                    <td><strong>2</strong></td>
+                  </tr>
+                  <tr data-cf="1" class="grade-row">
+                    <td>13, 12, 11</td>
+                    <td>19, 18, 17, 16</td>
+                    <td><strong>1</strong></td>
+                  </tr>
+                  <tr data-cf="0" class="grade-row">
+                    <td>10</td>
+                    <td>15</td>
+                    <td><strong>0</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div id="simResultBanner" class="sim-banner">
+                Resultado: <strong>CF = 4</strong>
+              </div>
+            </div>
           </div>
 
-        </div>
+        </aside>
 
-      </aside>
-
+      </div>
     </div>
   </main>
 
-  <!-- ================= MODAL DE CONFIRMACIÓN / PIZARRON (SIN ALERT/CONFIRM) ================= -->
-  <div id="customModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
-    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full p-6 shadow-2xl transform transition-all">
-      <div class="flex items-start justify-between gap-4 mb-4">
-        <div class="flex items-center gap-3">
-          <div id="modalIconBox" class="w-10 h-10 rounded-xl bg-ipn-guinda/15 text-ipn-guinda dark:text-pink-400 flex items-center justify-center">
-            <i class="fa-solid fa-circle-info text-lg"></i>
-          </div>
-          <h3 id="modalTitle" class="text-lg font-extrabold">Información</h3>
-        </div>
-        <button id="btnCloseModal" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-          <i class="fa-solid fa-xmark text-xl"></i>
-        </button>
-      </div>
-      <div id="modalBody" class="text-sm text-slate-600 dark:text-slate-300 space-y-3"></div>
-      <div id="modalFooter" class="mt-6 flex items-center justify-end gap-3">
-        <button id="btnModalCancel" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-200">
-          Cerrar
-        </button>
-        <button id="btnModalConfirm" class="hidden px-4 py-2 rounded-xl bg-ipn-guinda text-white text-xs font-semibold hover:bg-ipn-guindaLight">
-          Confirmar
-        </button>
+  <!-- ================= MODAL DE CONFIRMACIÓN ================= -->
+  <div id="customModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 id="modalTitle" style="font-size:1.1rem; font-weight:800; margin-bottom:0.5rem;">Confirmar acción</h3>
+      <div id="modalBody" style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.25rem;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:0.6rem;">
+        <button type="button" id="btnModalCancel" class="btn-subtle">Cancelar</button>
+        <button type="button" id="btnModalConfirm" class="btn-subtle" style="background:var(--ipn-guinda); color:#fff; border-color:transparent;">Confirmar</button>
       </div>
     </div>
   </div>
 
-  <!-- ================= FOOTER INSTITUCIONAL ================= -->
-  <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-      <div class="flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-ipn-guinda flex items-center justify-center text-white font-bold text-xs">IPN</span>
-        <p class="font-semibold text-white">Temario: Paradigmas de la programación</p>
-      </div>
-      <p class="derecha text-amber-400 font-semibold flex items-center gap-2">
-        <i class="fa-solid fa-user-tie"></i>
-        <span>Prof. José Sánchez Juárez</span>
-      </p>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Temario: Paradigmas de la programación</strong> • IPN - ESCOM</p>
+      <p class="derecha" style="color:#fbbf24; font-weight:700;">Prof. José Sánchez Juárez</p>
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT: DATOS DEL TEMARIO Y LÓGICA INTERACTIVA ================= -->
+  <!-- ================= LÓGICA JAVASCRIPT AUTÓNOMA ================= -->
   <script>
-    /**
-     * Estructura íntegra de datos con TODOS los enlaces (href) exactos del HTML original.
-     * Se corrigieron además las etiquetas <a> sin cerrar de la sección 2.3.3 a 2.4.3.
-     */
     const TEMARIO_DATA = [
       {
         id: 'cap1',
         chapterTitle: 'Capítulo 1',
         chapterSubtitle: 'Introducción a los lenguajes de programación y sus paradigmas',
-        icon: 'fa-solid fa-cubes',
-        accentColor: 'escom',
+        accent: 'blue',
         groups: [
           {
             groupId: '1.1',
             filterCategory: 'fundamentos',
-            badge: 'Unidad 1.1',
+            badge: 'Unidad 1.1 • Fundamentos',
             title: '1.1 Lenguajes y paradigmas.',
             href: '11LenguajesYparadigmas.html',
             subtopics: [
@@ -648,7 +1757,7 @@
           {
             groupId: '1.2',
             filterCategory: 'funcional',
-            badge: 'Unidad 1.2 • Funcional',
+            badge: 'Unidad 1.2 • Programación Funcional',
             title: '1.2 Programación funcional.',
             href: '12ProgramacionFuncional.html',
             subtopics: [
@@ -666,7 +1775,7 @@
           {
             groupId: '1.3',
             filterCategory: 'logico',
-            badge: 'Unidad 1.3 • Lógica',
+            badge: 'Unidad 1.3 • Programación Lógica',
             title: '1.3 Programación lógica.',
             href: '13ProgramacionLogica.html',
             subtopics: [
@@ -684,8 +1793,7 @@
         id: 'evaluacion_intermedia',
         chapterTitle: 'Evaluación',
         chapterSubtitle: 'Temas a evaluar (Cuestionarios y Soluciones)',
-        icon: 'fa-solid fa-file-signature',
-        accentColor: 'amber',
+        accent: 'amber',
         groups: [
           {
             groupId: 'eval_1',
@@ -706,8 +1814,7 @@
         id: 'cap2',
         chapterTitle: 'Capítulo 2',
         chapterSubtitle: 'Programación orientada a objetos',
-        icon: 'fa-solid fa-diagram-project',
-        accentColor: 'guinda',
+        accent: 'guinda',
         groups: [
           {
             groupId: '2.1',
@@ -763,8 +1870,7 @@
         id: 'cap3',
         chapterTitle: 'Capítulo 3',
         chapterSubtitle: 'Lenguajes multiparadigma y de uso específico',
-        icon: 'fa-solid fa-network-wired',
-        accentColor: 'escom',
+        accent: 'blue',
         groups: [
           {
             groupId: '3.1',
@@ -823,32 +1929,43 @@
       { id: 'p_e4', label: 'Práctica E4:', title: 'Continuación de los ejercicios para el proyecto dos.', href: 'PracticaE4Pp.html', tag: 'Proyecto' }
     ];
 
-    // Estado de Progreso persistente en localStorage
-    const STORAGE_KEY = 'escom_paradigmas_progress_v1';
-    const THEME_KEY = 'escom_paradigmas_theme_v1';
+    const STORAGE_KEY = 'escom_paradigmas_progress_v2';
+    const THEME_KEY = 'escom_paradigmas_theme_v2';
     let completedItems = {};
     let currentFilter = 'all';
     let currentSearch = '';
 
-    // Cargar estado guardado
-    function loadProgress() {
+    function safeGetStorage(key) {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) completedItems = JSON.parse(raw);
+        return localStorage.getItem(key);
       } catch (e) {
-        completedItems = {};
+        return null;
+      }
+    }
+
+    function safeSetStorage(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        // Silencioso si el navegador bloquea storage local
+      }
+    }
+
+    function loadProgress() {
+      const raw = safeGetStorage(STORAGE_KEY);
+      if (raw) {
+        try {
+          completedItems = JSON.parse(raw) || {};
+        } catch (e) {
+          completedItems = {};
+        }
       }
     }
 
     function saveProgress() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(completedItems));
-      } catch (e) {
-        console.warn('No se pudo guardar en localStorage');
-      }
+      safeSetStorage(STORAGE_KEY, JSON.stringify(completedItems));
     }
 
-    // Resaltar coincidencias de búsqueda
     function highlightText(text, query) {
       if (!query) return text;
       const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -856,139 +1973,89 @@
       return text.replace(regex, '<mark class="search-highlight">$1</mark>');
     }
 
-    // Renderizar Capítulos del Temario
     function renderTemario() {
       const root = document.getElementById('chaptersRoot');
       root.innerHTML = '';
-
       let totalVisibleTopics = 0;
 
-      TEMARIO_DATA.forEach((chapter) => {
-        // Filtrar grupos según categoría y búsqueda
+      TEMARIO_DATA.forEach(chapter => {
         const matchingGroups = chapter.groups.map(group => {
           if (currentFilter !== 'all' && group.filterCategory !== currentFilter) {
             return null;
           }
-
           const q = currentSearch.trim().toLowerCase();
-          const groupTitleMatch = group.title.toLowerCase().includes(q) || group.badge.toLowerCase().includes(q);
-
-          const filteredSubtopics = group.subtopics.filter(sub => {
+          const groupMatch = group.title.toLowerCase().includes(q) || group.badge.toLowerCase().includes(q);
+          const filteredSubs = group.subtopics.filter(sub => {
             if (!q) return true;
             return (
-              groupTitleMatch ||
+              groupMatch ||
               sub.code.toLowerCase().includes(q) ||
               sub.title.toLowerCase().includes(q) ||
               (sub.href && sub.href.toLowerCase().includes(q))
             );
           });
 
-          if (filteredSubtopics.length === 0 && !groupTitleMatch) {
-            return null;
-          }
-
-          return {
-            ...group,
-            subtopics: filteredSubtopics
-          };
+          if (filteredSubs.length === 0 && !groupMatch) return null;
+          return { ...group, subtopics: filteredSubs };
         }).filter(Boolean);
 
         if (matchingGroups.length === 0) return;
 
-        // Calcular progreso del capítulo completo
-        const allChapterItems = [];
+        // Cálculo de progreso del capítulo
+        const allChapterIds = [];
         chapter.groups.forEach(g => {
-          if (g.href) allChapterItems.push(`g_${g.groupId}`);
-          g.subtopics.forEach(s => allChapterItems.push(s.id));
+          if (g.href) allChapterIds.push(`g_${g.groupId}`);
+          g.subtopics.forEach(s => allChapterIds.push(s.id));
         });
-        const doneInChapter = allChapterItems.filter(id => completedItems[id]).length;
-        const pctChapter = allChapterItems.length ? Math.round((doneInChapter / allChapterItems.length) * 100) : 0;
+        const doneCount = allChapterIds.filter(id => completedItems[id]).length;
+        const pct = allChapterIds.length ? Math.round((doneCount / allChapterIds.length) * 100) : 0;
 
-        const isGuinda = chapter.accentColor === 'guinda';
-        const isAmber = chapter.accentColor === 'amber';
-        const headerBadgeClass = isGuinda
-          ? 'bg-ipn-guinda text-white'
-          : isAmber
-          ? 'bg-amber-500 text-slate-950'
-          : 'bg-escom-blue text-white';
-
-        const chapterEl = document.createElement('article');
-        chapterEl.className = 'chapter-card bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition';
+        const badgeClass = chapter.accent === 'guinda' ? 'guinda' : chapter.accent === 'amber' ? 'amber' : '';
 
         let groupsHTML = '';
         matchingGroups.forEach(group => {
-          const groupKey = `g_${group.groupId}`;
-          const isGroupChecked = !!completedItems[groupKey];
+          const gKey = `g_${group.groupId}`;
+          const gChecked = !!completedItems[gKey];
 
-          // Enlace principal de la Unidad (ej. 1.1, 1.2, 2.1...)
-          const mainHeaderLink = group.href
-            ? `<div class="flex items-center gap-2.5">
-                <input type="checkbox" data-check-id="${groupKey}" ${isGroupChecked ? 'checked' : ''} class="topic-checkbox w-4 h-4 rounded text-escom-blue focus:ring-escom-blue cursor-pointer" title="Marcar unidad como vista">
-                <a href="${group.href}" class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white hover:text-escom-blue dark:hover:text-sky-400 transition flex items-center gap-2">
+          const unitTitleHTML = group.href
+            ? `<div class="unit-title-row">
+                <input type="checkbox" class="custom-check topic-checkbox" data-check-id="${gKey}" ${gChecked ? 'checked' : ''} title="Marcar unidad">
+                <a href="${group.href}" class="unit-title-link">
                   <span>${highlightText(group.title, currentSearch)}</span>
-                  <i class="fa-solid fa-link text-xs opacity-60"></i>
                 </a>
               </div>`
-            : `<h4 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">${highlightText(group.title, currentSearch)}</h4>`;
+            : `<div class="unit-title-row"><span class="unit-title-link">${highlightText(group.title, currentSearch)}</span></div>`;
 
-          let subtopicsHTML = '';
+          let subsHTML = '';
           group.subtopics.forEach(sub => {
             totalVisibleTopics++;
             const isChecked = !!completedItems[sub.id];
-            const checkedClasses = isChecked
-              ? 'bg-emerald-50/70 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/70'
-              : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/80 hover:border-escom-blue dark:hover:border-sky-500';
 
             if (sub.href) {
-              subtopicsHTML += `
-                <div class="topic-card flex items-start gap-3 p-3 rounded-2xl border ${checkedClasses}">
-                  <input 
-                    type="checkbox" 
-                    data-check-id="${sub.id}" 
-                    ${isChecked ? 'checked' : ''} 
-                    class="topic-checkbox mt-1 w-4 h-4 rounded text-escom-blue focus:ring-escom-blue cursor-pointer shrink-0"
-                    title="Marcar tema como completado"
-                  >
-                  <div class="flex-1 min-w-0">
-                    <a href="${sub.href}" class="group block">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="font-mono text-xs font-bold px-2 py-0.5 rounded bg-escom-blue/10 dark:bg-sky-500/15 text-escom-blue dark:text-sky-300">
-                          ${highlightText(sub.code, currentSearch)}
-                        </span>
-                        <span class="text-[11px] font-mono text-slate-400 dark:text-slate-500 truncate max-w-[160px]" title="${sub.href}">
-                          ${sub.href}
-                        </span>
+              subsHTML += `
+                <div class="topic-item ${isChecked ? 'completed' : ''}">
+                  <input type="checkbox" class="custom-check topic-checkbox" data-check-id="${sub.id}" ${isChecked ? 'checked' : ''} title="Marcar tema como completado">
+                  <div class="topic-content">
+                    <a href="${sub.href}" style="display:block;">
+                      <div class="topic-top-row">
+                        <span class="topic-code mono">${highlightText(sub.code, currentSearch)}</span>
+                        <span class="topic-filename mono" title="${sub.href}">${sub.href}</span>
                       </div>
-                      <p class="mt-1.5 text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-escom-blue dark:group-hover:text-sky-400 transition ${isChecked ? 'line-through opacity-70' : ''}">
-                        ${highlightText(sub.title, currentSearch)}
-                      </p>
+                      <div class="topic-name">${highlightText(sub.title, currentSearch)}</div>
                     </a>
                   </div>
                 </div>
               `;
             } else {
-              // Caso especial: 3.3.3 Lenguajes para ciencia de datos (sin enlace en el original)
-              subtopicsHTML += `
-                <div class="topic-card flex items-start gap-3 p-3 rounded-2xl border ${checkedClasses}">
-                  <input 
-                    type="checkbox" 
-                    data-check-id="${sub.id}" 
-                    ${isChecked ? 'checked' : ''} 
-                    class="topic-checkbox mt-1 w-4 h-4 rounded text-escom-blue focus:ring-escom-blue cursor-pointer shrink-0"
-                    title="Marcar tema como completado"
-                  >
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
-                      <span class="font-mono text-xs font-bold px-2 py-0.5 rounded bg-purple-500/15 text-purple-700 dark:text-purple-300">
-                        ${highlightText(sub.code, currentSearch)}
-                      </span>
-                      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                        Tema informativo
-                      </span>
+              subsHTML += `
+                <div class="topic-item ${isChecked ? 'completed' : ''}">
+                  <input type="checkbox" class="custom-check topic-checkbox" data-check-id="${sub.id}" ${isChecked ? 'checked' : ''} title="Marcar tema como completado">
+                  <div class="topic-content">
+                    <div class="topic-top-row">
+                      <span class="topic-code mono">${highlightText(sub.code, currentSearch)}</span>
+                      <span class="topic-filename mono">Tema teórico</span>
                     </div>
-                    <p class="mt-1.5 text-sm font-semibold text-slate-800 dark:text-slate-100 ${isChecked ? 'line-through opacity-70' : ''}">
-                      ${highlightText(sub.title, currentSearch)}
-                    </p>
+                    <div class="topic-name">${highlightText(sub.title, currentSearch)}</div>
                   </div>
                 </div>
               `;
@@ -996,119 +2063,95 @@
           });
 
           groupsHTML += `
-            <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200/90 dark:border-slate-800 space-y-4">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div class="unit-group">
+              <div class="unit-header">
                 <div>
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-ipn-guinda dark:text-pink-400 block mb-0.5">${group.badge}</span>
-                  ${mainHeaderLink}
+                  <span class="unit-badge">${group.badge}</span>
+                  ${unitTitleHTML}
                 </div>
-                ${group.href ? `<a href="${group.href}" class="self-start sm:self-center text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-escom-blue hover:text-white transition">${group.href} <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i></a>` : ''}
+                ${group.href ? `<a href="${group.href}" class="unit-file-pill mono">${group.href} ↗</a>` : ''}
               </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                ${subtopicsHTML}
+              <div class="topics-grid">
+                ${subsHTML}
               </div>
             </div>
           `;
         });
 
-        chapterEl.innerHTML = `
-          <!-- Cabecera de Capítulo Acordeón -->
-          <div class="chapter-header cursor-pointer select-none p-5 sm:p-6 bg-slate-100/70 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4" onclick="toggleChapterBody('${chapter.id}')">
-            <div class="flex items-start sm:items-center gap-3.5">
-              <div class="w-12 h-12 rounded-2xl ${headerBadgeClass} flex items-center justify-center shadow-md shrink-0">
-                <i class="${chapter.icon} text-xl"></i>
+        const article = document.createElement('article');
+        article.className = 'chapter-card';
+        article.innerHTML = `
+          <div class="chapter-header" onclick="toggleChapter('${chapter.id}')">
+            <div class="chapter-title-wrap">
+              <div class="chapter-badge-icon ${badgeClass}">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </div>
               <div>
-                <div class="flex items-center gap-2">
-                  <h3 class="text-xl font-extrabold tracking-tight">${chapter.chapterTitle}</h3>
-                  <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
-                    ${doneInChapter}/${allChapterItems.length}
-                  </span>
+                <div class="chapter-heading-row">
+                  <h3 class="chapter-title">${chapter.chapterTitle}</h3>
+                  <span class="chapter-counter mono">${doneCount}/${allChapterIds.length}</span>
                 </div>
-                <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">${chapter.chapterSubtitle}</p>
+                <p class="chapter-subtitle">${chapter.chapterSubtitle}</p>
               </div>
             </div>
 
-            <div class="flex items-center gap-4 self-end sm:self-center w-full sm:w-auto justify-end">
-              <div class="w-28 sm:w-32">
-                <div class="flex justify-between text-[11px] font-mono mb-1 text-slate-500 dark:text-slate-400">
+            <div class="chapter-meta">
+              <div class="chapter-bar-wrap">
+                <div class="chapter-bar-labels mono">
                   <span>Avance</span>
-                  <span>${pctChapter}%</span>
+                  <span>${pct}%</span>
                 </div>
-                <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                  <div class="h-full bg-escom-blue dark:bg-sky-400 transition-all duration-500" style="width: ${pctChapter}%"></div>
+                <div class="bar-track">
+                  <div class="bar-fill" style="width:${pct}%;"></div>
                 </div>
               </div>
-              <button type="button" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500">
-                <i id="chevron_${chapter.id}" class="fa-solid fa-chevron-up transition-transform duration-200"></i>
-              </button>
+              <div id="chevron_${chapter.id}" class="chevron-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="18 15 12 9 6 15"></polyline></svg>
+              </div>
             </div>
           </div>
 
-          <!-- Cuerpo del Capítulo -->
-          <div id="body_${chapter.id}" class="p-4 sm:p-6 space-y-6 bg-slate-50/50 dark:bg-slate-950/30">
+          <div id="body_${chapter.id}" class="chapter-body">
             ${groupsHTML}
           </div>
         `;
-
-        root.appendChild(chapterEl);
+        root.appendChild(article);
       });
 
-      // Renderizar Prácticas filtradas
-      const practicesList = document.getElementById('practicesListContainer');
-      practicesList.innerHTML = '';
+      // Renderizar Prácticas sugeridas
+      const pracContainer = document.getElementById('practicesListContainer');
+      pracContainer.innerHTML = '';
       let visiblePractices = 0;
 
       PRACTICAS_DATA.forEach(prac => {
         const q = currentSearch.trim().toLowerCase();
-        const matchesSearch = !q || prac.label.toLowerCase().includes(q) || prac.title.toLowerCase().includes(q) || prac.tag.toLowerCase().includes(q);
-        if (!matchesSearch) return;
+        const matches = !q || prac.label.toLowerCase().includes(q) || prac.title.toLowerCase().includes(q) || prac.tag.toLowerCase().includes(q);
+        if (!matches) return;
         visiblePractices++;
 
         const isChecked = !!completedItems[prac.id];
-        const itemEl = document.createElement('div');
-        itemEl.className = `flex items-start gap-2.5 p-2.5 rounded-xl border transition ${
-          isChecked
-            ? 'bg-emerald-950/50 border-emerald-400/40 text-emerald-100'
-            : 'bg-black/25 hover:bg-black/40 border-white/10 text-white'
-        }`;
-
-        itemEl.innerHTML = `
-          <input 
-            type="checkbox" 
-            data-check-id="${prac.id}" 
-            ${isChecked ? 'checked' : ''} 
-            class="topic-checkbox mt-1 w-4 h-4 rounded text-amber-400 focus:ring-amber-400 cursor-pointer shrink-0"
-            title="Marcar práctica como entregada"
-          >
-          <div class="flex-1 min-w-0 text-xs sm:text-sm leading-snug">
-            <div class="flex items-center justify-between gap-1">
-              <strong>
-                <a href="${prac.href}" class="text-amber-300 hover:underline font-extrabold">
-                  ${highlightText(prac.label, currentSearch)}
-                </a>
-              </strong>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-pink-200">${prac.tag}</span>
+        const row = document.createElement('div');
+        row.className = `practice-item ${isChecked ? 'completed' : ''}`;
+        row.innerHTML = `
+          <input type="checkbox" class="custom-check topic-checkbox" data-check-id="${prac.id}" ${isChecked ? 'checked' : ''} title="Marcar práctica">
+          <div class="practice-info">
+            <div class="practice-top">
+              <a href="${prac.href}" class="practice-label">${highlightText(prac.label, currentSearch)}</a>
+              <span class="practice-tag mono">${prac.tag}</span>
             </div>
-            <a href="${prac.href}" class="block mt-0.5 text-pink-50 hover:text-white transition ${isChecked ? 'line-through opacity-75' : ''}">
-              <strong>${highlightText(prac.title, currentSearch)}</strong>
+            <a href="${prac.href}" class="practice-title-link" style="${isChecked ? 'text-decoration:line-through; opacity:0.7;' : ''}">
+              ${highlightText(prac.title, currentSearch)}
             </a>
           </div>
         `;
-        practicesList.appendChild(itemEl);
+        pracContainer.appendChild(row);
       });
 
-      // Estado vacío si no hay coincidencias ni en temas ni en prácticas
-      const emptyState = document.getElementById('emptySearchState');
-      if (totalVisibleTopics === 0 && visiblePractices === 0) {
-        emptyState.classList.remove('hidden');
-      } else {
-        emptyState.classList.add('hidden');
-      }
+      document.getElementById('emptySearchState').style.display =
+        (totalVisibleTopics === 0 && visiblePractices === 0) ? 'block' : 'none';
 
-      // Conectar eventos de checkboxes
       document.querySelectorAll('.topic-checkbox').forEach(cb => {
-        cb.addEventListener('change', (e) => {
+        cb.addEventListener('change', e => {
           const id = e.target.getAttribute('data-check-id');
           if (e.target.checked) {
             completedItems[id] = true;
@@ -1117,15 +2160,14 @@
           }
           saveProgress();
           renderTemario();
-          updateGlobalMetrics();
+          updateMetrics();
         });
       });
 
-      updateGlobalMetrics();
+      updateMetrics();
     }
 
-    // Actualizar barras de progreso globales y de prácticas
-    function updateGlobalMetrics() {
+    function updateMetrics() {
       const allIds = [];
       TEMARIO_DATA.forEach(ch => {
         ch.groups.forEach(g => {
@@ -1135,157 +2177,100 @@
       });
       PRACTICAS_DATA.forEach(p => allIds.push(p.id));
 
-      const completedCount = allIds.filter(id => completedItems[id]).length;
-      const totalCount = allIds.length;
-      const pct = totalCount ? Math.round((completedCount / totalCount) * 100) : 0;
+      const done = allIds.filter(id => completedItems[id]).length;
+      const total = allIds.length;
+      const pct = total ? Math.round((done / total) * 100) : 0;
 
       document.getElementById('globalProgressText').textContent = `${pct}%`;
-      document.getElementById('globalProgressFraction').textContent = `${completedCount} / ${totalCount} completados`;
+      document.getElementById('globalProgressFraction').textContent = `${done} / ${total} completados`;
       document.getElementById('globalProgressCircle').setAttribute('stroke-dasharray', `${pct}, 100`);
 
-      // Prácticas progreso
-      const donePractices = PRACTICAS_DATA.filter(p => completedItems[p.id]).length;
-      const pctPractices = Math.round((donePractices / PRACTICAS_DATA.length) * 100);
-      document.getElementById('practicesProgressBadge').textContent = `${donePractices}/${PRACTICAS_DATA.length}`;
-      document.getElementById('practicesProgressBar').style.width = `${pctPractices}%`;
+      const donePrac = PRACTICAS_DATA.filter(p => completedItems[p.id]).length;
+      const pctPrac = Math.round((donePrac / PRACTICAS_DATA.length) * 100);
+      document.getElementById('practicesProgressBadge').textContent = `${donePrac}/${PRACTICAS_DATA.length}`;
+      document.getElementById('practicesProgressBar').style.width = `${pctPrac}%`;
     }
 
-    // Colapsar / Expandir un capítulo individual
-    window.toggleChapterBody = function(chapterId) {
+    window.toggleChapter = function(chapterId) {
       const body = document.getElementById(`body_${chapterId}`);
-      const chevron = document.getElementById(`chevron_${chapterId}`);
+      const chev = document.getElementById(`chevron_${chapterId}`);
       if (!body) return;
       body.classList.toggle('hidden');
-      if (chevron) {
-        chevron.classList.toggle('rotate-180');
-      }
+      if (chev) chev.classList.toggle('collapsed');
     };
 
-    // Simulador de la Tabla Complementaria de Calificaciones (2E, 3E -> CF)
-    function updateGradeSimulator() {
+    function updateSimulator() {
       const team = document.getElementById('simTeamSize').value;
       const pts = parseInt(document.getElementById('simPoints').value, 10) || 0;
-      let cf = null;
+      let cf = 0;
 
       if (team === '2E') {
         if (pts >= 19) cf = 4;
         else if (pts >= 16) cf = 3;
         else if (pts >= 14) cf = 2;
         else if (pts >= 11) cf = 1;
-        else if (pts === 10) cf = 0;
         else cf = 0;
       } else {
         if (pts >= 28) cf = 4;
         else if (pts >= 24) cf = 3;
         else if (pts >= 20) cf = 2;
         else if (pts >= 16) cf = 1;
-        else if (pts === 15) cf = 0;
         else cf = 0;
       }
 
-      // Resaltar fila activa
-      document.querySelectorAll('.grade-row').forEach(row => {
-        if (parseInt(row.getAttribute('data-cf'), 10) === cf) {
-          row.classList.add('bg-amber-400/30', 'ring-1', 'ring-amber-300');
+      document.querySelectorAll('.grade-row').forEach(r => {
+        if (parseInt(r.getAttribute('data-cf'), 10) === cf) {
+          r.classList.add('active-row');
         } else {
-          row.classList.remove('bg-amber-400/30', 'ring-1', 'ring-amber-300');
+          r.classList.remove('active-row');
         }
       });
 
-      const banner = document.getElementById('simResultBanner');
-      banner.innerHTML = `Para equipo <strong>${team}</strong> con <strong>${pts} pts</strong> → Calificación Final <strong>CF = ${cf}</strong>`;
+      document.getElementById('simResultBanner').innerHTML =
+        `Equipo <strong>${team}</strong> con <strong>${pts} pts</strong> → Calificación Final <strong>CF = ${cf}</strong>`;
     }
 
-    // Modal personalizado (reemplazo seguro de alert/confirm)
-    function showModal({ title, htmlContent, showConfirm = false, onConfirm = null }) {
-      const modal = document.getElementById('customModal');
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalBody').innerHTML = htmlContent;
-      const btnConfirm = document.getElementById('btnModalConfirm');
-
-      if (showConfirm) {
-        btnConfirm.classList.remove('hidden');
-        btnConfirm.onclick = () => {
-          if (onConfirm) onConfirm();
-          closeModal();
-        };
-      } else {
-        btnConfirm.classList.add('hidden');
-      }
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('customModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    window.openProjectBoardModal = function() {
-      showModal({
-        title: 'Pizarrón de Documentación del Proyecto',
-        htmlContent: `
-          <p>El proyecto del curso consiste en seleccionar un bloque de código en un lenguaje de alto nivel y documentar su traducción a bajo nivel siguiendo las etapas de un compilador (máximo 3 estudiantes):</p>
-          <ol class="list-decimal pl-5 space-y-1.5 font-medium">
-            <li><strong>Definición del bloque de alto nivel:</strong> Selección de la estructura o algoritmo fuente.</li>
-            <li><strong>Análisis Léxico y Sintáctico:</strong> Tokens, gramática y árbol sintáctico.</li>
-            <li><strong>Representación Intermedia:</strong> Traducción semántica y optimización.</li>
-            <li><strong>Código de Bajo Nivel:</strong> Equivalente en lenguaje ensamblador / código máquina.</li>
-          </ol>
-        `
-      });
-    };
-
-    // Inicialización al cargar el DOM
     document.addEventListener('DOMContentLoaded', () => {
-      // Tema oscuro / claro
-      const savedTheme = localStorage.getItem(THEME_KEY);
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        document.getElementById('themeIcon').className = 'fa-solid fa-sun text-amber-300 text-sm';
-        document.getElementById('themeText').textContent = 'Modo Claro';
-      }
+      // Inicializar tema
+      const savedTheme = safeGetStorage(THEME_KEY) || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.getElementById('themeText').textContent = savedTheme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
 
       document.getElementById('btnThemeToggle').addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
-        document.getElementById('themeIcon').className = isDark
-          ? 'fa-solid fa-sun text-amber-300 text-sm'
-          : 'fa-solid fa-moon text-amber-300 text-sm';
-        document.getElementById('themeText').textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        safeSetStorage(THEME_KEY, next);
+        document.getElementById('themeText').textContent = next === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
       });
 
       loadProgress();
       renderTemario();
-      updateGradeSimulator();
+      updateSimulator();
 
-      // Eventos de búsqueda
+      // Buscador
       const searchInput = document.getElementById('searchInput');
-      const btnClearSearch = document.getElementById('btnClearSearch');
+      const btnClear = document.getElementById('btnClearSearch');
 
-      searchInput.addEventListener('input', (e) => {
+      searchInput.addEventListener('input', e => {
         currentSearch = e.target.value;
-        btnClearSearch.classList.toggle('hidden', !currentSearch);
+        btnClear.classList.toggle('visible', !!currentSearch);
         renderTemario();
       });
 
-      btnClearSearch.addEventListener('click', () => {
+      btnClear.addEventListener('click', () => {
         searchInput.value = '';
         currentSearch = '';
-        btnClearSearch.classList.add('hidden');
+        btnClear.classList.remove('visible');
         renderTemario();
       });
 
-      // Eventos de filtros por categoría
+      // Filtros
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           currentFilter = btn.getAttribute('data-filter');
-          document.querySelectorAll('.filter-btn').forEach(b => {
-            b.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700';
-          });
-          btn.className = 'filter-btn active-filter px-3 py-1.5 rounded-lg text-xs font-semibold transition shrink-0 bg-escom-blue text-white shadow-sm';
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
           renderTemario();
         });
       });
@@ -1294,62 +2279,56 @@
         searchInput.value = '';
         currentSearch = '';
         currentFilter = 'all';
-        btnClearSearch.classList.add('hidden');
+        btnClear.classList.remove('visible');
         document.querySelector('[data-filter="all"]').click();
       });
 
-      // Expandir / Contraer todos los capítulos
+      // Expandir / Contraer todo
       document.getElementById('btnExpandAll').addEventListener('click', () => {
         TEMARIO_DATA.forEach(ch => {
-          const body = document.getElementById(`body_${ch.id}`);
-          const chevron = document.getElementById(`chevron_${ch.id}`);
-          if (body) body.classList.remove('hidden');
-          if (chevron) chevron.classList.remove('rotate-180');
+          const b = document.getElementById(`body_${ch.id}`);
+          const c = document.getElementById(`chevron_${ch.id}`);
+          if (b) b.classList.remove('hidden');
+          if (c) c.classList.remove('collapsed');
         });
       });
 
       document.getElementById('btnCollapseAll').addEventListener('click', () => {
         TEMARIO_DATA.forEach(ch => {
-          const body = document.getElementById(`body_${ch.id}`);
-          const chevron = document.getElementById(`chevron_${ch.id}`);
-          if (body) body.classList.add('hidden');
-          if (chevron) chevron.classList.add('rotate-180');
+          const b = document.getElementById(`body_${ch.id}`);
+          const c = document.getElementById(`chevron_${ch.id}`);
+          if (b) b.classList.add('hidden');
+          if (c) c.classList.add('collapsed');
         });
       });
 
-      // Reiniciar progreso con modal personalizado
+      // Modal reiniciar progreso
+      const modal = document.getElementById('customModal');
       document.getElementById('btnResetProgress').addEventListener('click', () => {
-        showModal({
-          title: 'Reiniciar avance del curso',
-          htmlContent: '<p>¿Deseas desmarcar todos los temas y prácticas completadas? Esta acción reiniciará tus barras de progreso a 0%.</p>',
-          showConfirm: true,
-          onConfirm: () => {
-            completedItems = {};
-            saveProgress();
-            renderTemario();
-          }
-        });
+        document.getElementById('modalTitle').textContent = 'Reiniciar avance del curso';
+        document.getElementById('modalBody').innerHTML = '¿Deseas desmarcar todos los temas y prácticas completadas?';
+        modal.classList.add('open');
       });
 
-      document.getElementById('btnCloseModal').addEventListener('click', closeModal);
-      document.getElementById('btnModalCancel').addEventListener('click', closeModal);
-
-      // Eventos del Simulador y Tabla Complementaria de Calificaciones
-      document.getElementById('btnToggleGradeTable').addEventListener('click', () => {
-        const container = document.getElementById('gradeTableContainer');
-        const chevron = document.getElementById('gradeTableChevron');
-        container.classList.toggle('hidden');
-        chevron.classList.toggle('rotate-180');
+      document.getElementById('btnModalCancel').addEventListener('click', () => {
+        modal.classList.remove('open');
       });
 
-      document.getElementById('simTeamSize').addEventListener('change', updateGradeSimulator);
-      document.getElementById('simPoints').addEventListener('input', updateGradeSimulator);
+      document.getElementById('btnModalConfirm').addEventListener('click', () => {
+        completedItems = {};
+        saveProgress();
+        renderTemario();
+        modal.classList.remove('open');
+      });
+
+      // Simulador de tabla complementaria
+      document.getElementById('simTeamSize').addEventListener('change', updateSimulator);
+      document.getElementById('simPoints').addEventListener('input', updateSimulator);
 
       document.querySelectorAll('.grade-row').forEach(row => {
         row.addEventListener('click', () => {
           const cf = row.getAttribute('data-cf');
-          const banner = document.getElementById('simResultBanner');
-          banner.innerHTML = `Seleccionaste el rango para obtener <strong>CF = ${cf}</strong>`;
+          document.getElementById('simResultBanner').innerHTML = `Rango seleccionado para <strong>CF = ${cf}</strong>`;
         });
       });
     });
