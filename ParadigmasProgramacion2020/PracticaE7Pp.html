@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica E7 Paradigmas de programación</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Paradigmas de programación<br>Práctica E7</header>
+ <nav>
+    
+     <p>Presentación del código</p>
+      <p><a href="CodigoParProg.pdf"><img src="Programas.jpeg" align=center width=55% border=5></image>Libro de código</a></p>
+      
+      <p class="derecha">Enlaces </p>
+      <p><a href="TemarioParadigmasProgramacion.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario clásico</a></p>
+      <p><a href="TemarioPPproyectos.html"><img src="Temarios.jpeg" align=center width=55% border=5></image>Temario proyectos</a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">USO DE MODIFICADORES</h1>
+
+    <section class="interna">
+      
+      <article>
+       
+       <h1>Objetivo</h1>
+       <hr>
+       <p>Utilizar de manera correcta los modificadores en los programas que se crean en el paradigma orientado a objetos.</p>
+      <hr>
+      <br>
+      <h1>Actividades</h1>
+      <hr>
+      <br>
+
+      <p>Analizar el siguiente programa en Java: </p>
+      <br>
+      <pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;  background-color: #0047AB; padding: 14px; border-radius: 7px;">
+class ClaseA {
+    public int x = 100;
+    int y = 200;
+    private int z = 333;
+         
+    public void m1() {
+        System.out.println("Método 1.");
+        ClaseA oa = new ClaseA();
+        System.out.println(oa.z);
+    }
+         
+    void m2() {
+        System.out.println("Método 2.");
+        ClaseA o2 = new ClaseA();
+        int valAo2x = o2.x;
+        System.out.println(valAo2x);
+    }
+         
+    private void m3() {
+        System.out.println("Método 3.");
+    }
+}
+     
+class ClaseB {
+    void metodoB() {
+        ClaseA o = new ClaseA();
+        int valXo = o.x;
+        int valYo = o.y;
+        //int valZo = o.z;
+        
+        o.m1();
+        o.m2();
+        //o.m3();
+        
+        System.out.println(valXo);
+        System.out.println(valYo);
+    }
+}
+
+public class TresClases {
+    public static void main(String[] args) {
+        ClaseB b = new ClaseB();
+        ClaseA oa1 = new ClaseA();
+        ClaseC c = new ClaseC();
+        oa1.m1();
+        //valCy = c.y;
+        // System.out.println(valCy);
+        //valAz = oa1.z;
+                
+        b.metodoB();
+        c.metodoC();
+        //System.out.println(valAz);
+    }
+}
+      </pre>
+      <br>
+      <p>El siguiente código es la clase C que esta en diferente archivo:</p>
+      <br>
+      <pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;  background-color: #0047AB; padding: 12px; border-radius: 5px;">
+class ClaseC {
+    void metodoC() {
+        ClaseA q = new ClaseA();
+        int valXq = q.x;
+        //int valYq = q.y;
+        //int valZq = q.z;
+        
+        q.m1();
+        //q.m2();
+        //q.m3();
+        
+        System.out.println("Valor entregado por el objeto: " + valXq);
+        //System.out.println("Valor entregado por el objeto: " + valZq);
+    }
+}
+      </pre>
+      <br>
+       <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> mostrar el uso del modificador <strong>public</strong> adaptando el programa que se analizó.</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> mostrar el uso del modificador <strong>indefinido</strong> adaptando el programa que se analizó.</p>
+      <br>
+      <p><strong>Pregunta 3.</strong> mostrar el uso del modificador <strong>private</strong> adaptando el programa que se analizó.</p>
+      <br>
+      <p><strong>Pregunta 4.</strong> mostrar el acceso de un dato y método <strong>private</strong> de tal manera que se presente en consola, por medio de un programa.</p>
+      <br>
+      
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> Usar la siguiente clase C para acceder a los datos y métodos privados:</p>
+        <br>
+        <pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; background-color: #CC0033; padding: 12px; border-radius: 5px;">
+class ClaseA {
+    public int x = 100;
+    int y = 200;
+    private int z = 333;
+         
+    public void m1() {
+        System.out.println("Método 1.");
+        ClaseA oa = new ClaseA();
+        System.out.println(oa.x);
+    }
+         
+    void m2() {
+        System.out.println("Método 2.");
+    }
+         
+    private void m3() {
+        System.out.println("Método 3.");
+    }
+    
+    public void m4() {
+        m3();
+    }
+    
+    public int getVal() {
+        return z;
+    }
+}
+        </pre>
+        <br>
+        <!--<p align="center" class="p5">
+Archivo de texto: &nbsp;&nbsp;&nbsp;&nbsp; <a href="BaseConocimientoFamilia.txt" target="_blank" style="display: inline-block; max-width: 100%; word-wrap: break-word;">
+        <strong>BaseConocimientoFamilia.txt</strong>
+    </a>
+    
+    <pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;  background-color: #f4f4f4; padding: 12px; border-radius: 5px;">
+</p>-->
+
+        <br>
+       </aside>
+      <footer><p>Práctica E7</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>
